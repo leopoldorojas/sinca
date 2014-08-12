@@ -19,18 +19,18 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  new_indicator: New Indicator
+es:
+  new_indicator: Nuevo Indicador
 
   activerecord:
     models:
-      indicator: Indicator
+      indicator: Indicador
     attributes:
       indicator:
-        credit_company: Credit Company
-        file_name: File Name
-        indicator_1: First Indicator
-        indicator_2: Second Indicator
-        indicator_3: Third Indicator
-        register_date: "Register Date"
-        status: Status
+        credit_company: Empresa de Crédito
+        file_name: Nombre de Archivo
+        indicator_1: Primer Indicador
+        indicator_2: Segundo Indicador
+        indicator_3: Tercer Indicador
+        register_date: Fecha de Registro
+        status: Estado

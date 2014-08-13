@@ -28,7 +28,7 @@ class IndicatorsController < ApplicationController
 
     respond_to do |format|
       if @indicator.save
-        format.html { redirect_to @indicator, notice: 'Indicator was successfully created.' }
+        format.html { redirect_to @indicator, notice: t('indicator.created') }
         format.json { render :show, status: :created, location: @indicator }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class IndicatorsController < ApplicationController
   def update
     respond_to do |format|
       if @indicator.update(indicator_params)
-        format.html { redirect_to @indicator, notice: 'Indicator was successfully updated.' }
+        format.html { redirect_to @indicator, notice: t('indicator.updated') }
         format.json { render :show, status: :ok, location: @indicator }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class IndicatorsController < ApplicationController
   def destroy
     @indicator.destroy
     respond_to do |format|
-      format.html { redirect_to indicators_url, notice: 'Indicator was successfully destroyed.' }
+      format.html { redirect_to indicators_url, notice: t('indicator.destroyed') }
       format.json { head :no_content }
     end
   end

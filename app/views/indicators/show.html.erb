@@ -1,39 +1,39 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Register date:</strong>
+  <strong><%= Indicator.human_attribute_name('register_date') %>:</strong>
   <%= @indicator.register_date %>
 </p>
 
 <p>
-  <strong>Credit company:</strong>
+  <strong><%= Indicator.human_attribute_name('credit_company') %>:</strong>
   <%= @indicator.credit_company %>
 </p>
 
 <p>
-  <strong>File name:</strong>
+  <strong><%= Indicator.human_attribute_name('file_name') %>:</strong>
   <%= @indicator.file_name %>
 </p>
 
 <p>
-  <strong>Indicator 1:</strong>
+  <strong><%= Indicator.human_attribute_name('indicator_1') %>:</strong>
   <%= @indicator.indicator_1 %>
 </p>
 
 <p>
-  <strong>Indicator 2:</strong>
+  <strong><%= Indicator.human_attribute_name('indicator_2') %>:</strong>
   <%= @indicator.indicator_2 %>
 </p>
 
 <p>
-  <strong>Indicator 3:</strong>
+  <strong><%= Indicator.human_attribute_name('indicator_3') %>:</strong>
   <%= @indicator.indicator_3 %>
 </p>
 
 <p>
-  <strong>Status:</strong>
+  <strong><%= Indicator.human_attribute_name('status') %>:</strong>
   <%= @indicator.status %>
 </p>
 
-<%= link_to 'Edit', edit_indicator_path(@indicator) %> |
-<%= link_to 'Back', indicators_path %>
+<%= link_to t('edit'), edit_indicator_path(@indicator) %> |
+<%= link_to t('back'), indicators_path %>

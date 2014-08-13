@@ -20,7 +20,20 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  new_indicator: New Indicator
+  back: Back
+  destroy: Destroy
+  edit: Edit
+  show: Show
+  system_title: Portfolio Indicators System
+
+  indicator:
+    created: Indicator was successfully created.
+    destroyed: Indicator was successfully destroyed.
+    editing: Editing Indicator
+    listing: Listing Indicators'
+    new: New Indicator
+    save_failed: 'prohibited this indicator from being saved:'
+    updated: Indicator was successfully updated.
 
   activerecord:
     models:
@@ -32,5 +45,5 @@ en:
         indicator_1: First Indicator
         indicator_2: Second Indicator
         indicator_3: Third Indicator
-        register_date: "Register Date"
+        register_date: Register Date
         status: Status

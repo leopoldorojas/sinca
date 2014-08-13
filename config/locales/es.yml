@@ -20,7 +20,20 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 es:
-  new_indicator: Nuevo Indicador
+  back: Regresar
+  destroy: Borrar
+  edit: Editar
+  show: Mostrar
+  system_title: 'SINCA: Sistema de Indicadores de Cartera'
+
+  indicator:
+    created: El Indicador fue creado exitosamente.
+    destroyed: El Indicador fue borrado exitosamente.
+    editing: Editando Indicador
+    listing: Listando Indicadores
+    new: Nuevo Indicador
+    save_failed: 'evitó que este indicador sea grabado:'
+    updated: El Indicador fue actualizado exitosamente.
 
   activerecord:
     models:

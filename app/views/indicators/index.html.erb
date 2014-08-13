@@ -1,15 +1,15 @@
-<h1>Listing indicators</h1>
+<h1><%= t('indicator.listing') %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Register date</th>
-      <th>Credit company</th>
-      <th>File name</th>
-      <th>Indicator 1</th>
-      <th>Indicator 2</th>
-      <th>Indicator 3</th>
-      <th>Status</th>
+      <th><%= Indicator.human_attribute_name('register_date') %></th>
+      <th><%= Indicator.human_attribute_name('credit_company') %></th>
+      <th><%= Indicator.human_attribute_name('file_name') %></th>
+      <th><%= Indicator.human_attribute_name('indicator_1') %></th>
+      <th><%= Indicator.human_attribute_name('indicator_2') %></th>
+      <th><%= Indicator.human_attribute_name('indicator_3') %></th>
+      <th><%= Indicator.human_attribute_name('status') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,9 +24,9 @@
         <td><%= indicator.indicator_2 %></td>
         <td><%= indicator.indicator_3 %></td>
         <td><%= indicator.status %></td>
-        <td><%= link_to 'Show', indicator %></td>
-        <td><%= link_to 'Edit', edit_indicator_path(indicator) %></td>
-        <td><%= link_to 'Destroy', indicator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('show'), indicator %></td>
+        <td><%= link_to t('edit'), edit_indicator_path(indicator) %></td>
+        <td><%= link_to t('destroy'), indicator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Indicator', new_indicator_path %>
+<%= link_to t('indicator.new'), new_indicator_path %>

@@ -24,9 +24,9 @@
         <td><%= indicator.indicator_2 %></td>
         <td><%= indicator.indicator_3 %></td>
         <td><%= indicator.status %></td>
-        <td><%= link_to t('show'), indicator %></td>
-        <td><%= link_to t('edit'), edit_indicator_path(indicator) %></td>
-        <td><%= link_to t('destroy'), indicator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('show'), indicator, class: "button radius" %></td>
+        <td><%= link_to t('edit'), edit_indicator_path(indicator), class: "button radius" %></td>
+        <td><%= link_to t('destroy'), indicator, method: :delete, data: { confirm: 'Are you sure?' }, class: "button radius" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to t('indicator.new'), new_indicator_path %>
+<%= link_to t('indicator.new'), new_indicator_path, class: "button radius" %>

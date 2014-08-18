@@ -25,6 +25,7 @@ en:
   edit: Edit
   show: Show
   system_title: Portfolio Indicators System
+  upload: Upload
 
   indicator:
     created: Indicator was successfully created.
@@ -34,6 +35,7 @@ en:
     new: New Indicator
     save_failed: 'prohibited this indicator from being saved:'
     updated: Indicator was successfully updated.
+    uploaded: Indicator was successfully uploaded.
 
   activerecord:
     models:

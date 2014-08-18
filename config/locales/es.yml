@@ -25,6 +25,7 @@ es:
   edit: Editar
   show: Mostrar
   system_title: 'SINCA: Sistema de Indicadores de Cartera'
+  upload: Subir archivo
 
   indicator:
     created: El Indicador fue creado exitosamente.
@@ -34,6 +35,7 @@ es:
     new: Nuevo Indicador
     save_failed: 'evitó que este indicador sea grabado:'
     updated: El Indicador fue actualizado exitosamente.
+    uploaded: Archivo recibido correctamente.
 
   activerecord:
     models:

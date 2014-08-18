@@ -17,6 +17,11 @@ class IndicatorsController < ApplicationController
     @indicator = Indicator.new
   end
 
+  # GET /indicators/upload
+  def upload
+    @indicator = Indicator.new
+  end
+
   # GET /indicators/1/edit
   def edit
   end
@@ -35,6 +40,12 @@ class IndicatorsController < ApplicationController
         format.json { render json: @indicator.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  # POST /receive_and_create
+  def receive_and_create
+    @indicator = Indicator.import(params[:indicator][:credit_company], params[:indicator][:file])
+    redirect_to @indicator, notice: t('indicator.uploaded')
   end
 
   # PATCH/PUT /indicators/1

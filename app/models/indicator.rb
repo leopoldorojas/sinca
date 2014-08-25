@@ -2,22 +2,18 @@ class Indicator < ActiveRecord::Base
   validates :credit_company, presence: true
 
   def self.import(credit_company, file)
-	  spreadsheet = open_spreadsheet(file)
-	  header = spreadsheet.row(1)
-	  last_row = 2 || spreadsheet.last_row
-	  (2..last_row).each do |i|
-	    row = Hash[[header, spreadsheet.row(i)].transpose]
-	    indicator = find_by_id(row["id"]) || new
-	    indicator.attributes = row.to_hash.slice(*accessible_attributes)
-	    indicator.register_date = Time.now
-	    indicator.credit_company = credit_company
-	    indicator.file_name = file.original_filename
-	    indicator.status = 2
-	    indicator.indicator_1 = row["Prestatarios (Individuales)"]
-	    indicator.indicator_1 = row["Sucursales"]
-	    indicator.indicator_1 = row["Saldo Bruto de Cartera de Préstamos"]
-	    indicator.save!
-	  end    
+  	spreadsheet = open_spreadsheet(file)
+	header = spreadsheet.row(1)
+	row = Hash[[header, spreadsheet.row(2)].transpose]
+	create do |i|
+	  i.register_date = Time.now
+	  i.credit_company = credit_company
+	  i.file_name = file.original_filename
+	  i.status = 2
+	  i.indicator_1 = row["Prestatarios (Individuales)"]
+	  i.indicator_2 = row["Sucursales"]
+	  i.indicator_3 = row["Saldo Bruto de Cartera de Préstamos"]
+	end
   end
 
   def self.open_spreadsheet(file)

@@ -1,11 +1,12 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This Ruby on Rails application is a proof of concept for a Analytics Microfinance System. Its main purpose is to provide analytic financial information such as portfolio on risk, number of clients, balance amounts, etc. for a group of Microfinance Institutions.
+
+Developed by [Arckanto software](http://www.arckanto.com).
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 2.1.2
 
 * System dependencies
 

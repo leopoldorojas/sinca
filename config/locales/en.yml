@@ -22,6 +22,7 @@
 en:
   back: Back
   destroy: Destroy
+  do_query: Submit
   edit: Edit
   show: Show
   system_title: Portfolio Indicators System
@@ -36,6 +37,10 @@ en:
     save_failed: 'prohibited this indicator from being saved:'
     updated: Indicator was successfully updated.
     uploaded: Indicator was successfully uploaded.
+
+  query:
+    new: New Query
+    failed: avoid to run the query successfully
 
   activerecord:
     models:

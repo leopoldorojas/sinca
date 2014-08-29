@@ -22,6 +22,7 @@
 es:
   back: Regresar
   destroy: Borrar
+  do_query: Consultar
   edit: Editar
   show: Mostrar
   system_title: 'SINCA: Sistema de Indicadores de Cartera'
@@ -36,6 +37,10 @@ es:
     save_failed: 'evitó que este indicador sea grabado:'
     updated: El Indicador fue actualizado exitosamente.
     uploaded: Archivo recibido correctamente.
+
+  query:
+    new: Nueva consulta
+    failed: evitaron ejecutar la consulta exitosamente
 
   activerecord:
     models:

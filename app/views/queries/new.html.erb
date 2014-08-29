@@ -1,0 +1,33 @@
+<h1><%= t('query.new') %></h1>
+
+<div class="small-3 columns">
+  <%= form_for @query, remote: true, data: { type: :json } do |f| %>
+    <div class="field">
+      <%= f.label :start_date %><br>
+      <%= f.date_field :start_date, { value: @query.start_date } %>
+    </div>
+
+    <div class="field">
+      <%= f.label :end_date %><br>
+      <%= f.date_field :end_date, { value: @query.end_date } %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit t('do_query') %>
+    </div>
+  <% end %>
+
+  <%= link_to t('back'), indicators_path, class: "button radius" %>
+</div>
+
+<% if @query.has_value? %>
+  <%= "El promedio es #{@average || 'incalculable'} y la suma es #{@sum} con #{@count} empresas contabilizadas" %>
+<% end %>
+
+<p id="results"></p>
+
+<script>
+  $(document).on("ajax:success", "#new_query", function(e, data, status, xhr) {
+    $( "#results" ).html( data.text );
+  });
+</script>

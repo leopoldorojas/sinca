@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :queries, :only => [:new, :create]
+
   resources :indicators do
     get 'upload', on: :new
     post 'receive_and_create', on: :collection

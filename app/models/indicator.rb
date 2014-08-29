@@ -25,4 +25,8 @@ class Indicator < ActiveRecord::Base
     end
   end
 
+  private
+
+    scope :by_date_range, -> query { where('register_date >= ? AND register_date <= ?', query.start_date, query.end_date) }
+
 end

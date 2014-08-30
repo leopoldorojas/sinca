@@ -21,13 +21,7 @@
 </div>
 
 <% if @query.has_value? %>
-  <%= "El promedio es #{@average || 'incalculable'} y la suma es #{@sum} con #{@count} empresas contabilizadas" %>
+  <%= "El promedio es #{@result.average || 'incalculable'} y la suma es #{@result.sum} con #{@result.count} empresas contabilizadas" %>
 <% end %>
 
 <p id="results"></p>
-
-<script>
-  $(document).on("ajax:success", "#new_query", function(e, data, status, xhr) {
-    $( "#results" ).html( data.text );
-  });
-</script>

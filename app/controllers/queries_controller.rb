@@ -5,13 +5,17 @@ class QueriesController < ApplicationController
 
   def create
     @query = Query.new(query_params)
-    @average = Indicator.by_date_range(@query).average(:indicator_1)
-    @sum = Indicator.by_date_range(@query).sum(:indicator_1)
-    @count = Indicator.by_date_range(@query).count
+    @result = Result.new(
+      name: :indicator_1, 
+      average: Indicator.by_date_range(@query).average(:indicator_1),
+      sum: Indicator.by_date_range(@query).sum(:indicator_1),
+      count: Indicator.by_date_range(@query).count(:indicator_1),
+      query: @query
+    )
 
     respond_to do |format|
       format.html { render :new }
-      format.json { render json: { average: @average, sum: @sum, count: @count, text: "El promedio es #{@average || 'incalculable'} y la suma es #{@sum} con #{@count} empresas contabilizadas" }, status: :ok }
+      format.json { render json: { result: @result }, status: :ok }
     end
   end
 

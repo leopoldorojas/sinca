@@ -24,6 +24,7 @@ es:
   destroy: Borrar
   do_query: Consultar
   edit: Editar
+  queries: Consultas
   show: Mostrar
   system_title: 'SINCA: Sistema de Indicadores de Cartera'
   upload: Subir archivo

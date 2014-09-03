@@ -1,5 +1,3 @@
 class Result
-  include ActiveModel::Model
-
-  attr_accessor :name, :sum, :average, :count, :query
+  attr_accessor :name, :sum, :average, :count
 end

@@ -24,6 +24,7 @@ en:
   destroy: Destroy
   do_query: Submit
   edit: Edit
+  queries: Queries
   show: Show
   system_title: Portfolio Indicators System
   upload: Upload
@@ -32,7 +33,7 @@ en:
     created: Indicator was successfully created.
     destroyed: Indicator was successfully destroyed.
     editing: Editing Indicator
-    listing: Listing Indicators'
+    listing: Listing Indicators
     new: New Indicator
     save_failed: 'prohibited this indicator from being saved:'
     updated: Indicator was successfully updated.

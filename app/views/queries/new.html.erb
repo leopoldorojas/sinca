@@ -1,7 +1,7 @@
 <h1><%= t('query.new') %></h1>
 
 <div class="small-3 columns">
-  <%= form_for @query, remote: false, data: { type: :json } do |f| %>
+  <%= form_for @query, remote: true, data: { type: :json } do |f| %>
     <div class="field">
       <%= f.label :start_date %><br>
       <%= f.date_field :start_date, { value: @query.start_date } %>
@@ -21,11 +21,12 @@
 </div>
 
 <% if @query.present? %>
-  <p><%= "El promedio es #{@query.results[0].average || 'incalculable'} y la suma es #{@query.results[0].sum} con #{@query.results[0].count} empresas contabilizadas" %></p>
-  <p><%= "El promedio es #{@query.results[1].average || 'incalculable'} y la suma es #{@query.results[1].sum} con #{@query.results[1].count} empresas contabilizadas" %></p>
-  <p><%= "El promedio es #{@query.results[2].average || 'incalculable'} y la suma es #{@query.results[2].sum} con #{@query.results[2].count} empresas contabilizadas" %></p>
+  <% @query.results.each do |r| %>
+    <p><%= "El promedio es #{r.average || 'incalculable'} y la suma es #{r.sum} con #{r.count} empresas contabilizadas" %></p>
+  <% end %>
 <% end %>
 
-<p id="results"></p>
-<p id="results2"></p>
-<p id="results3"></p>
+<% @all_indicators.each do |i| %>
+  <p id='<%= "result_#{i}" %>'></p>
+<% end %>
+<p id='result_error'></P>

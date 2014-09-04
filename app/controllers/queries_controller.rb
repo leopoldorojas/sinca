@@ -1,35 +1,12 @@
 class QueriesController < ApplicationController
   def new
   	@query = Query.new
+    @all_indicators = Rails.application.config.individual_indicators.keys
   end
 
   def create
     @query = Query.new(query_params)
-    result = Result.new
-    result.tap do |r|
-      r.name = :indicator_1
-      r.average = Indicator.by_date_range(@query).average(:indicator_1)
-      r.sum = Indicator.by_date_range(@query).sum(:indicator_1)
-      r.count = Indicator.by_date_range(@query).count(:indicator_1)
-    end
-
-    result2 = Result.new
-    result2.tap do |r|
-      r.name = :indicator_2
-      r.average = Indicator.by_date_range(@query).average(:indicator_2)
-      r.sum = Indicator.by_date_range(@query).sum(:indicator_2)
-      r.count = Indicator.by_date_range(@query).count(:indicator_2)
-    end
-
-    result3 = Result.new
-    result3.tap do |r|
-      r.name = :indicator_1
-      r.average = Indicator.by_date_range(@query).average(:indicator_3)
-      r.sum = Indicator.by_date_range(@query).sum(:indicator_3)
-      r.count = Indicator.by_date_range(@query).count(:indicator_3)
-    end
-
-    @query.results = [result, result2, result3]
+    @query.execute
 
     respond_to do |format|
       format.html { render :new }

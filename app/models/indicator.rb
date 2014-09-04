@@ -9,10 +9,8 @@ class Indicator < ActiveRecord::Base
   	  i.register_date = Time.now
   	  i.credit_company = credit_company
   	  i.file_name = file.original_filename
-  	  i.status = 2
-  	  i.indicator_1 = row["Prestatarios (Individuales)"]
-  	  i.indicator_2 = row["Sucursales"]
-  	  i.indicator_3 = row["Saldo Bruto de Cartera de Préstamos"]
+  	  i.status = 1
+      Rails.application.config.individual_indicators.each { |k,v| i.send("#{k}=".to_sym, row[v]) }
   	end
   end
 

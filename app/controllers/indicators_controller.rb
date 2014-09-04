@@ -80,6 +80,6 @@ class IndicatorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def indicator_params
-      params.require(:indicator).permit(:register_date, :credit_company, :file_name, :indicator_1, :indicator_2, :indicator_3, :status)
+      params.require(:indicator).permit(:register_date, :credit_company, :file_name, :indicator_1, :indicator_2, :indicator_3, :indicator_4, :indicator_5, :indicator_6, :indicator_7, :status)
     end
 end

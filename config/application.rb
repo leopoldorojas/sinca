@@ -28,9 +28,13 @@ module Sinca
     config.i18n.default_locale = :es
 
     config.individual_indicators = {
-      indicator_1: "Prestatarios (Individuales)",
-      indicator_2: "Sucursales",
-      indicator_3: "Saldo Bruto de Cartera de Préstamos"
+      indicator_1: "Saldo Bruto de Cartera de Préstamos",
+      indicator_2: "Cartera en Riesgo > 90 Días",
+      indicator_3: "Clientes Activos",
+      indicator_4: "Porcentaje de Mujeres Prestatarias",
+      indicator_5: "Promedio del Saldo en Préstamos",
+      indicator_6: "Total Desembolsado (Préstamos Activos)",
+      indicator_7: "Créditos Desembolsados (total histórico)"
     }
   end
 end

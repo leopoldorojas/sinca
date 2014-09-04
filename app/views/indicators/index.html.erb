@@ -5,11 +5,13 @@
     <tr>
       <th><%= Indicator.human_attribute_name('register_date') %></th>
       <th><%= Indicator.human_attribute_name('credit_company') %></th>
-      <th><%= Indicator.human_attribute_name('file_name') %></th>
       <th><%= Indicator.human_attribute_name('indicator_1') %></th>
       <th><%= Indicator.human_attribute_name('indicator_2') %></th>
       <th><%= Indicator.human_attribute_name('indicator_3') %></th>
-      <th><%= Indicator.human_attribute_name('status') %></th>
+      <th><%= Indicator.human_attribute_name('indicator_4') %></th>
+      <th><%= Indicator.human_attribute_name('indicator_5') %></th>
+      <th><%= Indicator.human_attribute_name('indicator_6') %></th>
+      <th><%= Indicator.human_attribute_name('indicator_7') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,14 +21,16 @@
       <tr>
         <td><%= indicator.register_date %></td>
         <td><%= indicator.credit_company %></td>
-        <td><%= indicator.file_name %></td>
         <td><%= indicator.indicator_1 %></td>
         <td><%= indicator.indicator_2 %></td>
         <td><%= indicator.indicator_3 %></td>
-        <td><%= indicator.status %></td>
+        <td><%= indicator.indicator_4 %></td>
+        <td><%= indicator.indicator_5 %></td>
+        <td><%= indicator.indicator_6 %></td>
+        <td><%= indicator.indicator_7 %></td>
         <td><%= link_to t('show'), indicator, class: "button radius" %></td>
         <td><%= link_to t('edit'), edit_indicator_path(indicator), class: "button radius" %></td>
-        <td><%= link_to t('destroy'), indicator, method: :delete, data: { confirm: 'Are you sure?' }, class: "button radius" %></td>
+        <td><%= link_to t('destroy'), indicator, method: :delete, data: { confirm: t('are_you_sure') }, class: "button radius" %></td>
       </tr>
     <% end %>
   </tbody>

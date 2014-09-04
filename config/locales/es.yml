@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 es:
+  are_you_sure: ¿Está seguro?
   back: Regresar
   destroy: Borrar
   do_query: Consultar
@@ -50,9 +51,13 @@ es:
       indicator:
         credit_company: Empresa de Crédito
         file_name: Nombre de Archivo
-        indicator_1: Primer Indicador
-        indicator_2: Segundo Indicador
-        indicator_3: Tercer Indicador
+        indicator_1: "Saldo Bruto de Cartera de Préstamos"
+        indicator_2: "Cartera en Riesgo > 90 Días"
+        indicator_3: "Clientes Activos"
+        indicator_4: "Porcentaje de Mujeres Prestatarias"
+        indicator_5: "Promedio del Saldo en Préstamos"
+        indicator_6: "Total Desembolsado (Préstamos Activos)"
+        indicator_7: "Créditos Desembolsados (total histórico)"
         register_date: Fecha de Registro
         status: Estado
 

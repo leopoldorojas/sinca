@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  are_you_sure: Are you sure?
   back: Back
   destroy: Destroy
   do_query: Submit
@@ -53,6 +54,10 @@ en:
         indicator_1: First Indicator
         indicator_2: Second Indicator
         indicator_3: Third Indicator
+        indicator_4: Fourth Indicator
+        indicator_5: Fifth Indicator
+        indicator_6: Sixth Indicator
+        indicator_7: Seventh Indicator
         register_date: Register Date
         status: Status
 

@@ -22,13 +22,14 @@
 
 <div class="small-9 columns">
   <% if @query.has_results? %>
+    <p id='result_start'><b>Los resultados de tu consulta son:</b></p>
     <% @query.results.each do |r| %>
       <p>
-        <%= "El promedio de #{r.human_name} es #{r.average || 'incalculable'} y la suma es #{r.sum} con #{r.count} registros contabilizados" %>
+        <%= "- El promedio de #{r.human_name} es #{number_to_currency(r.average, unit: '', separator: '.', delimiter: ',') || 'incalculable'} y la suma es #{number_to_currency(r.sum, unit: '', separator: '.', delimiter: ',')} con #{r.count} registros contabilizados" %>
       </p>
     <% end %>
   <% else %>
-    <p id='result_start'></P>
+    <p id='result_start'></p>
     <% @all_indicators.each_key do |i| %>
       <p id='<%= "result_#{i}" %>'></p>
     <% end %>

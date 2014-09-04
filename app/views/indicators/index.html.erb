@@ -21,13 +21,13 @@
       <tr>
         <td><%= indicator.register_date %></td>
         <td><%= indicator.credit_company %></td>
-        <td><%= indicator.indicator_1 %></td>
-        <td><%= indicator.indicator_2 %></td>
-        <td><%= indicator.indicator_3 %></td>
-        <td><%= indicator.indicator_4 %></td>
-        <td><%= indicator.indicator_5 %></td>
-        <td><%= indicator.indicator_6 %></td>
-        <td><%= indicator.indicator_7 %></td>
+        <td><%= number_to_currency(indicator.indicator_1, unit: "", separator: ".", delimiter: ",") %></td>
+        <td><%= number_to_currency(indicator.indicator_2, unit: "", separator: ".", delimiter: ",") %></td>
+        <td><%= number_to_currency(indicator.indicator_3, unit: "", separator: ".", delimiter: ",", precision: 0) %></td>
+        <td><%= number_to_percentage(indicator.indicator_4, precision: 2, separator: ".") %></td>
+        <td><%= number_to_currency(indicator.indicator_5, unit: "", separator: ".", delimiter: ",") %></td>
+        <td><%= number_to_currency(indicator.indicator_6, unit: "", separator: ".", delimiter: ",") %></td>
+        <td><%= number_to_currency(indicator.indicator_7, unit: "", separator: ".", delimiter: ",", precision: 0) %></td>
         <td><%= link_to t('show'), indicator, class: "button radius" %></td>
         <td><%= link_to t('edit'), edit_indicator_path(indicator), class: "button radius" %></td>
         <td><%= link_to t('destroy'), indicator, method: :delete, data: { confirm: t('are_you_sure') }, class: "button radius" %></td>

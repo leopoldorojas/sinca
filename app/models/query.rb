@@ -6,20 +6,21 @@ class Query
   validates :start_date, presence: true
   validates :end_date, presence: true
 
-  def empty?
-    results.blank?
+  def has_results?
+    results.present?
   end
 
   def execute
     self.results = []
 
-    Rails.application.config.individual_indicators.each_key do |indicator_name|
+    Rails.application.config.individual_indicators.each do |name, human_name|
       result = Result.new
       result.tap do |r|
-        r.name = indicator_name
-        r.average = Indicator.by_date_range(self).average(indicator_name)
-        r.sum = Indicator.by_date_range(self).sum(indicator_name)
-        r.count = Indicator.by_date_range(self).count(indicator_name)
+        r.name = name
+        r.human_name = human_name
+        r.average = Indicator.by_date_range(self).average(name)
+        r.sum = Indicator.by_date_range(self).sum(name)
+        r.count = Indicator.by_date_range(self).count(name)
       end
       results.push result
     end

@@ -55,3 +55,11 @@ en:
         indicator_3: Third Indicator
         register_date: Register Date
         status: Status
+
+  activemodel:
+    models:
+      query: Query
+    attributes:
+      query:
+        start_date: Start Date
+        end_date: End Date

@@ -1,7 +1,8 @@
 class QueriesController < ApplicationController
+  
   def new
   	@query = Query.new
-    @all_indicators = Rails.application.config.individual_indicators.keys
+    @all_indicators = Rails.application.config.individual_indicators
   end
 
   def create

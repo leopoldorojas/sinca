@@ -4,8 +4,10 @@
 
 $(document).ready ->
   $("#new_query").on("ajax:success", (e, data, status, xhr) ->
+    $( "#result_start" ).html( "&nbsp;" )
     data.results.forEach (result) ->
       average = result.average || 'incalculable'
-      $( "#result_" + result.name ).html( "El promedio es " + average + " y la suma es " + result.sum + " con " + result.count + " empresas contabilizadas" )
+      $( "#result_" + result.name ).html( "El promedio de " + result.human_name + " es " + average + " y la suma es " + result.sum + " con " + result.count + " registros contabilizados" )
+      $( "#result_error" ).html( "" )
   ).on "ajax:error", (e, xhr, status, error) ->
     $( "#result_error" ).html( "ERROR" )

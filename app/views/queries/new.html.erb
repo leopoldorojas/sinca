@@ -20,13 +20,18 @@
   <%= link_to t('back'), indicators_path, class: "button radius" %>
 </div>
 
-<% if @query.present? %>
-  <% @query.results.each do |r| %>
-    <p><%= "El promedio es #{r.average || 'incalculable'} y la suma es #{r.sum} con #{r.count} empresas contabilizadas" %></p>
+<div class="small-9 columns">
+  <% if @query.has_results? %>
+    <% @query.results.each do |r| %>
+      <p>
+        <%= "El promedio de #{r.human_name} es #{r.average || 'incalculable'} y la suma es #{r.sum} con #{r.count} registros contabilizados" %>
+      </p>
+    <% end %>
+  <% else %>
+    <p id='result_start'></P>
+    <% @all_indicators.each_key do |i| %>
+      <p id='<%= "result_#{i}" %>'></p>
+    <% end %>
+    <p id='result_error'></P>
   <% end %>
-<% end %>
-
-<% @all_indicators.each do |i| %>
-  <p id='<%= "result_#{i}" %>'></p>
-<% end %>
-<p id='result_error'></P>
+</div>

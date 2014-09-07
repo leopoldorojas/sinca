@@ -17,37 +17,37 @@
 
 <p>
   <strong><%= Indicator.human_attribute_name('indicator_1') %>:</strong>
-  <%= number_to_currency(@indicator.indicator_1, unit: "", separator: ".", delimiter: ",") %>
+  <%= as_money(@indicator.indicator_1) %>
 </p>
 
 <p>
   <strong><%= Indicator.human_attribute_name('indicator_2') %>:</strong>
-  <%= number_to_currency(@indicator.indicator_2, unit: "", separator: ".", delimiter: ",") %>
+  <%= as_money(@indicator.indicator_2) %>
 </p>
 
 <p>
   <strong><%= Indicator.human_attribute_name('indicator_3') %>:</strong>
-  <%= number_to_currency(@indicator.indicator_3, unit: "", separator: ".", delimiter: ",", precision: 0) %>
+  <%= as_integer(@indicator.indicator_3) %>
 </p>
 
 <p>
   <strong><%= Indicator.human_attribute_name('indicator_4') %>:</strong>
-  <%= number_to_percentage(@indicator.indicator_4, precision: 2, separator: ".") %>
+  <%= as_percentage(@indicator.indicator_4) %>
 </p>
 
 <p>
   <strong><%= Indicator.human_attribute_name('indicator_5') %>:</strong>
-  <%= number_to_currency(@indicator.indicator_5, unit: "", separator: ".", delimiter: ",") %>
+  <%= as_money(@indicator.indicator_5) %>
 </p>
 
 <p>
   <strong><%= Indicator.human_attribute_name('indicator_6') %>:</strong>
-  <%= number_to_currency(@indicator.indicator_6, unit: "", separator: ".", delimiter: ",") %>
+  <%= as_money(@indicator.indicator_6) %>
 </p>
 
 <p>
   <strong><%= Indicator.human_attribute_name('indicator_7') %>:</strong>
-  <%= number_to_currency(@indicator.indicator_7, unit: "", separator: ".", delimiter: ",", precision: 0) %>
+  <%= as_integer(@indicator.indicator_7) %>
 </p>
 
 <p>

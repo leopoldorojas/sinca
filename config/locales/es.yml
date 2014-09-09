@@ -30,20 +30,6 @@ es:
   system_title: 'SINCA: Sistema de Indicadores de Cartera'
   upload: Subir archivo
 
-  indicator:
-    created: El Indicador fue creado exitosamente.
-    destroyed: El Indicador fue borrado exitosamente.
-    editing: Editando Indicador
-    listing: Listando Indicadores
-    new: Nuevo Indicador
-    save_failed: 'evitó que este indicador sea grabado:'
-    updated: El Indicador fue actualizado exitosamente.
-    uploaded: Archivo recibido correctamente.
-
-  query:
-    new: Nueva consulta
-    failed: evitaron ejecutar la consulta exitosamente
-
   activerecord:
     models:
       indicator: Indicador
@@ -68,3 +54,26 @@ es:
       query:
         start_date: Fecha de Inicio
         end_date: Fecha Final
+
+  indicator:
+    created: El Indicador fue creado exitosamente.
+    destroyed: El Indicador fue borrado exitosamente.
+    editing: Editando Indicador
+    listing: Listando Indicadores
+    new: Nuevo Indicador
+    save_failed: 'evitó que este indicador sea grabado:'
+    updated: El Indicador fue actualizado exitosamente.
+    uploaded: Archivo recibido correctamente.
+
+  menu:
+    about: Acerca de
+    credit_companies: Empresas
+    home: Inicio
+    indicators: Registros
+    locations: Localizaciones
+    queries: Análisis
+    users: Usuarios
+
+  query:
+    new: Nueva consulta
+    failed: evitaron ejecutar la consulta exitosamente

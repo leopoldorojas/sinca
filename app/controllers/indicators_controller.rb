@@ -44,7 +44,7 @@ class IndicatorsController < ApplicationController
 
   # POST /receive_and_create
   def receive_and_create
-    @indicator = Indicator.import(params[:indicator][:credit_company], params[:indicator][:file])
+    @indicator = Indicator.import(params[:indicator][:credit_company], params[:indicator][:file_name])
     redirect_to @indicator, notice: t('indicator.uploaded')
   end
 

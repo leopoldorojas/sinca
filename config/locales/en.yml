@@ -30,20 +30,6 @@ en:
   system_title: Portfolio Indicators System
   upload: Upload
 
-  indicator:
-    created: Indicator was successfully created.
-    destroyed: Indicator was successfully destroyed.
-    editing: Editing Indicator
-    listing: Listing Indicators
-    new: New Indicator
-    save_failed: 'prohibited this indicator from being saved:'
-    updated: Indicator was successfully updated.
-    uploaded: Indicator was successfully uploaded.
-
-  query:
-    new: New Query
-    failed: avoid to run the query successfully
-
   activerecord:
     models:
       indicator: Indicator
@@ -68,3 +54,26 @@ en:
       query:
         start_date: Start Date
         end_date: End Date
+
+  indicator:
+    created: Indicator was successfully created.
+    destroyed: Indicator was successfully destroyed.
+    editing: Editing Indicator
+    listing: Listing Indicators
+    new: New Indicator
+    save_failed: 'prohibited this indicator from being saved:'
+    updated: Indicator was successfully updated.
+    uploaded: Indicator was successfully uploaded.
+
+  menu:
+    about: About
+    credit_companies: Companies
+    home: Home
+    indicators: Indicators
+    locations: Locations
+    queries: Queries
+    users: Users
+
+  query:
+    new: New Query
+    failed: avoid to run the query successfully

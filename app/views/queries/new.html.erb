@@ -23,8 +23,6 @@
   </div>
 <% end %>
 
-<%= link_to t('back'), indicators_path %>
-
 <% if @query.has_results? %>
   <p id='result_start'><b>Los resultados de tu consulta son:</b></p>
   <% @query.results.each do |r| %>
@@ -39,3 +37,5 @@
   <% end %>
   <p id='result_error'></P>
 <% end %>
+
+<%= link_to t('back'), indicators_path %>

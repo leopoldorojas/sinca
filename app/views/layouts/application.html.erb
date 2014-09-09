@@ -16,12 +16,12 @@
     <div class="row">
       <div class="large-9 columns">
         <ul class="button-group">
-          <li><a href="/" class="button">Inicio</a></li>
-          <li><%= link_to "Registros", indicators_path, class: "button" %></li>
-          <li><%= link_to "Análisis", new_query_path, class: "button" %></li>
-          <li><a href="#" class="button">Empresas</a></li>
-          <li><a href="#" class="button">Localizaciones</a></li>
-          <li><a href="#" class="button">Usuarios</a></li>
+          <li><%= link_to t('menu.home'), root_path, class: "button" %></li>
+          <li><%= link_to t('menu.indicators'), indicators_path, class: "button" %></li>
+          <li><%= link_to t('menu.queries'), new_query_path, class: "button" %></li>
+          <li><%= link_to t('menu.credit_companies'), "#", class: "button" %></li>
+          <li><%= link_to t('menu.locations'), "#", class: "button" %></li>
+          <li><%= link_to t('menu.users'), "#", class: "button" %></li>
         </ul> 
       </div>
 
@@ -61,8 +61,8 @@
           </div>
           <div class="large-6 columns">
             <ul class="inline-list right">
-              <li><a href="/">Inicio</a></li>
-              <li><a href="#">Acerca del Sistema</a></li>
+              <li><%= link_to t('menu.home'), root_path %></li>
+              <li><%= link_to t('menu.about'), "#" %></li>
               <li><a href="http://www.edesacr.com" target="_blank">EDESA</a></li>
               <li><a href="http://www.fincacostarica.org" target="_blank">Grupo FINCA</a></li>
             </ul>

@@ -1,8 +1,6 @@
 <h1><%= t('indicator.editing') %></h1>
 
-<div class="small-9 columns">
-  <%= render 'form' %>
+<%= render 'form' %>
 
-  <%= link_to t('show'), @indicator, class: "button radius" %> |
-  <%= link_to t('back'), indicators_path, class: "button radius" %>
-</div>
+<%= link_to t('show'), @indicator %> |
+<%= link_to t('back'), indicators_path %>

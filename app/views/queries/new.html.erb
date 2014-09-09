@@ -1,38 +1,34 @@
 <h1><%= t('query.new') %></h1>
 
-<div class="small-3 columns">
-  <%= form_for @query, remote: false, data: { type: :json } do |f| %>
-    <div class="field">
-      <%= f.label :start_date %><br>
-      <%= f.date_field :start_date, { value: @query.start_date } %>
-    </div>
+<%= form_for @query, remote: true, data: { type: :json } do |f| %>
+  <div class="field">
+    <%= f.label :start_date %><br>
+    <%= f.date_field :start_date, { value: @query.start_date } %>
+  </div>
 
-    <div class="field">
-      <%= f.label :end_date %><br>
-      <%= f.date_field :end_date, { value: @query.end_date } %>
-    </div>
+  <div class="field">
+    <%= f.label :end_date %><br>
+    <%= f.date_field :end_date, { value: @query.end_date } %>
+  </div>
 
-    <div class="actions">
-      <%= f.submit t('do_query') %>
-    </div>
+  <div class="actions">
+    <%= f.submit t('do_query') %>
+  </div>
+<% end %>
+
+<%= link_to t('back'), indicators_path %>
+
+<% if @query.has_results? %>
+  <p id='result_start'><b>Los resultados de tu consulta son:</b></p>
+  <% @query.results.each do |r| %>
+    <p>
+      <%= "- El promedio de #{r.human_name} es #{as_decimal(r.average) || 'incalculable'} y la suma es #{as_decimal(r.sum)} con #{r.count} registros contabilizados" %>
+    </p>
   <% end %>
-
-  <%= link_to t('back'), indicators_path, class: "button radius" %>
-</div>
-
-<div class="small-9 columns">
-  <% if @query.has_results? %>
-    <p id='result_start'><b>Los resultados de tu consulta son:</b></p>
-    <% @query.results.each do |r| %>
-      <p>
-        <%= "- El promedio de #{r.human_name} es #{as_decimal(r.average) || 'incalculable'} y la suma es #{as_decimal(r.sum)} con #{r.count} registros contabilizados" %>
-      </p>
-    <% end %>
-  <% else %>
-    <p id='result_start'></p>
-    <% @all_indicators.each_key do |i| %>
-      <p id='<%= "result_#{i}" %>'></p>
-    <% end %>
-    <p id='result_error'></P>
+<% else %>
+  <p id='result_start'></p>
+  <% @all_indicators.each_key do |i| %>
+    <p id='<%= "result_#{i}" %>'></p>
   <% end %>
-</div>
+  <p id='result_error'></P>
+<% end %>

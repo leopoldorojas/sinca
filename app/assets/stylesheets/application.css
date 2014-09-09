@@ -15,11 +15,3 @@
  *= require foundation_and_overrides
 
  */
-
-label.right {
-  padding-right: 10px;
-}
-
-select {
-  width: 30%;
-}

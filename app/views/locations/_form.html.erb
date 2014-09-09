@@ -1,33 +1,55 @@
-<%= form_for(@location) do |f| %>
-  <% if @location.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+<dl class="tabs" data-tab>
+  <dd class="active"><a href="#panel1">Paises</a></dd>
+  <dd><a href="#panel2">Provincias</a></dd>
+  <dd><a href="#panel3">Cantones</a></dd>
+  <dd><a href="#panel4">Distritos</a></dd>
+</dl>
 
-      <ul>
-      <% @location.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="tabs-content">
+ 
+  <div class="content active" id="panel1">
+    <%= form_for(@location) do |f| %>
+      <% if @location.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+
+          <ul>
+          <% @location.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :code %><br>
-    <%= f.text_field :code %>
+      <div class="field">
+        <%= f.label :code %><br>
+        <%= f.text_field :code %>
+      </div>
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :type %><br>
+        <%= f.text_field :type %>
+      </div>
+      <div class="field">
+        <%= f.label :parent_id %><br>
+        <%= f.number_field :parent_id %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+
+  <div class="content" id="panel2">
+    <p>Provincias</p>
   </div>
-  <div class="field">
-    <%= f.label :type %><br>
-    <%= f.text_field :type %>
+  <div class="content" id="panel3">
+    <p>Cantones</p>
   </div>
-  <div class="field">
-    <%= f.label :parent_id %><br>
-    <%= f.number_field :parent_id %>
+  <div class="content" id="panel4">
+    <p>Distritos</p>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

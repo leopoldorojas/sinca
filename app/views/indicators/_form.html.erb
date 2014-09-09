@@ -11,51 +11,81 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :register_date %><br>
-    <%= f.date_select :register_date %>
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="small-4 columns">
+        <%= f.label :register_date %>
+        <%= f.date_field :register_date %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :credit_company %>
+        <%= f.text_field :credit_company %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :file_name %>
+        <%= f.text_field :file_name %>
+      </div>
+
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :credit_company %><br>
-    <%= f.number_field :credit_company %>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="small-4 columns">
+        <%= f.label :indicator_1 %>
+        <%= f.text_field :indicator_1 %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :indicator_2 %>
+        <%= f.text_field :indicator_2 %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :indicator_3 %>
+        <%= f.text_field :indicator_3 %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :file_name %><br>
-    <%= f.text_field :file_name %>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="small-4 columns">
+        <%= f.label :indicator_4 %>
+        <%= f.text_field :indicator_4 %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :indicator_5 %>
+        <%= f.text_field :indicator_5 %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :indicator_6 %>
+        <%= f.text_field :indicator_6 %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :indicator_1 %><br>
-    <%= f.text_field :indicator_1 %>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="small-4 columns">
+        <%= f.label :indicator_7 %>
+        <%= f.text_field :indicator_7 %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :status %>
+        <%= f.text_field :status %>
+      </div>
+      <div class="small-4 columns">
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :indicator_2 %><br>
-    <%= f.text_field :indicator_2 %>
-  </div>
-  <div class="field">
-    <%= f.label :indicator_3 %><br>
-    <%= f.text_field :indicator_3 %>
-  </div>
-  <div class="field">
-    <%= f.label :indicator_4 %><br>
-    <%= f.text_field :indicator_4 %>
-  </div>
-  <div class="field">
-    <%= f.label :indicator_5 %><br>
-    <%= f.text_field :indicator_5 %>
-  </div>
-  <div class="field">
-    <%= f.label :indicator_6 %><br>
-    <%= f.text_field :indicator_6 %>
-  </div>
-  <div class="field">
-    <%= f.label :indicator_7 %><br>
-    <%= f.text_field :indicator_7 %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.number_field :status %>
-  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "button small radius" %>
   </div>
 <% end %>

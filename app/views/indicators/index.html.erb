@@ -19,7 +19,7 @@
   <tbody>
     <% @indicators.each do |indicator| %>
       <tr>
-        <td><%= indicator.register_date %></td>
+        <td><%= indicator.register_date.strftime("%d/%m/%Y") %></td>
         <td><%= indicator.credit_company %></td>
         <td><%= as_money(indicator.indicator_1) %></td>
         <td><%= as_money(indicator.indicator_2) %></td>
@@ -38,6 +38,6 @@
 
 <br>
 
-<%= link_to t('indicator.new'), new_indicator_path %>
-<%= link_to t('upload'), upload_new_indicator_path %>
-<%= link_to t('queries'), new_query_path %>
+<%= link_to t('indicator.new'), new_indicator_path, class: "button small radius" %>
+<%= link_to t('upload'), upload_new_indicator_path, class: "button small radius" %>
+<%= link_to t('queries'), new_query_path, class: "button small radius" %>

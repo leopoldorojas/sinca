@@ -13,18 +13,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :credit_company %><br>
-    <%= f.number_field :credit_company %>
-  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="small-4 columns">
+        <%= f.label :credit_company %>
+        <%= f.text_field :credit_company %>
+      </div>
 
-  <div class="field">
-    <%= f.label :file %><br>
-    <%= f.file_field :file %>
+      <div class="small-4 columns">
+        <%= f.label :file %>
+        <%= f.file_field :file %>
+      </div>
+
+      <div class="small-4 columns">
+      </div>
+    </div>
   </div>
 
   <div class="actions">
-    <%= f.submit t('upload') %>
+    <%= f.submit t('upload'), class: "button small radius" %>
   </div>
 
   <%= link_to t('back'), indicators_path %>

@@ -12,82 +12,64 @@
   </head>
 
   <body data-no-turbolink>
+  
+    <div class="row">
+      <div class="large-9 columns">
+        <ul class="button-group">
+          <li><a href="/" class="button">Inicio</a></li>
+          <li><%= link_to "Registros", indicators_path, class: "button" %></li>
+          <li><%= link_to "Análisis", new_query_path, class: "button" %></li>
+          <li><a href="#" class="button">Empresas</a></li>
+          <li><a href="#" class="button">Localizaciones</a></li>
+          <li><a href="#" class="button">Usuarios</a></li>
+        </ul> 
+      </div>
 
-    
-  
-  <div class="row">
-    <div class="large-12 columns">
-      <ul class="button-group">
-        <li><a href="#" class="button">Link 1</a></li>
-        <li><a href="#" class="button">Link 2</a></li>
-        <li><a href="#" class="button">Link 3</a></li>
-        <li><a href="#" class="button">Link 4</a></li>
-        <li><a href="#" class="button">Link 5</a></li>
-        <li><a href="#" class="button">Link 6</a></li>
-        <li><a href="#" class="button">Link 7</a></li>
-      </ul>
-      
-       
+      <div class="large-3 columns">
+        <%= image_tag "Logo_Edesa.png" %>
+      </div>
     </div>
-  </div>
    
-  
-   
-  
-  <div class="row">
-  
-    <div class="large-12 columns">
-      <%= yield %>
+    <div class="row">    
+      <div class="large-12 columns">
+        <%= yield %>
+      </div>
     </div>
-        
-  </div>
-  
-  
    
-  <div class="row">
-    <div class="large-12 columns">
-    
-      <div class="panel">
-        <h4>Get in touch!</h4>
-            
+    <footer class="row">
+      <div class="large-12 columns">
+
+        <hr/>
+
+        <div class="panel">
+          <h4>Empresa para el Desarrollo EDESA S.A.</h4>        
+          <div class="row">
+            <div class="large-9 columns">
+              <p>En EDESA estamos comprometidos con el desarrollo de una actividad comercial de forma eficaz, con un amplio sentido humano y con una vasta proyección de crecimiento.</p>
+            </div>
+            <div class="large-3 columns">
+              <a href="http://www.edesacr.com" target="_blank" class="radius button right">Contáctanos</a>
+            </div>
+          </div>
+        </div>
+
+        <hr/>
+
         <div class="row">
-          <div class="large-9 columns">
-            <p>We'd love to hear from you, you attractive person you.</p>
+          <div class="large-6 columns">
+            <p>Sistema desarrollado por <a href="http://www.arckanto.com" target="_blank">Arckanto software</a></p>
           </div>
-          <div class="large-3 columns">
-            <a href="#" class="radius button right">Contact Us</a>
+          <div class="large-6 columns">
+            <ul class="inline-list right">
+              <li><a href="/">Inicio</a></li>
+              <li><a href="#">Acerca del Sistema</a></li>
+              <li><a href="http://www.edesacr.com" target="_blank">EDESA</a></li>
+              <li><a href="http://www.fincacostarica.org" target="_blank">Grupo FINCA</a></li>
+            </ul>
           </div>
         </div>
-      </div>
-      
-    </div>
-  </div>
-  
-  
-   
-  
-  <footer class="row">
-    <div class="large-12 columns">
-      <hr/>
-      <div class="row">
-        <div class="large-6 columns">
-          <p>© Copyright no one at all. Go to town.</p>
-        </div>
-        <div class="large-6 columns">
-          <ul class="inline-list right">
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-            <li><a href="#">Link 3</a></li>
-            <li><a href="#">Link 4</a></li>
-            <li><a href="#">Link 5</a></li>
-            <li><a href="#">Link 6</a></li>
-            <li><a href="#">Link 7</a></li>
-          </ul>
-        </div>
-      </div>
-    </div> 
-  </footer>
-
+      </div> 
+    </footer>
 
     <%= javascript_include_tag "application" %>
   </body>

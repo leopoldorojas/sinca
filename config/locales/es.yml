@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 es:
+  all:
+    feminine: Todas
+    masculine: Todos
   are_you_sure: ¿Está seguro?
   back: Regresar
   destroy: Borrar
@@ -32,7 +35,19 @@ es:
 
   activerecord:
     models:
+      city:
+        one: Cantón
+        other: Cantones
+      country:
+        one: País
+        other: Países
+      district:
+        one: Distrito
+        other: Distritos
       indicator: Indicador
+      province:
+        one: Provincia
+        other: Provincias
     attributes:
       indicator:
         credit_company: Empresa de Crédito
@@ -46,6 +61,11 @@ es:
         indicator_7: "Créditos Desembolsados (total histórico)"
         register_date: Fecha de Registro
         status: Estado
+      location:
+        code: Código
+        name: Nombre
+        parent: Padre
+        type: Tipo
 
   activemodel:
     models:
@@ -54,6 +74,33 @@ es:
       query:
         start_date: Fecha de Inicio
         end_date: Fecha Final
+
+  city:
+    created: El Cantón fue creado exitosamente.
+    destroyed: El Cantón fue borrado exitosamente.
+    editing: Editando Cantón
+    listing: Listando Cantones
+    new: Nuevo Cantón
+    save_failed: 'evitó que este cantón sea grabado:'
+    updated: El Cantón fue actualizado exitosamente.
+
+  country:
+    created: El País fue creado exitosamente.
+    destroyed: El País fue borrado exitosamente.
+    editing: Editando País
+    listing: Listando Países
+    new: Nuevo País
+    save_failed: 'evitó que este país sea grabado:'
+    updated: El País fue actualizado exitosamente.
+
+  district:
+    created: El Distrito fue creado exitosamente.
+    destroyed: El Distrito fue borrado exitosamente.
+    editing: Editando Distrito
+    listing: Listando Distritos
+    new: Nuevo Distrito
+    save_failed: 'evitó que este distrito sea grabado:'
+    updated: El Distrito fue actualizado exitosamente.
 
   indicator:
     created: El Indicador fue creado exitosamente.
@@ -65,6 +112,15 @@ es:
     updated: El Indicador fue actualizado exitosamente.
     uploaded: Archivo recibido correctamente.
 
+  location:
+    created: La localización fue creada exitosamente.
+    destroyed: La localización fue borrada exitosamente.
+    editing: Editando Localización
+    listing: Listando Localizaciones
+    new: Nueva Localización
+    save_failed: 'evitó que esta localización sea grabada:'
+    updated: La localización fue actualizada exitosamente.
+
   menu:
     about: Acerca de
     credit_companies: Empresas
@@ -73,6 +129,15 @@ es:
     locations: Localizaciones
     queries: Análisis
     users: Usuarios
+
+  province:
+    created: La provincia fue creada exitosamente.
+    destroyed: La provincia fue borrada exitosamente.
+    editing: Editando Provincia
+    listing: Listando Provincias
+    new: Nueva Provincia
+    save_failed: 'evitó que esta provincia sea grabado:'
+    updated: La Provincia fue actualizada exitosamente.
 
   query:
     new: Nueva consulta

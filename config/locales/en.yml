@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  all:
+    feminine: All
+    masculine: All
   are_you_sure: Are you sure?
   back: Back
   destroy: Destroy
@@ -32,7 +35,19 @@ en:
 
   activerecord:
     models:
+      city:
+        one: City
+        other: Cities
+      country:
+        one: Country
+        other: Countries
+      district:
+        one: District
+        other: Districts
       indicator: Indicator
+      province:
+        one: Province
+        other: Provinces
     attributes:
       indicator:
         credit_company: Credit Company
@@ -46,6 +61,11 @@ en:
         indicator_7: Seventh Indicator
         register_date: Register Date
         status: Status
+      location:
+        code: Code
+        name: Name
+        parent: Parent
+        type: Type
 
   activemodel:
     models:
@@ -54,6 +74,33 @@ en:
       query:
         start_date: Start Date
         end_date: End Date
+
+  city:
+    created: City was successfully created.
+    destroyed: City was successfully destroyed.
+    editing: Editing City
+    listing: Listing Cities
+    new: New City
+    save_failed: 'prohibited this city from being saved:'
+    updated: City was successfully updated.
+
+  country:
+    created: Country was successfully created.
+    destroyed: Country was successfully destroyed.
+    editing: Editing Country
+    listing: Listing Countries
+    new: New Country
+    save_failed: 'prohibited this country from being saved:'
+    updated: Country was successfully updated.
+
+  district:
+    created: District was successfully created.
+    destroyed: District was successfully destroyed.
+    editing: Editing District
+    listing: Listing Districts
+    new: New District
+    save_failed: 'prohibited this district from being saved:'
+    updated: District was successfully updated.
 
   indicator:
     created: Indicator was successfully created.
@@ -65,6 +112,15 @@ en:
     updated: Indicator was successfully updated.
     uploaded: Indicator was successfully uploaded.
 
+  location:
+    created: Location was successfully created.
+    destroyed: Location was successfully destroyed.
+    editing: Editing Location
+    listing: Listing Locations
+    new: Location
+    save_failed: 'prohibited this location from being saved:'
+    updated: Location was successfully updated.
+
   menu:
     about: About
     credit_companies: Companies
@@ -73,6 +129,15 @@ en:
     locations: Locations
     queries: Queries
     users: Users
+
+  provinces:
+    created: Province was successfully created.
+    destroyed: Province was successfully destroyed.
+    editing: Editing Province
+    listing: Listing Provinces
+    new: New Province
+    save_failed: 'prohibited this province from being saved:'
+    updated: Province was successfully updated.
 
   query:
     new: New Query

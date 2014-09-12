@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   resources :locations
+  resources :countries, controller: 'locations', type: 'Country' 
+  resources :provinces, controller: 'locations', type: 'Province'
+  resources :cities, controller: 'locations', type: 'City' 
+  resources :districts, controller: 'locations', type: 'District'
 
   resources :queries, :only => [:new, :create]
 

@@ -1,53 +1,40 @@
-<dl class="tabs" data-tab>
-  <dd class="active"><a href="#panel1">Paises</a></dd>
-  <dd><a href="#panel2">Provincias</a></dd>
-  <dd><a href="#panel3">Cantones</a></dd>
-  <dd><a href="#panel4">Distritos</a></dd>
+<dl class="sub-nav">
+  <dt>Localizaciones:</dt>
+  <dd class="active"><%= link_to t('all.feminine'), sti_location_path('Location') %></dd>
+  <dd><%= link_to Country.model_name.human(count: :many), sti_location_path('Country') %></dd>
+  <dd><%= link_to Province.model_name.human(count: :many), sti_location_path('Province') %></dd>
+  <dd><%= link_to City.model_name.human(count: :many), sti_location_path('City') %></dd>
+  <dd><%= link_to District.model_name.human(count: :many), sti_location_path('District') %></dd>
 </dl>
 
-<div class="tabs-content">
- 
-  <div class="content active" id="panel1">
-    <h1>Listing locations</h1>
+<h1><%= t("#{@type.underscore}.listing") %></h1>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Code</th>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Parent</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
+<table>
+  <thead>
+    <tr>
+      <th><%= Location.human_attribute_name('code') %></th>
+      <th><%= Location.human_attribute_name('name') %></th>
+      <th><%= Location.human_attribute_name('type') %></th>
+      <th><%= Location.human_attribute_name('parent') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-      <tbody>
-        <% @locations.each do |location| %>
-          <tr>
-            <td><%= location.code %></td>
-            <td><%= location.name %></td>
-            <td><%= location.type %></td>
-            <td><%= location.parent_id %></td>
-            <td><%= link_to 'Show', location %></td>
-            <td><%= link_to 'Edit', edit_location_path(location) %></td>
-            <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+  <tbody>
+    <% @locations.each do |location| %>
+      <tr>
+        <td><%= location.code %></td>
+        <td><%= location.name %></td>
+        <td><%= location.type %></td>
+        <td><%= location.parent_id %></td>
+        <td><%= link_to t('show'), sti_location_path(location.type, location) %></td>
+        <td><%= link_to t('edit'), sti_location_path(location.type, location, :edit) %></td>
+        <td><%= link_to t('destroy'), sti_location_path(location.type, location), method: :delete, data: { confirm: t('are_you_sure') } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-    <br>
+<br>
 
-    <%= link_to 'New Location', new_location_path %>
-  </div>
-
-  <div class="content" id="panel2">
-    <p>Provincias</p>
-  </div>
-  <div class="content" id="panel3">
-    <p>Cantones</p>
-  </div>
-  <div class="content" id="panel4">
-    <p>Distritos</p>
-  </div>
-</div>
+<%= link_to t("#{@type.underscore}.new"), sti_location_path(@type, nil, :new) %>

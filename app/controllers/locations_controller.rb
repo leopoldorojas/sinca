@@ -1,10 +1,11 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
+  before_action :set_type
 
   # GET /locations
   # GET /locations.json
   def index
-    @locations = Location.all
+    @locations = type_class.all
   end
 
   # GET /locations/1
@@ -14,7 +15,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/new
   def new
-    @location = Location.new
+    @location = type_class.new
   end
 
   # GET /locations/1/edit
@@ -28,7 +29,7 @@ class LocationsController < ApplicationController
 
     respond_to do |format|
       if @location.save
-        format.html { redirect_to @location, notice: 'Location was successfully created.' }
+        format.html { redirect_to @location, notice: t("#{type.underscore}.created") }
         format.json { render :show, status: :created, location: @location }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class LocationsController < ApplicationController
   def update
     respond_to do |format|
       if @location.update(location_params)
-        format.html { redirect_to @location, notice: 'Location was successfully updated.' }
+        format.html { redirect_to @location, notice: t("#{type.underscore}.updated") }
         format.json { render :show, status: :ok, location: @location }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class LocationsController < ApplicationController
   def destroy
     @location.destroy
     respond_to do |format|
-      format.html { redirect_to locations_url, notice: 'Location was successfully destroyed.' }
+      format.html { redirect_to locations_url, notice: t("#{type.underscore}.destroyed") }
       format.json { head :no_content }
     end
   end
@@ -64,11 +65,24 @@ class LocationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_location
-      @location = Location.find(params[:id])
+      @location = type_class.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:code, :name, :type, :parent_id)
+      params.require(type.underscore.to_sym).permit(:code, :name, :type, :parent_id)
     end
+
+    def set_type 
+      @type = type 
+    end
+
+    def type
+      Location.types.include?(params[:type]) ? params[:type] : "Location"
+    end
+
+    def type_class 
+      type.constantize 
+    end
+
 end

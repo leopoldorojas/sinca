@@ -57,7 +57,7 @@ class LocationsController < ApplicationController
   def destroy
     @location.destroy
     respond_to do |format|
-      format.html { redirect_to locations_url, notice: t("#{type.underscore}.destroyed") }
+      format.html { redirect_to self.send("#{type.tableize}_url".to_sym), notice: t("#{type.underscore}.destroyed") }
       format.json { head :no_content }
     end
   end

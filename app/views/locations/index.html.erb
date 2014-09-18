@@ -1,10 +1,10 @@
-<dl class="sub-nav">
-  <dt>Localizaciones:</dt>
-  <dd class="active"><%= link_to t('all.feminine'), sti_location_path('Location') %></dd>
-  <dd><%= link_to Country.model_name.human(count: :many), sti_location_path('Country') %></dd>
-  <dd><%= link_to Province.model_name.human(count: :many), sti_location_path('Province') %></dd>
-  <dd><%= link_to City.model_name.human(count: :many), sti_location_path('City') %></dd>
-  <dd><%= link_to District.model_name.human(count: :many), sti_location_path('District') %></dd>
+<dl id="locations-sub-nav" class="sub-nav">
+  <dt>Localizaciones:</dt>    
+  <dd <%= "class=active" if @type == 'Location' %>><%= link_to t('all.feminine'), sti_location_path('Location') %></dd>
+  <dd <%= "class=active" if @type == 'Country' %>><%= link_to Country.model_name.human(count: :many), sti_location_path('Country') %></dd>
+  <dd <%= "class=active" if @type == 'Province' %>><%= link_to Province.model_name.human(count: :many), sti_location_path('Province') %></dd>
+  <dd <%= "class=active" if @type == 'City' %>><%= link_to City.model_name.human(count: :many), sti_location_path('City') %></dd>
+  <dd <%= "class=active" if @type == 'District' %>><%= link_to District.model_name.human(count: :many), sti_location_path('District') %></dd>
 </dl>
 
 <h1><%= t("#{@type.underscore}.listing") %></h1>
@@ -37,4 +37,4 @@
 
 <br>
 
-<%= link_to t("#{@type.underscore}.new"), sti_location_path(@type, nil, :new) %>
+<%= link_to t("#{@type.underscore}.new"), sti_location_path(@type, nil, :new), class: "button small radius" %>

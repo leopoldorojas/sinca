@@ -27,10 +27,12 @@
       <%= f.select :type, Location.types.map {|type| [type.constantize.model_name.human, type.camelcase]}, {} %>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :parent_id %><br>
-    <%= f.number_field :parent_id %>
-  </div>
+  <% if @location.parent %>
+    <div class="field">
+      <%= f.label "#{@location.parent.underscore}_id".to_sym %><br>
+      <%= f.collection_select :parent_id, "#{@location.parent}".constantize.all, :id, :name %>
+    </div>
+  <% end %>
   <div class="actions">
     <%= f.submit class: "button small radius" %>
   </div>

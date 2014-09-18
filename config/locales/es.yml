@@ -64,8 +64,13 @@ es:
       location:
         code: Código
         name: Nombre
-        parent: Padre
         type: Tipo
+        parent: Pertenece a
+        parent_id: Padre
+        city_id: Cantón
+        country_id: País
+        district_id: Distrito
+        province_id: Provincia
 
   activemodel:
     models:

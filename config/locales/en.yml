@@ -64,8 +64,13 @@ en:
       location:
         code: Code
         name: Name
-        parent: Parent
         type: Type
+        parent: Belongs to
+        parent_id: Parent
+        city_id: City
+        country_id: Country
+        district_id: District
+        province_id: Province
 
   activemodel:
     models:

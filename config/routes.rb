@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :credit_companies
+
   resources :locations
   resources :countries, controller: 'locations', type: 'Country' 
   resources :provinces, controller: 'locations', type: 'Province'

@@ -1,5 +1,6 @@
 class Location < ActiveRecord::Base
   validates :name, presence: true
+  has_many :credit_companies
 
   def self.types
     ['Country', 'Province', 'City', 'District']

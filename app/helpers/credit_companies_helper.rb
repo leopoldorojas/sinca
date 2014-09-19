@@ -1,0 +1,2 @@
+module CreditCompaniesHelper
+end

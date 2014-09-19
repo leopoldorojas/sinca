@@ -11,28 +11,39 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :code %><br>
-    <%= f.text_field :code %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <% if @type != "Location" %>
-    <%= f.hidden_field :type, { value: @type.camelcase } %>
-  <% else %>
-    <div class="field">
-      <%= f.label :type %><br>
-      <%= f.select :type, Location.types.map {|type| [type.constantize.model_name.human, type.camelcase]}, {} %>
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="small-4 columns">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :code %>
+        <%= f.text_field :code %>
+      </div>
+
+      <% if @type != "Location" %>
+        <%= f.hidden_field :type, { value: @type.camelcase } %>
+        <div class="small-4 columns">
+        </div>
+      <% else %>
+        <div class="small-4 columns">
+          <%= f.label :type %>
+          <%= f.select :type, Location.types.map {|type| [type.constantize.model_name.human, type.camelcase]}, {} %>
+        </div>
+      <% end %>
+
+      <% if @location.parent %>
+        <div class="small-4 columns">
+          <%= f.label "#{@location.parent.underscore}_id".to_sym %>
+          <%= f.collection_select :parent_id, "#{@location.parent}".constantize.all, :id, :name %>
+        </div>
+      <% end %>
+
     </div>
-  <% end %>
-  <% if @location.parent %>
-    <div class="field">
-      <%= f.label "#{@location.parent.underscore}_id".to_sym %><br>
-      <%= f.collection_select :parent_id, "#{@location.parent}".constantize.all, :id, :name %>
-    </div>
-  <% end %>
+  </div>
+
   <div class="actions">
     <%= f.submit class: "button small radius" %>
   </div>

@@ -1,7 +1,7 @@
 class QueriesController < ApplicationController
   
   def new
-  	@query = Query.new
+  	@query = Query.new(start_date: Date.current.at_beginning_of_month, end_date: Date.current)
     @all_indicators = Rails.application.config.individual_indicators
   end
 

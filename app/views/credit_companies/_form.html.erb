@@ -1,0 +1,68 @@
+<%= form_for(@credit_company) do |f| %>
+  <% if @credit_company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= "#{pluralize(@credit_company.errors.count, 'error')} #{t('credit_company.save_failed')}" %></h2>
+
+      <ul>
+      <% @credit_company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="small-4 columns">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :identifier %>
+        <%= f.text_field :identifier %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :contact %>
+        <%= f.text_field :contact %>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="small-4 columns">
+        <%= f.label :phone %>
+        <%= f.text_field :phone %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :website %>
+        <%= f.text_field :website %>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="small-4 columns">
+        <%= f.label :location_id %>
+        <%= f.collection_select :location_id, Location.all, :id, :name %>
+      </div>
+      <div class="small-8 columns">
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: "button small radius" %>
+  </div>
+<% end %>

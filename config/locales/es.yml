@@ -38,6 +38,7 @@ es:
       city:
         one: Cantón
         other: Cantones
+      credit_company: Empresa de Crédito
       country:
         one: País
         other: Países
@@ -45,10 +46,20 @@ es:
         one: Distrito
         other: Distritos
       indicator: Indicador
+      location: Localización
       province:
         one: Provincia
         other: Provincias
     attributes:
+      credit_company:
+        name: Nombre
+        identifier: Cédula Jurídica
+        contact: Representante
+        phone: Teléfono
+        email: Correo Electrónico
+        website: Sitio Web
+        location: Localización
+        location_id: Localización
       indicator:
         credit_company: Empresa de Crédito
         file_name: Nombre de Archivo
@@ -88,6 +99,15 @@ es:
     new: Nuevo Cantón
     save_failed: 'evitó que este cantón sea grabado:'
     updated: El Cantón fue actualizado exitosamente.
+
+  credit_company:
+    created: La Empresa de Crédito fue creada exitosamente.
+    destroyed: La Empresa de Crédito fue borrada exitosamente.
+    editing: Editando Empresa de Crédito
+    listing: Listando Empresas de Crédito
+    new: Nueva Empresa de Crédito
+    save_failed: 'evitó que esta empresa de crédito sea grabada:'
+    updated: La Empresa de Crédito fue actualizada exitosamente.
 
   country:
     created: El País fue creado exitosamente.

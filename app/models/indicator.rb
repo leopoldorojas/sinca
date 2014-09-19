@@ -26,5 +26,7 @@ class Indicator < ActiveRecord::Base
   private
 
     scope :by_date_range, -> query { where('register_date >= ? AND register_date <= ?', query.start_date, query.end_date) }
-
+    #scope :last_to_date, -> query { where('register_date >= ? AND register_date <= ?', query.start_date, query.end_date) }
+    #select id, stage, max(created_at) from cases group by stage
+    #q=Indicator.select("credit_company, max(register_date)").group("credit_company")
 end

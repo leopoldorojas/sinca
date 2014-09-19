@@ -38,6 +38,7 @@ en:
       city:
         one: City
         other: Cities
+      credit_company: Credit Company
       country:
         one: Country
         other: Countries
@@ -45,10 +46,20 @@ en:
         one: District
         other: Districts
       indicator: Indicator
+      location: Location
       province:
         one: Province
         other: Provinces
     attributes:
+      credit_company: 
+        name: Name
+        identifier: Identifier
+        contact: Contact Name
+        phone: Phone Number
+        email: Email
+        website: Website
+        location: Location
+        location_id: Location
       indicator:
         credit_company: Credit Company
         file_name: File Name
@@ -88,6 +99,15 @@ en:
     new: New City
     save_failed: 'prohibited this city from being saved:'
     updated: City was successfully updated.
+
+  credit_company:
+    created: Credit Company was successfully created.
+    destroyed: Credit Company was successfully destroyed.
+    editing: Editing Credit Company
+    listing: Listing Credit Companies
+    new: New Credit Company
+    save_failed: 'prohibited this credit companny from being saved:'
+    updated: Credit Company was successfully updated.
 
   country:
     created: Country was successfully created.

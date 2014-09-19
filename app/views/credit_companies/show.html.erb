@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= CreditCompany.human_attribute_name('name') %>:</strong>
+  <%= @credit_company.name %>
+</p>
+
+<p>
+  <strong><%= CreditCompany.human_attribute_name('identifier') %>:</strong>
+  <%= @credit_company.identifier %>
+</p>
+
+<p>
+  <strong><%= CreditCompany.human_attribute_name('contact') %>:</strong>
+  <%= @credit_company.contact %>
+</p>
+
+<p>
+  <strong><%= CreditCompany.human_attribute_name('phone') %>:</strong>
+  <%= @credit_company.phone %>
+</p>
+
+<p>
+  <strong><%= CreditCompany.human_attribute_name('email') %>:</strong>
+  <%= @credit_company.email %>
+</p>
+
+<p>
+  <strong><%= CreditCompany.human_attribute_name('website') %>:</strong>
+  <%= @credit_company.website %>
+</p>
+
+<p>
+  <strong><%= CreditCompany.human_attribute_name('location_id') %>:</strong>
+  <%= @credit_company.location.name %>
+</p>
+
+<%= link_to t('edit'), edit_credit_company_path(@credit_company) %> |
+<%= link_to t('back'), credit_companies_path %>

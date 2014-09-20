@@ -1,9 +1,7 @@
 class Query
   include ActiveModel::Model
 
-  attr_accessor :start_date, :end_date, :results
-
-  validates :start_date, presence: true
+  attr_accessor :end_date, :results
   validates :end_date, presence: true
 
   def has_results?
@@ -18,9 +16,9 @@ class Query
       result.tap do |r|
         r.name = name
         r.human_name = human_name
-        r.average = Indicator.by_date_range(self).average(name)
-        r.sum = Indicator.by_date_range(self).sum(name)
-        r.count = Indicator.by_date_range(self).count(name)
+        r.average = Indicator.last_register_by_credit_company(self).average(name)
+        r.sum = Indicator.last_register_by_credit_company(self).sum(name)
+        r.count = Indicator.last_register_by_credit_company(self).count(name)
       end
       results.push result
     end

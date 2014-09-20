@@ -88,8 +88,7 @@ es:
       query: Consulta
     attributes:
       query:
-        start_date: Fecha de Inicio
-        end_date: Fecha Final
+        end_date: Fecha de corte
 
   city:
     created: El Cantón fue creado exitosamente.

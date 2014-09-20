@@ -88,7 +88,6 @@ en:
       query: Query
     attributes:
       query:
-        start_date: Start Date
         end_date: End Date
 
   city:

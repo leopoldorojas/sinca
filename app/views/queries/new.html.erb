@@ -8,7 +8,23 @@
         <%= f.date_field :end_date, { value: @query.end_date } %>
       </div>
 
-      <div class="small-8 columns">
+      <div class="small-6 columns">
+        <%= f.label :type %>
+
+        <%= f.radio_button :type, :all, { value: @query.type } %>
+        <%= label_tag(:type_all, t('query.types.all')) %>
+
+        <%= f.radio_button :type, :yearly, { value: @query.type } %>
+        <%= label_tag(:type_yearly, t('query.types.yearly')) %>
+
+        <%= f.radio_button :type, :monthly, { value: @query.type } %>
+        <%= label_tag(:type_monthly, t('query.types.monthly')) %>
+
+        <%= f.radio_button :type, :weekly, { value: @query.type } %>
+        <%= label_tag(:type_weekly, t('query.types.weekly')) %>
+      </div>
+
+      <div class="small-2 columns">
       </div>
     </div>
   </div>

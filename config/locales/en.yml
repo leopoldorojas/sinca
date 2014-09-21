@@ -89,6 +89,7 @@ en:
     attributes:
       query:
         end_date: End Date
+        type: Type
 
   city:
     created: City was successfully created.
@@ -166,3 +167,8 @@ en:
   query:
     new: New Query
     failed: avoid to run the query successfully
+    types:
+      all: All period
+      monthly: Monthly
+      weekly: Weekly
+      yearly: Yearly

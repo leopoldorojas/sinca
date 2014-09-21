@@ -89,6 +89,7 @@ es:
     attributes:
       query:
         end_date: Fecha de corte
+        type: Tipo de Análisis
 
   city:
     created: El Cantón fue creado exitosamente.
@@ -166,3 +167,8 @@ es:
   query:
     new: Nueva consulta
     failed: evitaron ejecutar la consulta exitosamente
+    types:
+      all: Totales a la fecha
+      monthly: Mensual
+      weekly: Semanal
+      yearly: Anual

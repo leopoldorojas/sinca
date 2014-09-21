@@ -1,7 +1,7 @@
 class Query
   include ActiveModel::Model
 
-  attr_accessor :end_date, :results
+  attr_accessor :end_date, :type, :results
   validates :end_date, presence: true
 
   def has_results?

@@ -17,6 +17,7 @@ class Query
     
     def dates 
       return [end_date] if type == "all"
+      [end_date.to_date.weeks_ago(2), end_date]
     end
 
 end

@@ -1,3 +1,3 @@
 class Result
-  attr_accessor :name, :human_name, :sum, :average, :count
+  attr_accessor :sum, :average, :count
 end

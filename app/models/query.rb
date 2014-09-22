@@ -1,29 +1,22 @@
 class Query
   include ActiveModel::Model
 
-  attr_accessor :end_date, :type, :results
+  attr_accessor :end_date, :type, :result_matrix
   validates :end_date, presence: true
 
   def has_results?
-    results.present?
+    result_matrix.present?
   end
 
   def execute
-    self.results = []
-
-    Rails.application.config.individual_indicators.each do |name, human_name|
-      result = Result.new
-      result.tap do |r|
-        r.name = name
-        r.human_name = human_name
-        r.average = Indicator.last_register_by_credit_company(self).average(name)
-        r.sum = Indicator.last_register_by_credit_company(self).sum(name)
-        r.count = Indicator.last_register_by_credit_company(self).count(name)
-      end
-      results.push result
-    end
-
-    self
+    self.result_matrix = ResultMatrix.new(dates: dates, indicators: Rails.application.config.individual_indicators.keys).calculate 
+    return self
   end
+
+  private
+    
+    def dates 
+      return [end_date] if type == "all"
+    end
 
 end

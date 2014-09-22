@@ -1,6 +1,6 @@
 <h1><%= t('query.new') %></h1>
 
-<%= form_for @query, remote: true, data: { type: :json } do |f| %>
+<%= form_for @query, remote: false, data: { type: :json } do |f| %>
   <div class="row">
     <div class="small-12 columns">
       <div class="small-4 columns">
@@ -36,10 +36,12 @@
 
 <% if @query.has_results? %>
   <p id='result_start'><b>Los resultados de tu consulta son:</b></p>
-  <% @query.results.each do |r| %>
-    <p>
-      <%= "- El promedio de #{r.human_name} es #{as_decimal(r.average) || 'incalculable'} y la suma es #{as_decimal(r.sum)} con #{r.count} registros contabilizados" %>
-    </p>
+  <% @query.result_matrix.each_key do |date| %>
+    <% @query.result_matrix[date].each do |indicator, r| %>
+      <p>
+        <%= "- El promedio de #{Rails.application.config.individual_indicators[indicator]} es #{as_decimal(r.average) || 'incalculable'} y la suma es #{as_decimal(r.sum)} con #{r.count} registros contabilizados" %>
+      </p>
+    <% end %>
   <% end %>
 <% else %>
   <p id='result_start'></p>

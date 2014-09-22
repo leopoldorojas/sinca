@@ -24,12 +24,12 @@ class Indicator < ActiveRecord::Base
       end
     end
 
-    def last_date_by_credit_company query
-      select("credit_company, max(register_date) as last_date").group(:credit_company).having("max(register_date) <= ?", query.end_date)
+    def last_date_by_credit_company upto_this_date
+      select("credit_company, max(register_date) as last_date").group(:credit_company).having("max(register_date) <= ?", upto_this_date)
     end
       
-    def last_register_by_credit_company query
-      where('id in (?)', last_date_by_credit_company(query).map {|i| where(credit_company: i.credit_company, register_date: i.last_date).take.id})
+    def last_register_by_credit_company upto_this_date
+      where('id in (?)', last_date_by_credit_company(upto_this_date).map {|i| where(credit_company: i.credit_company, register_date: i.last_date).take.id})
     end
   end
 

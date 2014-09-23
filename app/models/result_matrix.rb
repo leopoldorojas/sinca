@@ -6,7 +6,7 @@ class ResultMatrix
   def calculate
     matrix={}
     dates.each do |date|
-      matrix[date]={}
+      matrix[date.strftime("%Y-%m-%d")]={}
       indicators.each do |indicator|
         result = Result.new
         result.tap do |r|
@@ -14,7 +14,7 @@ class ResultMatrix
           r.sum = Indicator.last_register_by_credit_company(date).sum(indicator)
           r.count = Indicator.last_register_by_credit_company(date).count(indicator)
         end
-        matrix[date][indicator]=result
+        matrix[date.strftime("%Y-%m-%d")][indicator]=result
       end
     end
 

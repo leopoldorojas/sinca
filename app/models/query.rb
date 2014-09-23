@@ -15,9 +15,19 @@ class Query
 
   private
     
-    def dates 
-      return [end_date] if type == "all"
-      [end_date.to_date.weeks_ago(2), end_date]
+    def dates
+      list_of_dates = [Time.zone.parse(end_date)]
+
+      unless type == "all"
+        date_to_include = Time.zone.parse(end_date).send("prev_#{type}".to_sym).send("end_of_#{type}")
+
+        while date_to_include > Rails.application.config.app_start_date
+          list_of_dates << date_to_include
+          date_to_include = date_to_include.send("prev_#{type}".to_sym).send("end_of_#{type}")
+        end
+      end
+
+      list_of_dates
     end
 
 end

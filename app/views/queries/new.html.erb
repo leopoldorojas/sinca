@@ -14,13 +14,13 @@
         <%= f.radio_button :type, :all, { value: @query.type } %>
         <%= label_tag(:type_all, t('query.types.all')) %>
 
-        <%= f.radio_button :type, :yearly, { value: @query.type } %>
+        <%= f.radio_button :type, :year, { value: @query.type } %>
         <%= label_tag(:type_yearly, t('query.types.yearly')) %>
 
-        <%= f.radio_button :type, :monthly, { value: @query.type } %>
+        <%= f.radio_button :type, :month, { value: @query.type } %>
         <%= label_tag(:type_monthly, t('query.types.monthly')) %>
 
-        <%= f.radio_button :type, :weekly, { value: @query.type } %>
+        <%= f.radio_button :type, :week, { value: @query.type } %>
         <%= label_tag(:type_weekly, t('query.types.weekly')) %>
       </div>
 
@@ -37,11 +37,13 @@
 <% if @query.has_results? %>
   <p id='result_start'><b>Los resultados de tu consulta son:</b></p>
   <% @query.result_matrix.each_key do |date| %>
+    <p><b>Para la fecha de <%= "#{date}" %>, se tienen los siguientes resultados</b><p>
     <% @query.result_matrix[date].each do |indicator, r| %>
       <p>
         <%= "- El promedio de #{Rails.application.config.individual_indicators[indicator]} es #{as_decimal(r.average) || 'incalculable'} y la suma es #{as_decimal(r.sum)} con #{r.count} registros contabilizados" %>
       </p>
     <% end %>
+    <hr/>
   <% end %>
 <% else %>
   <p id='result_start'></p>

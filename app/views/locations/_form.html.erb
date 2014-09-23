@@ -30,14 +30,14 @@
       <% else %>
         <div class="small-4 columns">
           <%= f.label :type %>
-          <%= f.select :type, Location.types.map {|type| [type.constantize.model_name.human, type.camelcase]}, {} %>
+          <%= f.select :type, Location.types.map {|type| [type.constantize.model_name.human, type.camelcase]}, prompt: t('location.prompt_type') %>
         </div>
       <% end %>
 
       <% if @location.parent %>
         <div class="small-4 columns">
           <%= f.label "#{@location.parent.underscore}_id".to_sym %>
-          <%= f.collection_select :parent_id, "#{@location.parent}".constantize.all, :id, :name %>
+          <%= f.collection_select :parent_id, "#{@location.parent}".constantize.all, :id, :name, prompt: t('location.prompt_parent') %>
         </div>
       <% end %>
 

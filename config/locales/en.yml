@@ -51,6 +51,8 @@ en:
         one: Province
         other: Provinces
     attributes:
+      city:
+        province: Province
       credit_company: 
         name: Name
         identifier: Identifier
@@ -60,6 +62,8 @@ en:
         website: Website
         location: Location
         location_id: Location
+      district:
+        city: City
       indicator:
         credit_company: Credit Company
         file_name: File Name
@@ -82,13 +86,17 @@ en:
         country_id: Country
         district_id: District
         province_id: Province
+      province:
+        country: Country
 
   activemodel:
     models:
       query: Query
     attributes:
       query:
+        companies: Or by specific Credit Companies?
         end_date: End Date
+        location: By Location?
         type: Type
 
   city:
@@ -106,6 +114,7 @@ en:
     editing: Editing Credit Company
     listing: Listing Credit Companies
     new: New Credit Company
+    prompt_location: "Please, select the location"
     save_failed: 'prohibited this credit companny from being saved:'
     updated: Credit Company was successfully updated.
 
@@ -143,6 +152,8 @@ en:
     editing: Editing Location
     listing: Listing Locations
     new: Location
+    prompt_parent: "Please, select"
+    prompt_type: "Location type"
     save_failed: 'prohibited this location from being saved:'
     updated: Location was successfully updated.
 
@@ -165,8 +176,15 @@ en:
     updated: Province was successfully updated.
 
   query:
-    new: New Query
+    dates_and_periods: Dates and periods to analyze
     failed: avoid to run the query successfully
+    narrow_your_search_header: Filter by credit companies?
+    locations:
+      city: City
+      district: District
+      province: Province
+    new: New Query
+    prompt_location: "Please, select location required"
     types:
       all: All period
       monthly: Monthly

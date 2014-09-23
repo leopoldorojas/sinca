@@ -51,6 +51,8 @@ es:
         one: Provincia
         other: Provincias
     attributes:
+      city:
+        province: Provincia
       credit_company:
         name: Nombre
         identifier: Cédula Jurídica
@@ -60,6 +62,8 @@ es:
         website: Sitio Web
         location: Localización
         location_id: Localización
+      district:
+        city: Ciudad
       indicator:
         credit_company: Empresa de Crédito
         file_name: Nombre de Archivo
@@ -82,13 +86,17 @@ es:
         country_id: País
         district_id: Distrito
         province_id: Provincia
+      province:
+        country: País
 
   activemodel:
     models:
       query: Consulta
     attributes:
       query:
+        companies: Ó por empresas de crédito específicas
         end_date: Fecha de corte
+        location: Por ubicación
         type: Tipo de Análisis
 
   city:
@@ -106,6 +114,7 @@ es:
     editing: Editando Empresa de Crédito
     listing: Listando Empresas de Crédito
     new: Nueva Empresa de Crédito
+    prompt_location: Seleccione la ubicación
     save_failed: 'evitó que esta empresa de crédito sea grabada:'
     updated: La Empresa de Crédito fue actualizada exitosamente.
 
@@ -143,6 +152,8 @@ es:
     editing: Editando Localización
     listing: Listando Localizaciones
     new: Nueva Localización
+    prompt_parent: "Por favor, seleccione"
+    prompt_type: "Seleccione el Tipo de Localización"
     save_failed: 'evitó que esta localización sea grabada:'
     updated: La localización fue actualizada exitosamente.
 
@@ -165,8 +176,15 @@ es:
     updated: La Provincia fue actualizada exitosamente.
 
   query:
-    new: Nueva consulta
+    dates_and_periods: Fechas y periodos de análisis
     failed: evitaron ejecutar la consulta exitosamente
+    narrow_your_search_header: Análisis por empresas
+    new: Nueva consulta
+    locations:
+      city: Cantón
+      district: Distrito
+      province: Provincia
+    prompt_location: "Seleccione en caso requerido"
     types:
       all: Totales a la fecha
       monthly: Mensual

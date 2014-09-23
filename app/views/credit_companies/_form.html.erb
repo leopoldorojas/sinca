@@ -55,7 +55,7 @@
     <div class="small-12 columns">
       <div class="small-4 columns">
         <%= f.label :location_id %>
-        <%= f.collection_select :location_id, Location.all, :id, :name %>
+        <%= f.collection_select :location_id, Location.all, :id, :name, prompt: t('credit_company.prompt_location') %>
       </div>
       <div class="small-8 columns">
       </div>

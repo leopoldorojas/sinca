@@ -2,7 +2,8 @@
 
 <%= form_for @query, remote: false, data: { type: :json } do |f| %>
   <div class="row">
-    <div class="small-12 columns">
+    <fieldset class="small-12 columns">
+      <legend><%= t('query.dates_and_periods') %></legend>
       <div class="small-4 columns">
         <%= f.label :end_date %>
         <%= f.date_field :end_date, { value: @query.end_date } %>
@@ -26,7 +27,25 @@
 
       <div class="small-2 columns">
       </div>
-    </div>
+    </fieldset>
+
+    <fieldset class="small-12 columns">
+      <legend><%= t('query.narrow_your_search_header') %></legend>
+
+      <div class="small-4 columns">
+        <%= f.label :location %>
+        <%= f.collection_select :location, Location.all, :id, :name, prompt: t('query.prompt_location') %>
+      </div>
+
+      <div class="small-6 columns">
+        <%= f.label :companies %>
+        <%= f.text_field :companies, { value: (@query.companies.join(',') if @query.location.blank?) } %>
+      </div>
+
+      <div class="small-2 columns">
+      </div>
+
+    </fieldset>
   </div>
 
   <div class="actions">

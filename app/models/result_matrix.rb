@@ -1,7 +1,7 @@
 class ResultMatrix
   include ActiveModel::Model
 
-  attr_accessor :dates, :indicators
+  attr_accessor :dates, :indicators, :companies
 
   def calculate
     matrix={}
@@ -10,9 +10,9 @@ class ResultMatrix
       indicators.each do |indicator|
         result = Result.new
         result.tap do |r|
-          r.average = Indicator.last_register_by_credit_company(date).average(indicator)
-          r.sum = Indicator.last_register_by_credit_company(date).sum(indicator)
-          r.count = Indicator.last_register_by_credit_company(date).count(indicator)
+          r.average = Indicator.by_credit_company(companies).last_register_by_credit_company(date).average(indicator)
+          r.sum = Indicator.by_credit_company(companies).last_register_by_credit_company(date).sum(indicator)
+          r.count = Indicator.by_credit_company(companies).last_register_by_credit_company(date).count(indicator)
         end
         matrix[date.strftime("%Y-%m-%d")][indicator]=result
       end

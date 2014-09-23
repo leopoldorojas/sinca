@@ -1,15 +1,17 @@
 class Query
   include ActiveModel::Model
 
-  attr_accessor :end_date, :type, :result_matrix
+  attr_accessor :end_date, :type, :location, :companies, :result_matrix
   validates :end_date, presence: true
 
   def has_results?
     result_matrix.present?
   end
 
-  def execute
-    self.result_matrix = ResultMatrix.new(dates: dates, indicators: Rails.application.config.individual_indicators.keys).calculate 
+  def run
+    self.companies = companies.split(',')
+    self.companies = Location.find(location).credit_companies.ids if location.present?
+    self.result_matrix = ResultMatrix.new(dates: dates, indicators: Rails.application.config.individual_indicators.keys, companies: companies).calculate
     return self
   end
 

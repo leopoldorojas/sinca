@@ -34,10 +34,10 @@
         </div>
       <% end %>
 
-      <% if @location.parent %>
+      <% if @location.parent_model %>
         <div class="small-4 columns">
-          <%= f.label "#{@location.parent.underscore}_id".to_sym %>
-          <%= f.collection_select :parent_id, "#{@location.parent}".constantize.all, :id, :name, prompt: t('location.prompt_parent') %>
+          <%= f.label "#{@location.parent_model.underscore}_id".to_sym %>
+          <%= f.collection_select :parent_id, "#{@location.parent_model}".constantize.all, :id, :name, prompt: t('location.prompt_parent') %>
         </div>
       <% end %>
 

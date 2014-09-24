@@ -8,13 +8,20 @@ class Location < ActiveRecord::Base
     ['Country', 'Province', 'City', 'District']
   end
   
-  def parent
+  def parent_model
   	Location.types.each { |t| return t if self.respond_to? t.underscore.to_sym }
   	nil
   end
 
-  def ancestors
-    [self]
+  def location_and_descendants
+    @@locations = []
+    parse_location_tree
+    @@locations
+  end
+
+  def parse_location_tree
+    @@locations << self
+    Location.where(parent_id: id).each { |l| l.parse_location_tree }
   end
 
 end

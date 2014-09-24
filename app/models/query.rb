@@ -11,7 +11,7 @@ class Query
   def run
     if location.present?
       self.companies = []
-      Location.find(location).ancestors.each { |l| companies.concat Location.find(l).credit_companies.ids }
+      Location.find(location).location_and_descendants.each { |l| companies.concat Location.find(l).credit_companies.ids }
     else
       self.companies = companies.split(',')
     end

@@ -9,8 +9,14 @@ class Query
   end
 
   def run
-    location.present? ? location.ancestors.each { |l| companies << Location.find(l).credit_companies.ids } : self.companies = companies.split(',')
-    self.result_matrix = ResultMatrix.new(dates: dates, indicators: Rails.application.config.individual_indicators.keys, companies: companies).calculate
+    if location.present?
+      self.companies = []
+      Location.find(location).ancestors.each { |l| companies.concat Location.find(l).credit_companies.ids }
+    else
+      self.companies = companies.split(',')
+    end
+
+    self.result_matrix = ResultMatrix.new(dates: dates, indicators: Rails.application.config.individual_indicators.keys, companies: companies.uniq).calculate
     return self
   end
 

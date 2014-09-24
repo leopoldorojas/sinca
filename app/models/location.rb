@@ -13,4 +13,8 @@ class Location < ActiveRecord::Base
   	nil
   end
 
+  def ancestors
+    [self]
+  end
+
 end

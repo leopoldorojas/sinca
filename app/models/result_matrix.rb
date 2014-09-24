@@ -7,15 +7,20 @@ class ResultMatrix
     matrix={}
     dates.each do |date|
       matrix[date.strftime("%Y-%m-%d")]={}
+
       indicators.each do |indicator|
+        indicator_base = Indicator.by_credit_company(companies).before_of(date).last_register_by_credit_company(date)
+        
         result = Result.new
         result.tap do |r|
-          r.average = Indicator.by_credit_company(companies).last_register_by_credit_company(date).average(indicator)
-          r.sum = Indicator.by_credit_company(companies).last_register_by_credit_company(date).sum(indicator)
-          r.count = Indicator.by_credit_company(companies).last_register_by_credit_company(date).count(indicator)
+          r.average = indicator_base.average(indicator)
+          r.sum = indicator_base.sum(indicator)
+          r.count = indicator_base.count(indicator)
         end
-        matrix[date.strftime("%Y-%m-%d")][indicator]=result
+        
+        matrix[date.strftime("%Y-%m-%d")][indicator] = result
       end
+
     end
 
     matrix

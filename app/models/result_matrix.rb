@@ -18,8 +18,8 @@ class ResultMatrix
         { indicator: indicator, result: result }
       end
 
-      { date: date, indicator_results: indicator_results }
+      { date: date, results: indicator_results }
     end
   end
-  
+
 end

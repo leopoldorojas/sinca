@@ -53,13 +53,13 @@
   </div>
 <% end %>
 
-<% if @query.has_results? %>
+<% if @query.results.present? %>
   <p id='result_start'><b>Los resultados de tu consulta son:</b></p>
-  <% @query.result_matrix.each_key do |date| %>
-    <p><b>Para la fecha de <%= "#{date}" %>, se tienen los siguientes resultados</b><p>
-    <% @query.result_matrix[date].each do |indicator, r| %>
+  <% @query.results.each do |results_by_date| %>
+    <p><b>Para la fecha de <%= "#{results_by_date[:date].strftime("%Y-%m-%d")}" %>, se tienen los siguientes resultados</b><p>
+    <% results_by_date[:indicator_results].each do |r| %>
       <p>
-        <%= "- El promedio de #{Rails.application.config.individual_indicators[indicator]} es #{as_decimal(r.average) || 'incalculable'} y la suma es #{as_decimal(r.sum)} con #{r.count} registros contabilizados" %>
+        <%= "- El promedio de #{Rails.application.config.individual_indicators[r[:indicator]]} es #{as_decimal(r[:result].average) || 'incalculable'} y la suma es #{as_decimal(r[:result].sum)} con #{r[:result].count} registros contabilizados" %>
       </p>
     <% end %>
     <hr/>

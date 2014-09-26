@@ -3,12 +3,9 @@ class ResultMatrix
 
   attr_accessor :dates, :indicators, :companies
 
-  def calculate
-    matrix={}
-    dates.each do |date|
-      matrix[date.strftime("%Y-%m-%d")]={}
-
-      indicators.each do |indicator|
+  def results
+    dates.map do |date|
+      indicator_results = indicators.map do |indicator|
         indicator_base = Indicator.by_credit_company(companies).before_of(date).last_register_by_credit_company(date)
         
         result = Result.new
@@ -18,12 +15,11 @@ class ResultMatrix
           r.count = indicator_base.count(indicator)
         end
         
-        matrix[date.strftime("%Y-%m-%d")][indicator] = result
+        { indicator: indicator, result: result }
       end
 
+      { date: date, indicator_results: indicator_results }
     end
-
-    matrix
   end
-
+  
 end

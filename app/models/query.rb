@@ -1,12 +1,8 @@
 class Query
   include ActiveModel::Model
 
-  attr_accessor :end_date, :type, :location, :companies, :result_matrix
+  attr_accessor :end_date, :type, :location, :companies, :results
   validates :end_date, presence: true
-
-  def has_results?
-    result_matrix.present?
-  end
 
   def run
     if location.present?
@@ -16,8 +12,7 @@ class Query
       self.companies = companies.split(',')
     end
 
-    self.result_matrix = ResultMatrix.new(dates: dates, indicators: Rails.application.config.individual_indicators.keys, companies: companies.uniq).calculate
-    return self
+    self.results = ResultMatrix.new(dates: dates, indicators: Rails.application.config.individual_indicators.keys, companies: companies.uniq).results
   end
 
   private

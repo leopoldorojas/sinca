@@ -4,8 +4,8 @@ class ResultMatrix
   attr_accessor :dates, :indicators, :companies
 
   def results
-    dates.map do |date|
-      indicator_results = indicators.map do |indicator|
+    indicators.map do |indicator|
+      date_results = dates.map do |date|
         indicator_base = Indicator.by_credit_company(companies).before_of(date).last_register_by_credit_company(date)
         
         result = Result.new
@@ -15,10 +15,10 @@ class ResultMatrix
           r.count = indicator_base.count(indicator)
         end
         
-        { indicator: indicator, result: result }
+        { date: date, result: result }
       end
 
-      { date: date, results: indicator_results }
+      { indicator: indicator, results: date_results }
     end
   end
 

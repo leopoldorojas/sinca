@@ -54,6 +54,7 @@
 <% end %>
 
 <% if @query.results.present? %>
+  <p id="graphs"></p>
   <p id='result_start'><b>Los resultados de tu consulta son:</b></p>
   <% @query.results.each do |indicator| %>
     <p><b>Para el Indicador <%= "#{Rails.application.config.individual_indicators[indicator[:indicator]]}" %>, se tienen los siguientes resultados</b><p>

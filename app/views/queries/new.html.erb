@@ -63,13 +63,13 @@
     <% end %>
   <% end %>
   <% @query.results.each do |indicator| %>
-    <p><b>Para el Indicador <%= "#{Rails.application.config.individual_indicators[indicator[:indicator]]}" %>, se tienen los siguientes resultados</b><p>
-    <% indicator[:results].each do |r| %>
-      <p>
-        <%= "- El promedio en la fecha #{r[:date].strftime('%Y-%m-%d')} es #{as_decimal(r[:result].average) || 'incalculable'} y la suma es #{as_decimal(r[:result].sum)} con #{r[:result].count} registros contabilizados" %>
-      </p>
-    <% end %>
-    <hr/>
+    <div id='text_<%= "#{indicator[:indicator]}" %>', class="graph_detail">
+      <p><b>Para el Indicador <%= "#{Rails.application.config.individual_indicators[indicator[:indicator]]}" %>, se tienen los siguientes resultados</b><br>
+      <% indicator[:results].each do |r| %>
+        <%= "- El promedio en la fecha #{r[:date].strftime('%Y-%m-%d')} es #{as_decimal(r[:result].average) || 'incalculable'} y la suma es #{as_decimal(r[:result].sum)} con #{r[:result].count} registros contabilizados" %><br>
+      <% end %>
+      </p><hr/>
+    </div>
   <% end %>
 <% else %>
   <p id='result_start'></p>

@@ -2,10 +2,25 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+graph_width = 480
+graph_height = 250
+size = "graph_mini"
+
+set_display_events = (indicator, type) -> 
+  $( "##{type}_graph_mini_#{indicator}" ).click () ->
+    $(".graph_mini").slideUp("slow")
+    $("##{type}_graph_detail_#{indicator}").slideDown("slow")
+    $("#text_#{indicator}").slideDown("slow")
+
+  $( "##{type}_graph_detail_#{indicator}" ).click () ->
+    $(".graph_mini").slideDown("slow")
+    $("##{type}_graph_detail_#{indicator}").slideUp("slow")
+    $("#text_#{indicator}").slideUp("slow")
+
 create_bar_graph = (indicator) ->
   margin = {top: 20, right: 20, bottom: 30, left: 60}
-  width = 480 - margin.left - margin.right
-  height = 250 - margin.top - margin.bottom
+  width = graph_width - margin.left - margin.right
+  height = graph_height - margin.top - margin.bottom
 
   x = d3.scale.ordinal()
     .rangeRoundBands([0, width], .1)
@@ -25,10 +40,12 @@ create_bar_graph = (indicator) ->
   svg = d3.select("#bar_graphs").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
+    .attr("id", "bar_#{size}_#{indicator.indicator}")
+    .attr("class", "#{size}")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
-  dataset = ([ each_date.date.substr(0,10), each_date.result.average ] for each_date in indicator.results)
+  dataset = ([ each_date.date.substr(0,10), each_date.result.average || 0 ] for each_date in indicator.results)
 
   x.domain(d[0] for d in dataset)
   y.domain([0, d3.max(dataset, (d) -> d[1] )])
@@ -56,11 +73,13 @@ create_bar_graph = (indicator) ->
     .attr("width", x.rangeBand())
     .attr("y", (d) -> y d[1] )
     .attr("height", (d) -> (height - y d[1]) )
+  
+  set_display_events indicator.indicator, "bar"
 
 create_line_graph = (indicator) ->
-  margin = {top: 20, right: 20, bottom: 30, left: 50}
-  width = 960 - margin.left - margin.right
-  height = 500 - margin.top - margin.bottom
+  margin = {top: 20, right: 20, bottom: 30, left: 60}
+  width = graph_width - margin.left - margin.right
+  height = graph_height - margin.top - margin.bottom
 
   parseDate = d3.time.format("%Y-%m-%d").parse
 
@@ -82,13 +101,15 @@ create_line_graph = (indicator) ->
     .x( (d) -> x(d[0]) )
     .y( (d) -> y(d[1]) )
 
-  svg = d3.select("body").append("svg")
+  svg = d3.select("#line_graphs").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
+    .attr("id", "line_#{size}_#{indicator.indicator}")
+    .attr("class", "#{size}")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
-  dataset = ([ parseDate(each_date.date.substr(0,10)), each_date.result.average ] for each_date in indicator.results)
+  dataset = ([ parseDate(each_date.date.substr(0,10)), each_date.result.average || 0 ] for each_date in indicator.results)
 
   x.domain d3.extent(dataset, (d) -> d[0])
   y.domain d3.extent(dataset, (d) -> d[1])
@@ -113,9 +134,21 @@ create_line_graph = (indicator) ->
     .attr("class", "line")
     .attr("d", line)
 
+  set_display_events indicator.indicator, "line"
+
 if $('#bar_graphs').length > 0
   indicators = $('#bar_graphs').data('results')
   create_bar_graph indicator for indicator in indicators
+  graph_width = 960
+  graph_height = 500
+  size = "graph_detail"
+  create_bar_graph indicator for indicator in indicators
+  $(".graph_detail").hide()
 else if $('#line_graphs').length > 0
   indicators = $('#line_graphs').data('results')
   create_line_graph indicator for indicator in indicators
+  graph_width = 960
+  graph_height = 500
+  size = "graph_detail"
+  create_line_graph indicator for indicator in indicators
+  $(".graph_detail").hide()

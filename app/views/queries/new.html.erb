@@ -39,7 +39,7 @@
 
       <div class="small-6 columns">
         <%= f.label :companies %>
-        <%= f.text_field :companies, { value: (@query.companies.join(',') if @query.location.blank?) } %>
+        <%= f.text_field :companies, { value: (@query.companies if @query.companies.present? && @query.location.blank?) } %>
       </div>
 
       <div class="small-2 columns">

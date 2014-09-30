@@ -6,13 +6,14 @@ class Query
 
   def run
     if location.present?
-      self.companies = []
-      Location.find(location).location_and_descendants.each { |l| companies.concat Location.find(l).credit_companies.ids }
+      companies_ids = []
+      Location.find(location).location_and_descendants.each { |l| companies_ids.concat Location.find(l).credit_companies.ids }
     else
-      self.companies = companies.split(',')
+      # Faltan espacios y mayusculas
+      companies_ids = companies.split(',').map { |company_name| CreditCompany.where("upper(name) LIKE ?", "%#{company_name.strip.upcase}%").try(:first).try(:id) }
     end
 
-    self.results = ResultMatrix.new(dates: dates, indicators: Rails.application.config.individual_indicators.keys, companies: companies.uniq).results
+    self.results = ResultMatrix.new(dates: dates, indicators: Rails.application.config.individual_indicators.keys, companies: companies_ids.compact.uniq).results
   end
 
   private

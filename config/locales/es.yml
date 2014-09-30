@@ -186,7 +186,7 @@ es:
       province: Provincia
     prompt_location: "Seleccione en caso requerido"
     types:
-      all: Totales a la fecha
+      all: Solo totales al corte
       monthly: Mensual
       weekly: Semanal
       yearly: Anual

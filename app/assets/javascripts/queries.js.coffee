@@ -83,6 +83,33 @@ create_line_graph = (indicator) ->
 
   parseDate = d3.time.format("%Y-%m-%d").parse
 
+  es_ES = {
+    "decimal": ".",
+    "thousands": ",",
+    "grouping": [3],
+    "currency": ["$", ""],
+    "dateTime": "%a %b %e %X %Y",
+    "date": "%d/%m/%Y",
+    "time": "%H:%M:%S",
+    "periods": ["AM", "PM"],
+    "days": ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+    "shortDays": ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
+    "months": ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+    "shortMonths": ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dec"]
+  }
+
+  ES = d3.locale(es_ES);
+  customTickFormat = ES.timeFormat.multi [
+    [".%L", (d) -> d.getMilliseconds() ],
+    [":%S", (d) -> d.getSeconds() ],
+    ["%I:%M", (d) -> d.getMinutes() ],
+    ["%I %p", (d) -> d.getHours() ],
+    ["%a %d", (d) -> d.getDay() && d.getDate() != 1 ],
+    ["%b %d", (d) -> d.getDate() != 1 ],
+    ["%b", (d) -> d.getMonth() ],
+    ["%Y", (d) -> true ]
+  ]
+
   x = d3.time.scale()
     .range([0, width])
 
@@ -92,6 +119,7 @@ create_line_graph = (indicator) ->
   xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom")
+    .tickFormat(customTickFormat)
 
   yAxis = d3.svg.axis()
     .scale(y)

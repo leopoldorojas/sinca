@@ -56,10 +56,10 @@
 <% if @query.results.present? %>
   <p id='result_start'><b>Los resultados de tu consulta son:</b></p>
   <% if @query.type == "year" %>
-    <%= content_tag "div", id: "bar_graphs", data: { results: @query.results } do %>
+    <%= content_tag "div", id: "bar_graphs", data: { results: @query.results, inames: "#{Rails.application.config.individual_indicators.to_json}" } do %>
     <% end %>
   <% elsif @query.type == "month" || @query.type == "week" %>
-    <%= content_tag "div", id: "line_graphs", data: { results: @query.results } do %>
+    <%= content_tag "div", id: "line_graphs", data: { results: @query.results, inames: "#{Rails.application.config.individual_indicators.to_json}" } do %>
     <% end %>
   <% end %>
   <% @query.results.each do |indicator| %>

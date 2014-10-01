@@ -17,7 +17,7 @@ set_display_events = (indicator, type) ->
     $("##{type}_graph_detail_#{indicator}").slideUp("slow")
     $("#text_#{indicator}").slideUp("slow")
 
-create_bar_graph = (indicator) ->
+create_bar_graph = (indicator, iname) ->
   margin = {top: 20, right: 20, bottom: 30, left: 60}
   width = graph_width - margin.left - margin.right
   height = graph_height - margin.top - margin.bottom
@@ -73,10 +73,17 @@ create_bar_graph = (indicator) ->
     .attr("width", x.rangeBand())
     .attr("y", (d) -> y d[1] )
     .attr("height", (d) -> (height - y d[1]) )
+
+  svg.append("text")
+    .attr("class", "title")
+    .attr("x", width / 2 )
+    .attr("y", 0)
+    .style("text-anchor", "middle")
+    .text("#{iname}")
   
   set_display_events indicator.indicator, "bar"
 
-create_line_graph = (indicator) ->
+create_line_graph = (indicator, iname) ->
   margin = {top: 20, right: 20, bottom: 30, left: 60}
   width = graph_width - margin.left - margin.right
   height = graph_height - margin.top - margin.bottom
@@ -162,21 +169,30 @@ create_line_graph = (indicator) ->
     .attr("class", "line")
     .attr("d", line)
 
+  svg.append("text")
+    .attr("class", "title")
+    .attr("x", width / 2 )
+    .attr("y", 0)
+    .style("text-anchor", "middle")
+    .text("#{iname}")
+
   set_display_events indicator.indicator, "line"
 
 if $('#bar_graphs').length > 0
   indicators = $('#bar_graphs').data('results')
-  create_bar_graph indicator for indicator in indicators
+  inames = $('#bar_graphs').data('inames')
+  create_bar_graph indicator, inames["#{indicator.indicator}"] for indicator in indicators
   graph_width = 960
   graph_height = 500
   size = "graph_detail"
-  create_bar_graph indicator for indicator in indicators
+  create_bar_graph indicator, inames["#{indicator.indicator}"] for indicator in indicators
   $(".graph_detail").hide()
 else if $('#line_graphs').length > 0
   indicators = $('#line_graphs').data('results')
-  create_line_graph indicator for indicator in indicators
+  inames = $('#line_graphs').data('inames')
+  create_line_graph indicator, inames["#{indicator.indicator}"] for indicator in indicators
   graph_width = 960
   graph_height = 500
   size = "graph_detail"
-  create_line_graph indicator for indicator in indicators
+  create_line_graph indicator, inames["#{indicator.indicator}"] for indicator in indicators
   $(".graph_detail").hide()

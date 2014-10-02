@@ -10,7 +10,8 @@ class ResultMatrix
         
         result = Result.new
         result.tap do |r|
-          r.average *= 0.5+rand if r.average = indicator_base.average(indicator)
+          #r.average *= 0.5+rand if r.average = indicator_base.average(indicator)
+          r.average = indicator_base.average(indicator)
           r.sum = indicator_base.sum(indicator)
           r.count = indicator_base.count(indicator)
         end

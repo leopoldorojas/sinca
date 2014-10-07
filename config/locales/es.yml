@@ -46,7 +46,7 @@ es:
         one: Distrito
         other: Distritos
       indicator: Indicador
-      location: Localización
+      location: Ubicación
       province:
         one: Provincia
         other: Provincias
@@ -60,8 +60,8 @@ es:
         phone: Teléfono
         email: Correo Electrónico
         website: Sitio Web
-        location: Localización
-        location_id: Localización
+        location: Ubicación
+        location_id: Ubicación
       district:
         city: Ciudad
       indicator:
@@ -147,22 +147,22 @@ es:
     uploaded: Archivo recibido correctamente.
 
   location:
-    created: La localización fue creada exitosamente.
-    destroyed: La localización fue borrada exitosamente.
-    editing: Editando Localización
-    listing: Listando Localizaciones
-    new: Nueva Localización
+    created: La ubicación fue creada exitosamente.
+    destroyed: La ubicación fue borrada exitosamente.
+    editing: Editando Ubicación
+    listing: Listando Ubicaciones
+    new: Nueva Ubicación
     prompt_parent: "Por favor, seleccione"
-    prompt_type: "Seleccione el Tipo de Localización"
-    save_failed: 'evitó que esta localización sea grabada:'
-    updated: La localización fue actualizada exitosamente.
+    prompt_type: "Seleccione el Tipo de Ubicación"
+    save_failed: 'evitó que esta ubicación sea grabada:'
+    updated: La ubicación fue actualizada exitosamente.
 
   menu:
     about: Acerca de
     credit_companies: Empresas
     home: Inicio
     indicators: Registros
-    locations: Localizaciones
+    locations: Ubicaciones
     queries: Análisis
     users: Usuarios
 

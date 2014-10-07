@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140918223301) do
+ActiveRecord::Schema.define(version: 20141007223348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20140918223301) do
 
   create_table "indicators", force: true do |t|
     t.datetime "register_date"
-    t.integer  "credit_company"
+    t.integer  "credit_company_id"
     t.string   "file_name"
     t.decimal  "indicator_1"
     t.decimal  "indicator_2"

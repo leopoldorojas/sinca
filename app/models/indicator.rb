@@ -1,4 +1,5 @@
 class Indicator < ActiveRecord::Base
+  belongs_to :credit_company
   validates :credit_company, presence: true
 
   class << self

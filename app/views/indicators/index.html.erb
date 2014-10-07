@@ -20,7 +20,7 @@
     <% @indicators.each do |indicator| %>
       <tr>
         <td><%= indicator.register_date.strftime("%d/%m/%Y") %></td>
-        <td><%= indicator.credit_company %></td>
+        <td><%= indicator.credit_company.name %></td>
         <td><%= as_money(indicator.indicator_1) %></td>
         <td><%= as_money(indicator.indicator_2) %></td>
         <td><%= as_integer(indicator.indicator_3) %></td>

@@ -27,6 +27,10 @@ module Sinca
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :es
 
+    config.to_prepare do
+      Devise::SessionsController.layout "sign_in_layout" 
+    end
+
     config.app_start_date = Date.new(2013, 8, 1)
     config.individual_indicators = {
       indicator_1: "Saldo Bruto de Cartera de Préstamos",

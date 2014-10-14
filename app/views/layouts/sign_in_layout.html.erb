@@ -12,19 +12,9 @@
   </head>
 
   <body data-no-turbolink> 
-    <div class="row large-12 columns">  
-      <div class="large-3 columns">
-      </div>
-
-      <div class="large-6 columns">
-        <%= image_tag "Logo_Edesa.png" %>
-        <%= yield %>
-      </div>
-
-      <div class="large-3 columns">
-      </div>
+    <div class="row large-4 large-centered columns" id="sign_in">  
+      <%= yield %>
     </div>
-
     <%= javascript_include_tag "application" %>
   </body>
 </html>

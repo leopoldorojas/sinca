@@ -31,6 +31,7 @@ es:
   queries: Consultas
   show: Mostrar
   system_title: 'SINCA: Sistema de Indicadores de Cartera'
+  sign_out: Salir
   upload: Subir archivo
 
   activerecord:
@@ -126,6 +127,14 @@ es:
     new: Nuevo País
     save_failed: 'evitó que este país sea grabado:'
     updated: El País fue actualizado exitosamente.
+
+  devise_views:
+    email: Correo Electrónico
+    forgot_password: ¿Olvidaste tu contraseña?
+    login: Iniciar Sesión
+    password: Contraseña
+    remember_me: Recordar sesión
+    sign_up: Registrarse
 
   district:
     created: El Distrito fue creado exitosamente.

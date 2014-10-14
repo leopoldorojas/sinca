@@ -29,6 +29,7 @@ module Sinca
 
     config.to_prepare do
       Devise::SessionsController.layout "sign_in_layout" 
+      Devise::RegistrationsController.layout "sign_in_layout"
     end
 
     config.app_start_date = Date.new(2013, 8, 1)

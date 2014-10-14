@@ -31,6 +31,7 @@ en:
   queries: Queries
   show: Show
   system_title: Portfolio Indicators System
+  sign_out: Sign Out
   upload: Upload
 
   activerecord:
@@ -126,6 +127,14 @@ en:
     new: New Country
     save_failed: 'prohibited this country from being saved:'
     updated: Country was successfully updated.
+
+  devise_views:
+    email: Email
+    forgot_password: Forgot your password?
+    login: Login
+    password: Password
+    remember_me: Remember me
+    sign_up: Sign up
 
   district:
     created: District was successfully created.

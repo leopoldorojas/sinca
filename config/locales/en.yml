@@ -132,8 +132,12 @@ en:
     email: Email
     forgot_password: Forgot your password?
     login: Login
+    minimum_chars: characters minimum
+    name: Name
     password: Password
+    password_confirmation: Password confirmation
     remember_me: Remember me
+    registration: Sign up in the system
     sign_up: Sign up
 
   district:

@@ -132,8 +132,12 @@ es:
     email: Correo Electrónico
     forgot_password: ¿Olvidaste tu contraseña?
     login: Iniciar Sesión
+    minimum_chars: caracteres mínimo
+    name: Nombre
     password: Contraseña
+    password_confirmation: Confirmar contraseña
     remember_me: Recordar sesión
+    registration: Registrarse en el Sistema de Indicadores de Cartera
     sign_up: Registrarse
 
   district:

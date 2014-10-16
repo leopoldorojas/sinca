@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users, only: [:index, :edit, :update]
   resources :credit_companies
 
   resources :locations
@@ -8,7 +9,7 @@ Rails.application.routes.draw do
   resources :cities, controller: 'locations', type: 'City' 
   resources :districts, controller: 'locations', type: 'District'
 
-  resources :queries, :only => [:new, :create]
+  resources :queries, only: [:new, :create]
 
   resources :indicators do
     get 'upload', on: :new

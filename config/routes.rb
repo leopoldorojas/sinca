@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users, only: [:index, :edit, :update]
+  resources :users, except: [:new, :create, :show]
   resources :credit_companies
 
   resources :locations

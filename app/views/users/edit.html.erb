@@ -1,2 +1,36 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h4><%= t('user.editing') %></h4>
+
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= "#{pluralize(@user.errors.count, 'error')} #{t('user.save_failed')}" %></h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+  	<div class="small-4 columns"><%= f.label :name %></div>
+  	<div class="small-3 columns"><%= f.label :email %></div>
+  	<div class="small-2 columns"><%= f.label :approved %></div>
+    <div class="small-3 columns"></div>
+  </div>
+
+  <div class="row">
+    <div class="small-4 columns"><%= f.text_field :name, autofocus: true %></div>
+  	<div class="small-3 columns"><%= @user.email %></div>
+    <div class="small-2 columns"><%= f.check_box :approved %></div>
+    <div class="small-3 columns"></div>
+  </div>
+
+  <div class="row small-12 columns">
+	  <div class="actions">
+	    <%= f.submit class: "button small radius" %>
+	  </div>
+	</div>
+
+<% end %>

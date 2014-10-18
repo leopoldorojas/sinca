@@ -28,10 +28,12 @@ es:
   destroy: Borrar
   do_query: Consultar
   edit: Editar
+  FalseClass: "No"
   queries: Consultas
   show: Mostrar
   system_title: 'SINCA: Sistema de Indicadores de Cartera'
   sign_out: Salir
+  TrueClass: Sí
   upload: Subir archivo
 
   activerecord:
@@ -51,6 +53,7 @@ es:
       province:
         one: Provincia
         other: Provincias
+      user: Usuario
     attributes:
       city:
         province: Provincia
@@ -89,6 +92,10 @@ es:
         province_id: Provincia
       province:
         country: País
+      user:
+        approved: ¿Autorizado?
+        email: Correo Electrónico
+        name: Nombre
 
   activemodel:
     models:
@@ -203,3 +210,12 @@ es:
       monthly: Mensual
       weekly: Semanal
       yearly: Anual
+
+  user:
+    destroyed: El Usuario fue borrado exitosamente.
+    editing: Editando Usuario
+    listing: Listando Usuarios
+    save_failed: 'evitó que este usuarios sea grabado:'
+    updated: El Usuario fue actualizado exitosamente.
+    waiting_for_approval: Solo los que esperan autorización
+

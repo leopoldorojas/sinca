@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  belongs_to :credit_company
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -9,8 +10,7 @@ class User < ActiveRecord::Base
   end
 
   def active_for_authentication? 
-    #super && approved?
-    super
+    super && approved?
   end 
 
   def inactive_message 

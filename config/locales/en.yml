@@ -28,10 +28,12 @@ en:
   destroy: Destroy
   do_query: Submit
   edit: Edit
+  FalseClass: "No"
   queries: Queries
   show: Show
   system_title: Portfolio Indicators System
   sign_out: Sign Out
+  TrueClass: "Yes"
   upload: Upload
 
   activerecord:
@@ -51,6 +53,7 @@ en:
       province:
         one: Province
         other: Provinces
+      user: User
     attributes:
       city:
         province: Province
@@ -89,6 +92,10 @@ en:
         province_id: Province
       province:
         country: Country
+      user:
+        approved: Approved?
+        email: Email
+        name: Name
 
   activemodel:
     models:
@@ -203,3 +210,11 @@ en:
       monthly: Monthly
       weekly: Weekly
       yearly: Yearly
+
+  user:
+    destroyed: User was successfully destroyed.
+    editing: Editing User
+    listing: Listing Users
+    save_failed: 'prohibited this user from being saved:'
+    updated: User was successfully updated.
+    waiting_for_approval: Users awaiting approval

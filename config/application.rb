@@ -33,14 +33,15 @@ module Sinca
     end
 
     config.app_start_date = Date.new(2013, 8, 1)
+    config.superadmin = "leopoldo.rojas@arckanto.com"
     config.individual_indicators = {
       indicator_1: "Saldo Bruto de Cartera de Préstamos",
-      indicator_2: "Cartera en Riesgo > 90 Días",
-      indicator_3: "Clientes Activos",
-      indicator_4: "Porcentaje de Mujeres Prestatarias",
-      indicator_5: "Promedio del Saldo en Préstamos",
-      indicator_6: "Total Desembolsado (Préstamos Activos)",
-      indicator_7: "Créditos Desembolsados (total histórico)"
+      indicator_2: "Promedio del Saldo en Préstamos",
+      indicator_3: "Cartera en Riesgo > 30 Días",
+      indicator_4: "Cartera en Riesgo > 90 Días",
+      indicator_5: "Clientes Activos",
+      indicator_6: "Préstamos Activos",
+      indicator_7: "Porcentaje de Mujeres Prestatarias"
     }
   end
 end

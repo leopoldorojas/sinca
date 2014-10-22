@@ -16,15 +16,15 @@
   <div class="row">
   	<div class="small-4 columns"><%= f.label :name %></div>
   	<div class="small-3 columns"><%= f.label :email %></div>
+    <div class="small-3 columns"><%= f.label :credit_company %></div>
   	<div class="small-2 columns"><%= f.label :approved %></div>
-    <div class="small-3 columns"></div>
   </div>
 
   <div class="row">
     <div class="small-4 columns"><%= f.text_field :name, autofocus: true %></div>
   	<div class="small-3 columns"><%= @user.email %></div>
+    <div class="small-3 columns"><%= f.collection_select :credit_company_id, CreditCompany.all, :id, :name, prompt: t('user.prompt_credit_company') %></div>
     <div class="small-2 columns"><%= f.check_box :approved %></div>
-    <div class="small-3 columns"></div>
   </div>
 
   <div class="row small-12 columns">

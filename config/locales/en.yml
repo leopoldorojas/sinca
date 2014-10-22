@@ -61,6 +61,7 @@ en:
         name: Name
         identifier: Identifier
         contact: Contact Name
+        credit_company: Credit Company
         phone: Phone Number
         email: Email
         website: Website
@@ -71,13 +72,13 @@ en:
       indicator:
         credit_company: Credit Company
         file_name: File Name
-        indicator_1: First Indicator
-        indicator_2: Second Indicator
-        indicator_3: Third Indicator
-        indicator_4: Fourth Indicator
-        indicator_5: Fifth Indicator
-        indicator_6: Sixth Indicator
-        indicator_7: Seventh Indicator
+        indicator_1: "Total Gross Balance on Loans"
+        indicator_2: "Average of balance on Loans"
+        indicator_3: "Portfolio at risk > 30 Days"
+        indicator_4: "Portfolio at risk > 90 Days"
+        indicator_5: "Active customers"
+        indicator_6: "Active loans"
+        indicator_7: "Percentage of women in loans"
         register_date: Register Date
         status: Status
       location:
@@ -94,6 +95,7 @@ en:
         country: Country
       user:
         approved: Approved?
+        credit_company: Credit Company
         email: Email
         name: Name
 
@@ -123,7 +125,7 @@ en:
     listing: Listing Credit Companies
     new: New Credit Company
     prompt_location: "Please, select the location"
-    save_failed: 'prohibited this credit companny from being saved:'
+    save_failed: 'prohibited this credit company from being saved:'
     updated: Credit Company was successfully updated.
 
   country:
@@ -215,6 +217,7 @@ en:
     destroyed: User was successfully destroyed.
     editing: Editing User
     listing: Listing Users
+    prompt_credit_company: Select the credit company
     save_failed: 'prohibited this user from being saved:'
     updated: User was successfully updated.
     waiting_for_approval: Users awaiting approval

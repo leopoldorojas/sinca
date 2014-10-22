@@ -7,7 +7,7 @@
 
 <p>
   <strong><%= Indicator.human_attribute_name('credit_company') %>:</strong>
-  <%= @indicator.credit_company %>
+  <%= @indicator.credit_company.name %>
 </p>
 
 <p>
@@ -27,7 +27,7 @@
 
 <p>
   <strong><%= Indicator.human_attribute_name('indicator_3') %>:</strong>
-  <%= as_integer(@indicator.indicator_3) %>
+  <%= as_percentage(@indicator.indicator_3) %>
 </p>
 
 <p>
@@ -37,17 +37,17 @@
 
 <p>
   <strong><%= Indicator.human_attribute_name('indicator_5') %>:</strong>
-  <%= as_money(@indicator.indicator_5) %>
+  <%= as_integer(@indicator.indicator_5) %>
 </p>
 
 <p>
   <strong><%= Indicator.human_attribute_name('indicator_6') %>:</strong>
-  <%= as_money(@indicator.indicator_6) %>
+  <%= as_integer(@indicator.indicator_6) %>
 </p>
 
 <p>
   <strong><%= Indicator.human_attribute_name('indicator_7') %>:</strong>
-  <%= as_integer(@indicator.indicator_7) %>
+  <%= as_percentage(@indicator.indicator_7) %>
 </p>
 
 <p>

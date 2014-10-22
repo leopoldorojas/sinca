@@ -10,7 +10,7 @@ es:
       invalid: Email o contraseña no válidos.
       last_attempt: Tienes un intento más antes de que tu cuenta sea bloqueada.
       locked: Tu cuenta está bloqueada.
-      not_approved: 'Tu cuenta aún no ha sido aprobada por el administrador del sistema.'
+      not_approved: 'Tu cuenta aún no ha sido activada por el administrador del sistema.'
       not_found_in_database: Email o contraseña no válidos.
       timeout: Tu sesión expiró. Por favor, inicia sesión nuevamente para continuar.
       unauthenticated: Tienes que iniciar sesión o registrarte para poder continuar.

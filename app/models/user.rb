@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   end
 
   def active_for_authentication? 
-    super && approved?
+    super && (approved? || email == Rails.application.config.superadmin)
   end 
 
   def inactive_message 

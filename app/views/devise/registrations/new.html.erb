@@ -20,6 +20,9 @@
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
 
+    <div><%= f.label User.human_attribute_name('credit_company') %><br />
+    <%= f.collection_select :credit_company_id, CreditCompany.all, :id, :name, prompt: t('user.prompt_credit_company') %></div>
+
     <div><%= f.submit t('devise_views.sign_up'), class: "button tiny radius" %> <small>ó <%= link_to t('devise_views.login'), new_session_path(resource_name) %></small></div>
   </fieldset>
 <% end %>

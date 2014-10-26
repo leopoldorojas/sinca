@@ -20,7 +20,7 @@
 
       <div class="small-4 columns">
         <%= f.label :credit_company %>
-        <%= f.text_field :credit_company %>
+        <%= f.collection_select :credit_company_id, CreditCompany.all, :id, :name %>
       </div>
 
       <div class="small-4 columns">

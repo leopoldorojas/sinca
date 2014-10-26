@@ -66,7 +66,11 @@
     <div id='text_<%= "#{indicator[:indicator]}" %>', class="graph_detail">
       <p><b>Para el Indicador <%= "#{Rails.application.config.individual_indicators[indicator[:indicator]]}" %>, se tienen los siguientes resultados</b><br>
       <% indicator[:results].each do |r| %>
-        <%= "- El promedio en la fecha #{r[:date].strftime('%Y-%m-%d')} es #{as_decimal(r[:result].average) || 'incalculable'} y la suma es #{as_decimal(r[:result].sum)} con #{r[:result].count} registros contabilizados" %><br>
+        <%= "- El promedio en la fecha #{r[:date].strftime('%Y-%m-%d')} es #{as_decimal(r[:result].average) || 'incalculable'}" %>
+        <% unless Rails.application.config.indicator_rules.keys.include?(indicator[:indicator]) %>
+          <%= " y la suma es #{as_decimal(r[:result].sum)}" %>
+        <% end %>
+        <%= " con #{r[:result].count} registros contabilizados" %><br>
       <% end %>
       </p><hr/>
     </div>

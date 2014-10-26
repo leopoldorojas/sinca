@@ -43,5 +43,31 @@ module Sinca
       indicator_6: "Préstamos Activos",
       indicator_7: "Porcentaje de Mujeres Prestatarias"
     }
+
+    config.indicator_rules = {
+
+      indicator_2: {
+        operated_by: :divided_by,
+        dividend: :indicator_1, 
+        divisor: :indicator_6
+      },
+
+      indicator_3: {
+        operated_by: :percentage,
+        entire: :indicator_1
+      },
+
+      indicator_4: {
+        operated_by: :percentage,
+        entire: :indicator_1
+      },
+
+      indicator_7: {
+        operated_by: :percentage,
+        entire: :indicator_5
+      },
+
+    }
+
   end
 end

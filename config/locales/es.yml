@@ -164,8 +164,12 @@ es:
     created: El Indicador fue creado exitosamente.
     destroyed: El Indicador fue borrado exitosamente.
     editing: Editando Indicador
+    empty_file_name: "es obligatorio. Por favor, seleccione el archivo el archivo de indicadores que desea subir"
+    indications_for_upload: "Para subir un nuevo archivo de Indicadores, por favor seleccione el archivo desde su computadora, y luego dele click al botón de 'Subir Archivo'."
+    invalid_file: "Archivo incorrecto o contiene solo Indicadores en 0. Por favor, suba un archivo válido"
+    invalid_format: Formato del archivo no es válido. Debe ser un archivo Excel.
     listing: Listando Indicadores
-    new: Nuevo Indicador
+    new: Registro de Archivo de Indicadores
     save_failed: 'evitó que este indicador sea grabado:'
     updated: El Indicador fue actualizado exitosamente.
     uploaded: Archivo recibido correctamente.

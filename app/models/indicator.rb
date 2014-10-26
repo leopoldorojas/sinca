@@ -1,6 +1,7 @@
 class Indicator < ActiveRecord::Base
   belongs_to :credit_company
-  validates :credit_company, presence: true
+  validate :file_name_format
+  validate :information_consistency, on: :create
 
   class << self
     def import(credit_company, file)
@@ -42,5 +43,18 @@ class Indicator < ActiveRecord::Base
     end 
 
   end
+
+  private
+
+    def file_name_format
+      errors[:base] << I18n.t('indicator.invalid_format') unless file_name.is_a?(String) || file_name.blank? || ['.csv', '.xls', '.xlsx'].include?(File.extname(file_name.original_filename))
+    end
+
+    def information_consistency
+      indicators_valid = false
+      Rails.application.config.individual_indicators.each { |k,v| break if (indicators_valid = self.send(k).present? && self.send(k) != 0) }
+      indicators_valid = true
+      errors[:base] = I18n.t('indicator.invalid_file') unless indicators_valid
+    end
 
 end

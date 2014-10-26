@@ -44,8 +44,18 @@ class IndicatorsController < ApplicationController
 
   # POST /receive_and_create
   def receive_and_create
-    @indicator = Indicator.import(current_user.credit_company, params[:indicator][:file_name])
-    redirect_to @indicator, notice: t('indicator.uploaded')
+    if params.try(:[], :indicator).try(:[], :file_name)
+      if (@indicator = Indicator.new(indicator_params)).valid?
+        @indicator_to_import = Indicator.import(current_user.credit_company, params[:indicator][:file_name])
+        redirect_to @indicator_to_import, notice: t('indicator.uploaded')
+      else
+        render :upload
+      end
+    else
+      @indicator = Indicator.new
+      @indicator.errors[:file_name] = t('indicator.empty_file_name')
+      render :upload
+    end
   end
 
   # PATCH/PUT /indicators/1

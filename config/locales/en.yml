@@ -98,6 +98,8 @@ en:
         credit_company: Credit Company
         email: Email
         name: Name
+        password: Password
+        password_confirmation: Password confirmation
 
   activemodel:
     models:
@@ -162,6 +164,10 @@ en:
     created: Indicator was successfully created.
     destroyed: Indicator was successfully destroyed.
     editing: Editing Indicator
+    empty_file_name: "is mandatory. Please choose the file to upload"
+    indications_for_upload: "To upload a new Indicators File, please choose the file to upload and click the Upload button."
+    invalid_file: Invalid File or File with all the Indicators in zero.
+    invalid_format: Invalid File Format. It must be an Excel file.
     listing: Listing Indicators
     new: New Indicator
     save_failed: 'prohibited this indicator from being saved:'

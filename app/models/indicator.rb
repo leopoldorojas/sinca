@@ -1,7 +1,7 @@
 class Indicator < ActiveRecord::Base
   belongs_to :credit_company
-  validate :file_name_format
-  validate :information_consistency, on: :create
+  validate :file_name_format, if: :should_validate_file_upload?
+  validate :information_consistency, if: :should_validate_information_consistency?
 
   class << self
     def import(credit_company, file)
@@ -9,7 +9,7 @@ class Indicator < ActiveRecord::Base
     	header = spreadsheet.row(1)
     	row = Hash[[header, spreadsheet.row(2)].transpose].each_value { |v| v.gsub!(',','') if v.is_a? String }
     	create do |i|
-    	  i.register_date = Time.now
+    	  i.register_date = Time.zone.now
     	  i.credit_company = credit_company
     	  i.file_name = file.original_filename
     	  i.status = 1
@@ -46,15 +46,22 @@ class Indicator < ActiveRecord::Base
 
   private
 
+    def should_validate_file_upload?
+      !file_name.is_a?(String) && file_name.present?
+    end
+
+    def should_validate_information_consistency?
+      !should_validate_file_upload?
+    end
+
     def file_name_format
-      errors[:base] << I18n.t('indicator.invalid_format') unless file_name.is_a?(String) || file_name.blank? || ['.csv', '.xls', '.xlsx'].include?(File.extname(file_name.original_filename))
+      errors[:base] << I18n.t('indicator.invalid_format') unless ['.csv', '.xls', '.xlsx'].include?(File.extname(file_name.original_filename))
     end
 
     def information_consistency
       indicators_valid = false
       Rails.application.config.individual_indicators.each { |k,v| break if (indicators_valid = self.send(k).present? && self.send(k) != 0) }
-      indicators_valid = true
-      errors[:base] = I18n.t('indicator.invalid_file') unless indicators_valid
+      errors[:base] << I18n.t('indicator.invalid_file') unless indicators_valid
     end
 
 end

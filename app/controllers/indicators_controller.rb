@@ -46,8 +46,8 @@ class IndicatorsController < ApplicationController
   def receive_and_create
     if params.try(:[], :indicator).try(:[], :file_name)
       if (@indicator = Indicator.new(indicator_params)).valid?
-        @indicator_to_import = Indicator.import(current_user.credit_company, params[:indicator][:file_name])
-        redirect_to @indicator_to_import, notice: t('indicator.uploaded')
+        @indicator = Indicator.import(current_user.credit_company, params[:indicator][:file_name])
+        @indicator.persisted? ? redirect_to(@indicator, notice: t('indicator.uploaded')) : render(:upload)
       else
         render :upload
       end

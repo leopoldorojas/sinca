@@ -224,6 +224,15 @@ es:
     editing: Editando Usuario
     listing: Listando Usuarios
     prompt_credit_company: Seleccione la empresa de crédito
+    prompt_role: Seleccione el rol del usuario
+    roles:
+      admin: Administrador
+      analytic: Análisis de Cartera
+      analytic_executive: Ejecutivo y Análisis
+      company_admin: Administrador de Empresa
+      company_user: Usuario de Empresa
+      executive: Ejecutivo de Crédito
+      superadmin: Superadministador
     save_failed: 'evitó que este usuarios sea grabado:'
     updated: El Usuario fue actualizado exitosamente.
     waiting_for_approval: Solo los que esperan autorización

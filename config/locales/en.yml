@@ -224,6 +224,15 @@ en:
     editing: Editing User
     listing: Listing Users
     prompt_credit_company: Select the credit company
+    prompt_role: Select user role
+    roles:
+      admin: Administrator
+      analytic: Portfolio Analytic
+      analytic_executive: Analytic and Executive
+      company_admin: Company Administrator
+      company_user: Company User
+      executive: Executive
+      superadmin: Superadmin
     save_failed: 'prohibited this user from being saved:'
     updated: User was successfully updated.
     waiting_for_approval: Users awaiting approval

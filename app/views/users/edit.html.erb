@@ -14,17 +14,44 @@
   <% end %>
 
   <div class="row">
-  	<div class="small-4 columns"><%= f.label :name %></div>
-  	<div class="small-3 columns"><%= f.label :email %></div>
-    <div class="small-3 columns"><%= f.label :credit_company %></div>
-  	<div class="small-2 columns"><%= f.label :approved %></div>
+    <div class="small-12 columns">
+      <div class="small-4 columns">
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+
+      <div class="small-3 columns">
+        <%= f.label :email %>
+        <%= f.text_field :email, readonly: true %>
+      </div>
+
+      <div class="small-2 columns">
+        <%= f.label :approved %>
+        <%= f.check_box :approved %>
+      </div>
+
+      <div class="small-3 columns">
+      </div>
+
+    </div>
   </div>
 
   <div class="row">
-    <div class="small-4 columns"><%= f.text_field :name, autofocus: true %></div>
-  	<div class="small-3 columns"><%= @user.email %></div>
-    <div class="small-3 columns"><%= f.collection_select :credit_company_id, CreditCompany.all, :id, :name, prompt: t('user.prompt_credit_company') %></div>
-    <div class="small-2 columns"><%= f.check_box :approved %></div>
+    <div class="small-12 columns">
+      <div class="small-3 columns">
+        <%= f.label :credit_company %>
+        <%= f.collection_select :credit_company_id, CreditCompany.all, :id, :name, prompt: t('user.prompt_credit_company') %>
+      </div>
+
+      <div class="small-3 columns">
+        <%= f.label :role %>
+        <%= f.select :role, [[t('user.roles.superadmin'), :superadmin], [t('user.roles.admin'), :admin], [t('user.roles.analytic'), :analytic], [t('user.roles.executive'), :executive], [t('user.roles.analytic_executive'), :analytic_executive], [t('user.roles.company_admin'), :company_admin], [t('user.roles.company_user'), :company_user]], prompt: t('user.prompt_role') %>
+      </div>
+
+      <div class="small-6 columns">
+      </div>
+
+    </div>
   </div>
 
   <div class="row small-12 columns">

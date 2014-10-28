@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @roles = roles
   end
 
   def update
@@ -18,6 +19,7 @@ class UsersController < ApplicationController
         format.html { redirect_to users_url, notice: t('user.updated') }
         format.json { render :show, status: :ok, location: @user }
       else
+        @roles = roles
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -40,7 +42,11 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :credit_company_id, :approved)
+      params.require(:user).permit(:name, :credit_company_id, :approved, :role)
+    end
+
+    def roles
+      Rails.application.config.user_roles.map { |role| [t("user.roles.#{role}"), role ] }
     end
 
 end

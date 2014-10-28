@@ -45,7 +45,7 @@
 
       <div class="small-3 columns">
         <%= f.label :role %>
-        <%= f.select :role, [[t('user.roles.superadmin'), :superadmin], [t('user.roles.admin'), :admin], [t('user.roles.analytic'), :analytic], [t('user.roles.executive'), :executive], [t('user.roles.analytic_executive'), :analytic_executive], [t('user.roles.company_admin'), :company_admin], [t('user.roles.company_user'), :company_user]], prompt: t('user.prompt_role') %>
+        <%= f.select :role, @roles, prompt: t('user.prompt_role') %>
       </div>
 
       <div class="small-6 columns">

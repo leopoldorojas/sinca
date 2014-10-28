@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  validates :role, presence: true, if: :approved
+
   def self.find_all_by_approved status
     where approved: status
   end

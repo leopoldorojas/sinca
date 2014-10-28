@@ -100,6 +100,7 @@ en:
         name: Name
         password: Password
         password_confirmation: Password confirmation
+        role: Role
 
   activemodel:
     models:

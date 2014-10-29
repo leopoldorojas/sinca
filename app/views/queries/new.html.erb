@@ -29,23 +29,25 @@
       </div>
     </fieldset>
 
-    <fieldset class="small-12 columns">
-      <legend><%= t('query.narrow_your_search_header') %></legend>
+    <% unless current_user.role == 'company_user' %>
+      <fieldset class="small-12 columns">
+        <legend><%= t('query.narrow_your_search_header') %></legend>
 
-      <div class="small-4 columns">
-        <%= f.label :location %>
-        <%= f.collection_select :location, Location.all, :id, :name, prompt: t('query.prompt_location') %>
-      </div>
+        <div class="small-4 columns">
+          <%= f.label :location %>
+          <%= f.collection_select :location, Location.all, :id, :name, prompt: t('query.prompt_location') %>
+        </div>
 
-      <div class="small-6 columns">
-        <%= f.label :companies %>
-        <%= f.text_field :companies, { value: (@query.companies if @query.companies.present? && @query.location.blank?) } %>
-      </div>
+        <div class="small-6 columns">
+          <%= f.label :companies %>
+          <%= f.text_field :companies, { value: (@query.companies if @query.companies.present? && @query.location.blank?) } %>
+        </div>
 
-      <div class="small-2 columns">
-      </div>
+        <div class="small-2 columns">
+        </div>
 
-    </fieldset>
+      </fieldset>
+    <% end %>
   </div>
 
   <div class="actions">

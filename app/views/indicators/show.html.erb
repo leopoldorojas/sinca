@@ -55,5 +55,9 @@
   <%= @indicator.status %>
 </p>
 
-<%= link_to t('edit'), edit_indicator_path(@indicator) %> |
+
+<% unless current_user.role == 'company_user' %>
+  <%= link_to t('edit'), edit_indicator_path(@indicator) %> |
+<% end %>
+
 <%= link_to t('back'), indicators_path %>

@@ -16,12 +16,14 @@
     <div class="row">
       <div class="large-9 columns">
         <ul class="button-group">
-          <li><%= link_to t('menu.home'), root_path, class: "button" %></li>
-          <li><%= link_to t('menu.indicators'), indicators_path, class: "button" %></li>
-          <li><%= link_to t('menu.queries'), new_query_path, class: "button" %></li>
-          <li><%= link_to t('menu.credit_companies'), credit_companies_path, class: "button" %></li>
-          <li><%= link_to t('menu.locations'), locations_path, class: "button" %></li>
-          <li><%= link_to t('menu.users'), users_path, class: "button" %></li>
+            <li><%= link_to t('menu.home'), root_path, class: "button" %></li>
+            <li><%= link_to t('menu.indicators'), indicators_path, class: "button" %></li>
+            <li><%= link_to t('menu.queries'), new_query_path, class: "button" %></li>
+          <% unless current_user.role == 'company_user' %>
+            <li><%= link_to t('menu.credit_companies'), credit_companies_path, class: "button" %></li>
+            <li><%= link_to t('menu.locations'), locations_path, class: "button" %></li>
+            <li><%= link_to t('menu.users'), users_path, class: "button" %></li>
+          <% end %>
         </ul> 
       </div>
 

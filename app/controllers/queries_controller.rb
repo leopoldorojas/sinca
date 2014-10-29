@@ -7,6 +7,8 @@ class QueriesController < ApplicationController
 
   def create
     @query = Query.new(query_params)
+    @query.companies = current_user.credit_company.name if current_user.role == 'company_user'
+
     @query.run
 
     respond_to do |format|

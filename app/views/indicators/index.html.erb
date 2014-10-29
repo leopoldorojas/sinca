@@ -29,8 +29,15 @@
         <td><%= as_integer(indicator.indicator_6) %></td>
         <td><%= as_percentage(indicator.indicator_7) %></td>
         <td><%= link_to t('show'), indicator %></td>
-        <td><%= link_to t('edit'), edit_indicator_path(indicator) %></td>
-        <td><%= link_to t('destroy'), indicator, method: :delete, data: { confirm: t('are_you_sure') } %></td>
+        <td>
+        <% unless current_user.role == 'company_user' %>
+          <%= link_to t('edit'), edit_indicator_path(indicator) %>
+        <% end %>
+        </td>
+        <td>
+        <% if current_user.role != 'company_user' || indicator.register_date >= Time.zone.now.at_beginning_of_month %>
+          <%= link_to t('destroy'), indicator, method: :delete, data: { confirm: t('are_you_sure') } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -38,6 +45,9 @@
 
 <br>
 
-<%= link_to t('indicator.new'), new_indicator_path, class: "button small radius" %>
+<% unless current_user.role == 'company_user' %>
+  <%= link_to t('indicator.new'), new_indicator_path, class: "button small radius" %>
+<% end %>
+
 <%= link_to t('upload'), upload_new_indicator_path, class: "button small radius" %>
 <%= link_to t('queries'), new_query_path, class: "button small radius" %>

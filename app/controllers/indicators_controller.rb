@@ -4,7 +4,7 @@ class IndicatorsController < ApplicationController
   # GET /indicators
   # GET /indicators.json
   def index
-    @indicators = Indicator.all
+    @indicators = policy_scope(Indicator)
   end
 
   # GET /indicators/1
@@ -92,4 +92,5 @@ class IndicatorsController < ApplicationController
     def indicator_params
       params.require(:indicator).permit(:register_date, :credit_company_id, :file_name, :indicator_1, :indicator_2, :indicator_3, :indicator_4, :indicator_5, :indicator_6, :indicator_7, :status)
     end
+
 end

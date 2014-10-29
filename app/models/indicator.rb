@@ -35,7 +35,7 @@ class Indicator < ActiveRecord::Base
     end
 
     def by_credit_company companies
-      companies.empty? ? all : where('credit_company in (?)', companies)
+      companies.empty? ? all : where('credit_company_id in (?)', companies)
     end
 
     def before_of date 

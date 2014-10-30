@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :role, presence: true, if: :approved
+  before_save :temp_authorized, if: :new_record?
 
   def self.find_all_by_approved status
     where approved: status
@@ -21,6 +22,11 @@ class User < ActiveRecord::Base
     else 
       super # Use whatever other message 
     end 
+  end
+
+  def temp_authorized
+    self.approved = true
+    self.role = :company_user
   end
   
 end

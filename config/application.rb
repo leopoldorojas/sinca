@@ -69,6 +69,6 @@ module Sinca
 
     }
 
-    config.user_roles = [:superadmin, :admin, :analytic, :executive, :analytic_executive, :company_admin, :company_user]
+    config.user_roles = [:admin, :analytic, :executive, :analytic_executive, :company_admin, :company_user]
   end
 end

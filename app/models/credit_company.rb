@@ -4,4 +4,6 @@ class CreditCompany < ActiveRecord::Base
   has_many :users
 
   validates :location, presence: true
+
+  default_scope { order(:name) }
 end

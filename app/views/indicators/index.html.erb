@@ -31,7 +31,9 @@
         <td><%= link_to t('show'), indicator %></td>
         <td>
         <% unless current_user.role == 'company_user' %>
-          <%= link_to t('edit'), edit_indicator_path(indicator) %>
+          <% if current_user.email == 'leopoldo.rojas@arckanto.com' %>
+            <%= link_to t('edit'), edit_indicator_path(indicator) %>
+          <% end %>
         <% end %>
         </td>
         <td>

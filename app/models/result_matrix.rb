@@ -22,7 +22,7 @@ class ResultMatrix
 
         if rule[:operated_by] == :percentage
           new_column = []
-          indicator_base.find_each { |row| new_column << ( row.send(indicator) * row.send(rule[:entire]) / 100 ) }
+          indicator_base.find_each { |row| new_column << ( (row.send(indicator) || 0) * (row.send(rule[:entire]) || 0) / 100 ) }
           sums_cache[rule[:entire]] ||= indicator_base.sum(rule[:entire])
           average = 100 * new_column.inject(0, :+) / sums_cache[rule[:entire]] if sums_cache[rule[:entire]] > 0
         end

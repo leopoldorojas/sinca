@@ -24,6 +24,7 @@ class IndicatorsController < ApplicationController
 
   # GET /indicators/1/edit
   def edit
+    @readonly = current_user.email != "leopoldo.rojas@arckanto.com"
   end
 
   # POST /indicators

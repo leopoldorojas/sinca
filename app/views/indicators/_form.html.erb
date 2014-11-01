@@ -15,7 +15,7 @@
     <div class="small-12 columns">
       <div class="small-4 columns">
         <%= f.label :register_date %>
-        <%= f.date_field :register_date %>
+        <%= f.date_field :register_date, readonly: @readonly %>
       </div>
 
       <div class="small-4 columns">
@@ -25,7 +25,7 @@
 
       <div class="small-4 columns">
         <%= f.label :file_name %>
-        <%= f.text_field :file_name %>
+        <%= f.text_field :file_name, readonly: @readonly %>
       </div>
 
     </div>
@@ -35,17 +35,17 @@
     <div class="small-12 columns">
       <div class="small-4 columns">
         <%= f.label :indicator_1 %>
-        <%= f.text_field :indicator_1 %>
+        <%= f.text_field :indicator_1, readonly: @readonly %>
       </div>
 
       <div class="small-4 columns">
         <%= f.label :indicator_2 %>
-        <%= f.text_field :indicator_2 %>
+        <%= f.text_field :indicator_2, readonly: @readonly %>
       </div>
 
       <div class="small-4 columns">
         <%= f.label :indicator_3 %>
-        <%= f.text_field :indicator_3 %>
+        <%= f.text_field :indicator_3, readonly: @readonly %>
       </div>
     </div>
   </div>
@@ -54,17 +54,17 @@
     <div class="small-12 columns">
       <div class="small-4 columns">
         <%= f.label :indicator_4 %>
-        <%= f.text_field :indicator_4 %>
+        <%= f.text_field :indicator_4, readonly: @readonly %>
       </div>
 
       <div class="small-4 columns">
         <%= f.label :indicator_5 %>
-        <%= f.text_field :indicator_5 %>
+        <%= f.text_field :indicator_5, readonly: @readonly %>
       </div>
 
       <div class="small-4 columns">
         <%= f.label :indicator_6 %>
-        <%= f.text_field :indicator_6 %>
+        <%= f.text_field :indicator_6, readonly: @readonly %>
       </div>
     </div>
   </div>
@@ -73,12 +73,12 @@
     <div class="small-12 columns">
       <div class="small-4 columns">
         <%= f.label :indicator_7 %>
-        <%= f.text_field :indicator_7 %>
+        <%= f.text_field :indicator_7, readonly: @readonly %>
       </div>
 
       <div class="small-4 columns">
         <%= f.label :status %>
-        <%= f.text_field :status %>
+        <%= f.text_field :status, readonly: @readonly %>
       </div>
       <div class="small-4 columns">
       </div>

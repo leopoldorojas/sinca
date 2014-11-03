@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   validates :role, presence: true, if: :approved
   validates :credit_company, presence: :true
-  before_save :temp_authorized, if: :new_record?
+  #before_save :temp_authorized, if: :new_record?
 
   def self.find_all_by_approved status
     where approved: status

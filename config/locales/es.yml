@@ -195,6 +195,9 @@ es:
     queries: Análisis
     users: Usuarios
 
+  placeholder:
+    password_minimum: "Contraseña (mínimo %{minimum_characters} caracteres)"
+
   province:
     created: La provincia fue creada exitosamente.
     destroyed: La provincia fue borrada exitosamente.
@@ -224,7 +227,7 @@ es:
     destroyed: El Usuario fue borrado exitosamente.
     editing: Editando Usuario
     listing: Listando Usuarios
-    prompt_credit_company: Seleccione la empresa de crédito
+    prompt_credit_company: Empresa de crédito
     prompt_role: Seleccione el rol del usuario
     roles:
       admin: Administrador

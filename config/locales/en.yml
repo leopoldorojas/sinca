@@ -195,6 +195,9 @@ en:
     queries: Queries
     users: Users
 
+  placeholder:
+    password_minimum: 'Password (%{minimum_characters} characters minimum)'
+
   provinces:
     created: Province was successfully created.
     destroyed: Province was successfully destroyed.
@@ -224,7 +227,7 @@ en:
     destroyed: User was successfully destroyed.
     editing: Editing User
     listing: Listing Users
-    prompt_credit_company: Select the credit company
+    prompt_credit_company: Credit company
     prompt_role: Select user role
     roles:
       admin: Administrator

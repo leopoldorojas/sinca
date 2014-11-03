@@ -4,23 +4,22 @@
 
   <fieldset>
     <legend><%= t('devise_views.registration') %></legend>
-    <div><%= f.label t('devise_views.name') %><br />
-    <%= f.text_field :name, autofocus: true %></div>
-
-    <div><%= f.label t('devise_views.email') %><br />
-    <%= f.email_field :email %></div>
+    <div>
+    <%= f.text_field :name, autofocus: true, placeholder: t('devise_views.name') %></div>
 
     <div>
-      <%= f.label t('devise_views.password') %><% if @validatable %><i><small>(<%= "#{@minimum_password_length} #{t('devise_views.minimum_chars')}" %>)</small></i><% end %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.email_field :email, placeholder: t('devise_views.email') %></div>
+
+    <div>
+      <% placeholder = @validatable ? t('placeholder.password_minimum', minimum_characters: "#{@minimum_password_length}") : t('devise_views.password') %>
+      <%= f.password_field :password, autocomplete: "off", placeholder: placeholder %>
     </div>
 
     <div>
-      <%= f.label t('devise_views.password_confirmation') %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: t('devise_views.password_confirmation') %>
     </div>
 
-    <div><%= f.label User.human_attribute_name('credit_company') %><br />
+    <div>
     <%= f.collection_select :credit_company_id, CreditCompany.all, :id, :name, prompt: t('user.prompt_credit_company') %></div>
 
     <div><%= f.submit t('devise_views.sign_up'), class: "button tiny radius" %> <small>ó <%= link_to t('devise_views.login'), new_session_path(resource_name) %></small></div>

@@ -3,9 +3,9 @@ class UsersController < ApplicationController
 
   def index
     if params[:approved] == "false"
-      @users = User.find_all_by_approved(false)
+      @users = User.find_all_by_approved(false).page(params[:page]).per(10)
     else
-      @users = User.all
+      @users = User.all.page(params[:page]).per(10)
     end
   end
 

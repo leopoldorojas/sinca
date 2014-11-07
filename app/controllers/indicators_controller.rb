@@ -4,7 +4,7 @@ class IndicatorsController < ApplicationController
   # GET /indicators
   # GET /indicators.json
   def index
-    @indicators = policy_scope(Indicator)
+    @indicators = policy_scope(Indicator).order(register_date: :desc).page(params[:page]).per(10)
   end
 
   # GET /indicators/1

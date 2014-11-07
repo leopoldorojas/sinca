@@ -5,7 +5,7 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
-    @locations = type_class.all
+    @locations = type_class.all.page(params[:page]).per(10)
   end
 
   # GET /locations/1

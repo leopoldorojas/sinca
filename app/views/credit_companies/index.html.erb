@@ -1,5 +1,7 @@
 <h1><%= t('credit_company.listing') %></h1>
 
+<%= paginate @credit_companies %>
+
 <table>
   <thead>
     <tr>
@@ -31,6 +33,8 @@
     <% end %>
   </tbody>
 </table>
+
+<%= paginate @credit_companies %>
 
 <br>
 

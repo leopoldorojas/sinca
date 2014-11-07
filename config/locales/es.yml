@@ -220,6 +220,7 @@ es:
     types:
       all: Solo totales al corte
       monthly: Mensual
+      quarterly: Trimestral
       weekly: Semanal
       yearly: Anual
 
@@ -240,3 +241,11 @@ es:
     save_failed: 'evitó que este usuario sea grabado:'
     updated: El Usuario fue actualizado exitosamente.
     waiting_for_approval: Solo los que esperan autorización
+
+  views:
+    pagination:
+      first: Inicial
+      last: Final
+      next: Siguiente
+      previous: Anterior
+      truncate: "..."

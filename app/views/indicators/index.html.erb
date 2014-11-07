@@ -1,5 +1,7 @@
 <h4><%= t('indicator.listing') %></h4>
 
+<%= paginate @indicators %>
+
 <table>
   <thead>
     <tr>
@@ -42,6 +44,8 @@
     <% end %>
   </tbody>
 </table>
+
+<%= paginate @indicators %>
 
 <br>
 

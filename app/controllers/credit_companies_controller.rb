@@ -4,7 +4,7 @@ class CreditCompaniesController < ApplicationController
   # GET /credit_companies
   # GET /credit_companies.json
   def index
-    @credit_companies = CreditCompany.all
+    @credit_companies = CreditCompany.all.page(params[:page]).per(10)
   end
 
   # GET /credit_companies/1

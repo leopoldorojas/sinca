@@ -220,6 +220,7 @@ en:
     types:
       all: All period
       monthly: Monthly
+      quarterly: Quarterly
       weekly: Weekly
       yearly: Yearly
 
@@ -240,3 +241,11 @@ en:
     save_failed: 'prohibited this user from being saved:'
     updated: User was successfully updated.
     waiting_for_approval: Users awaiting approval
+
+  views:
+    pagination:
+      first: First
+      last: Last
+      next: Next
+      previous: Previous
+      truncate: "..."

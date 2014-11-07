@@ -18,11 +18,11 @@
         <%= f.radio_button :type, :year, { value: @query.type } %>
         <%= label_tag(:type_yearly, t('query.types.yearly')) %>
 
+        <%= f.radio_button :type, :quarter, { value: @query.type } %>
+        <%= label_tag(:type_quarterly, t('query.types.quarterly')) %>
+
         <%= f.radio_button :type, :month, { value: @query.type } %>
         <%= label_tag(:type_monthly, t('query.types.monthly')) %>
-
-        <%= f.radio_button :type, :week, { value: @query.type } %>
-        <%= label_tag(:type_weekly, t('query.types.weekly')) %>
       </div>
 
       <div class="small-2 columns">
@@ -57,10 +57,10 @@
 
 <% if @query.results.present? %>
   <p id='result_start'><b>Los resultados de tu consulta son:</b></p>
-  <% if @query.type == "year" %>
+  <% if @query.type == "year" || @query.type == "quarter"%>
     <%= content_tag "div", id: "bar_graphs", data: { results: @query.results, inames: "#{Rails.application.config.individual_indicators.to_json}" } do %>
     <% end %>
-  <% elsif @query.type == "month" || @query.type == "week" %>
+  <% elsif @query.type == "month" %>
     <%= content_tag "div", id: "line_graphs", data: { results: @query.results, inames: "#{Rails.application.config.individual_indicators.to_json}" } do %>
     <% end %>
   <% end %>

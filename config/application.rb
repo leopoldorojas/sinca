@@ -32,7 +32,7 @@ module Sinca
       Devise::RegistrationsController.layout "sign_in_layout"
     end
 
-    config.app_start_date = Date.new(2013, 8, 1)
+    config.app_start_date = Date.new(2014, 10, 1)
     config.superadmin = "leopoldo.rojas@arckanto.com"
     config.individual_indicators = {
       indicator_1: "Saldo Bruto de Cartera de Préstamos",

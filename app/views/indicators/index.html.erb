@@ -49,9 +49,6 @@
 
 <br>
 
-<% unless current_user.role == 'company_user' %>
-  <%= link_to t('indicator.new'), new_indicator_path, class: "button small radius" %>
-<% end %>
-
+<%= link_to t('indicator.new'), new_indicator_path, class: "button small radius" if policy(Indicator).create? %>
 <%= link_to t('upload'), upload_new_indicator_path, class: "button small radius" %>
-<%= link_to t('queries'), new_query_path, class: "button small radius" %>
+<%= link_to t('queries'), new_query_path, class: "button small radius" if policy(Query).create? %>

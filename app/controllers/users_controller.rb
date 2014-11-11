@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     end
 
     def roles
-      Rails.application.config.user_roles.map { |role| [t("user.roles.#{role}"), role ] }
+      Rails.application.config.user_roles.keys.map { |role| [t("user.roles.#{role}"), role] }
     end
 
 end

@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :role, presence: true, if: :approved
   validates :credit_company, presence: :true
   #before_save :temp_authorized, if: :new_record?
+  default_scope { order(:name) }
 
   def self.find_all_by_approved status
     where approved: status
@@ -23,6 +24,10 @@ class User < ActiveRecord::Base
     else 
       super # Use whatever other message 
     end 
+  end
+
+  def at_least? minimum_role
+    Rails.application.config.user_roles[role.to_sym][:privilege] >= Rails.application.config.user_roles[minimum_role.to_sym][:privilege]
   end
 
   def temp_authorized

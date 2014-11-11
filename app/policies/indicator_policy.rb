@@ -8,4 +8,8 @@ class IndicatorPolicy < ApplicationPolicy
       end
     end
   end
+
+  def create?
+    user.at_least? :superadmin
+  end
 end

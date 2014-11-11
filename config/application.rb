@@ -69,6 +69,14 @@ module Sinca
 
     }
 
-    config.user_roles = [:admin, :analytic, :executive, :analytic_executive, :company_admin, :company_user]
+    config.user_roles = {
+      superadmin: { privilege: 99 },
+      admin: { privilege: 60 }, 
+      analytic_executive: { privilege: 50 },
+      analytic: { privilege: 40 },
+      executive: { privilege: 30 },
+      company_admin: { privilege: 20 },
+      company_user: { privilege: 10 }
+    }
   end
 end

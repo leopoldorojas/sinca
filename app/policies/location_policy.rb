@@ -6,6 +6,6 @@ class LocationPolicy < ApplicationPolicy
   end
 
   def manage?
-    user.at_least? :admin
+    user.is_at_least? :admin
   end
 end

@@ -6,7 +6,7 @@ class QueryPolicy < ApplicationPolicy
   end
 
   def create?
-    user.at_least? :company_admin
+    user.is_at_least? :company_admin
   end
 
 end

@@ -73,8 +73,8 @@ module Sinca
       superadmin: { privilege: 99 },
       admin: { privilege: 60 }, 
       analytic_executive: { privilege: 50 },
-      analytic: { privilege: 40 },
-      executive: { privilege: 30 },
+      executive: { privilege: 40 },
+      analytic: { privilege: 30 },
       company_admin: { privilege: 20 },
       company_user: { privilege: 10 }
     }

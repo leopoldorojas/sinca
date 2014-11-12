@@ -29,7 +29,7 @@
       </div>
     </fieldset>
 
-    <% unless current_user.role == 'company_user' %>
+    <% unless policy(CreditCompany).see_only_own_company? %>
       <fieldset class="small-12 columns">
         <legend><%= t('query.narrow_your_search_header') %></legend>
 

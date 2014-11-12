@@ -32,12 +32,12 @@
         <td><%= as_percentage(indicator.indicator_7) %></td>
         <td><%= link_to t('show'), indicator %></td>
         <td>
-        <% unless current_user.role == 'company_user' %>
+        <% if policy(indicator).edit? %>
           <%= link_to t('edit'), edit_indicator_path(indicator) %>
         <% end %>
         </td>
         <td>
-        <% if current_user.role != 'company_user' || indicator.register_date >= Time.zone.now.at_beginning_of_month %>
+        <% if policy(indicator).destroy? %>
           <%= link_to t('destroy'), indicator, method: :delete, data: { confirm: t('are_you_sure') } %></td>
         <% end %>
       </tr>

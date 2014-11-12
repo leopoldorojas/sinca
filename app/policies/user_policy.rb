@@ -6,6 +6,6 @@ class UserPolicy < ApplicationPolicy
   end
 
   def manage?
-    user.at_least? :superadmin
+    user.is_at_least? :superadmin
   end
 end

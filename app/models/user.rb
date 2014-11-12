@@ -26,8 +26,16 @@ class User < ActiveRecord::Base
     end 
   end
 
-  def at_least? minimum_role
+  def is_at_least? minimum_role
     Rails.application.config.user_roles[role.to_sym][:privilege] >= Rails.application.config.user_roles[minimum_role.to_sym][:privilege]
+  end
+
+  def has_more_privileges_than? minor_role
+    Rails.application.config.user_roles[role.to_sym][:privilege] > Rails.application.config.user_roles[minor_role.to_sym][:privilege]
+  end
+
+  def is_at_most? maximum_role
+    Rails.application.config.user_roles[role.to_sym][:privilege] <= Rails.application.config.user_roles[maximum_role.to_sym][:privilege]
   end
 
   def temp_authorized

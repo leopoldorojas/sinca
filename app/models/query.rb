@@ -19,14 +19,14 @@ class Query
   private
     
     def dates
-      list_of_dates = [Time.zone.parse(end_date)]
+      list_of_dates = [Time.zone.parse(end_date).end_of_day]
 
       unless type == "all"
-        date_to_include = Time.zone.parse(end_date).send("prev_#{type}".to_sym).send("end_of_#{type}")
+        date_to_include = Time.zone.parse(end_date).send("prev_#{type}".to_sym).send("end_of_#{type}".to_sym).send(:end_of_day)
 
         while date_to_include > Rails.application.config.app_start_date
           list_of_dates << date_to_include
-          date_to_include = date_to_include.send("prev_#{type}".to_sym).send("end_of_#{type}")
+          date_to_include = date_to_include.send("prev_#{type}".to_sym).send("end_of_#{type}".to_sym).send(:end_of_day)
         end
       end
 

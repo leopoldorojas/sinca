@@ -38,6 +38,14 @@ class User < ActiveRecord::Base
     Rails.application.config.user_roles[role.to_sym][:privilege] <= Rails.application.config.user_roles[maximum_role.to_sym][:privilege]
   end
 
+  def is? specific_role
+    Rails.application.config.user_roles[role.to_sym][:privilege] == Rails.application.config.user_roles[specific_role.to_sym][:privilege]
+  end
+
+  def is_not? specific_role
+    Rails.application.config.user_roles[role.to_sym][:privilege] != Rails.application.config.user_roles[specific_role.to_sym][:privilege]
+  end
+
   def temp_authorized
     self.approved = true
     self.role = :company_user

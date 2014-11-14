@@ -3,9 +3,9 @@ class UsersController < ApplicationController
 
   def index
     if params[:approved] == "false"
-      @users = User.find_all_by_approved(false).page(params[:page]).per(10)
+      @users = policy_scope(User).find_all_by_approved(false).page(params[:page]).per(10)
     else
-      @users = User.all.page(params[:page]).per(10)
+      @users = policy_scope(User).page(params[:page]).per(10)
     end
   end
 
@@ -46,7 +46,8 @@ class UsersController < ApplicationController
     end
 
     def roles
-      Rails.application.config.user_roles.keys.map { |role| [t("user.roles.#{role}"), role] }
+      user_roles = current_user.is?(:superadmin) ? Rails.application.config.user_roles : Rails.application.config.user_roles.reject {|key, value| key == :superadmin }
+      user_roles.keys.map { |role| [t("user.roles.#{role}"), role] }
     end
 
 end

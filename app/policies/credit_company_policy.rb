@@ -10,6 +10,6 @@ class CreditCompanyPolicy < ApplicationPolicy
   end
 
   def see_only_own_company?
-  	user.is_at_most? :company_admin
+  	user.is_at_most?(:company_admin) || user.is?(:executive)
   end
 end

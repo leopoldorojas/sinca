@@ -35,6 +35,7 @@ es:
   sign_out: Salir
   TrueClass: Sí
   upload: Subir archivo
+  unauthorized: "Error de Autorización: Usted no tiene acceso a esta sección."
 
   activerecord:
     models:

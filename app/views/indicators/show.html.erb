@@ -56,7 +56,7 @@
 </p>
 
 
-<% unless current_user.role == 'company_user' %>
+<% if policy(@indicator).edit? %>
   <%= link_to t('edit'), edit_indicator_path(@indicator) %> |
 <% end %>
 

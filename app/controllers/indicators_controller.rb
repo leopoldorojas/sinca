@@ -20,17 +20,20 @@ class IndicatorsController < ApplicationController
   # GET /indicators/upload
   def upload
     @indicator = Indicator.new
+    authorize @indicator
   end
 
   # GET /indicators/1/edit
   def edit
-    @readonly = current_user.email != "leopoldo.rojas@arckanto.com"
+    authorize @indicator
+    @readonly = policy(@indicator).block_allowed_fields?
   end
 
   # POST /indicators
   # POST /indicators.json
   def create
     @indicator = Indicator.new(indicator_params)
+    authorize @indicator
 
     respond_to do |format|
       if @indicator.save
@@ -76,6 +79,7 @@ class IndicatorsController < ApplicationController
   # DELETE /indicators/1
   # DELETE /indicators/1.json
   def destroy
+    authorize @indicator
     @indicator.destroy
     respond_to do |format|
       format.html { redirect_to indicators_url, notice: t('indicator.destroyed') }

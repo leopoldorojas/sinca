@@ -1,5 +1,6 @@
 class CreditCompaniesController < ApplicationController
   before_action :set_credit_company, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_for_managing
 
   # GET /credit_companies
   # GET /credit_companies.json
@@ -70,5 +71,9 @@ class CreditCompaniesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def credit_company_params
       params.require(:credit_company).permit(:name, :identifier, :contact, :phone, :email, :website, :location_id)
+    end
+
+    def authorize_for_managing
+      authorize CreditCompany, :manage?
     end
 end

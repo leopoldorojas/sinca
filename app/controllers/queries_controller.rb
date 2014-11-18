@@ -2,11 +2,13 @@ class QueriesController < ApplicationController
   
   def new
   	@query = Query.new(end_date: Date.current, type: :all, location: nil, companies: [])
+    authorize @query
     @all_indicators = Rails.application.config.individual_indicators
   end
 
   def create
     @query = Query.new(query_params)
+    authorize @query
     @query.companies = current_user.credit_company.name if policy(CreditCompany).see_only_own_company?
     @query.run
 

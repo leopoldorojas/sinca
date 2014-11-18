@@ -18,6 +18,10 @@ class IndicatorPolicy < ApplicationPolicy
     user.is_at_least?(:executive) && specific_policy
   end
 
+  def block_allowed_fields?
+    user.is_not? :superadmin
+  end
+
   def destroy?
     specific_policy = user.is?(:analytic_executive) ? record.credit_company == user.credit_company : true
     specific_policy && (user.is_at_least?(:executive) || (record.register_date >= Time.zone.now.at_beginning_of_month && user.is_not?(:analytic)))

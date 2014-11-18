@@ -1,6 +1,7 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
   before_action :set_type
+  before_action :authorize_for_managing
 
   # GET /locations
   # GET /locations.json
@@ -85,4 +86,7 @@ class LocationsController < ApplicationController
       type.constantize 
     end
 
+    def authorize_for_managing
+      authorize Location, :manage?
+    end
 end

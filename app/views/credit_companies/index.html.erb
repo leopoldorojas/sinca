@@ -6,11 +6,11 @@
   <thead>
     <tr>
       <th><%= CreditCompany.human_attribute_name('name') %></th>
+      <th><%= CreditCompany.human_attribute_name('short_name') %></th>
       <th><%= CreditCompany.human_attribute_name('identifier') %></th>
       <th><%= CreditCompany.human_attribute_name('contact') %></th>
       <th><%= CreditCompany.human_attribute_name('phone') %></th>
       <th><%= CreditCompany.human_attribute_name('email') %></th>
-      <th><%= CreditCompany.human_attribute_name('website') %></th>
       <th><%= CreditCompany.human_attribute_name('location') %></th>
       <th colspan="3"></th>
     </tr>
@@ -20,11 +20,11 @@
     <% @credit_companies.each do |credit_company| %>
       <tr>
         <td><%= credit_company.name %></td>
+        <td><%= credit_company.short_name %></td>
         <td><%= credit_company.identifier %></td>
         <td><%= credit_company.contact %></td>
         <td><%= credit_company.phone %></td>
         <td><%= credit_company.email %></td>
-        <td><%= credit_company.website %></td>
         <td><%= credit_company.location.name %></td>
         <td><%= link_to t('show'), credit_company %></td>
         <td><%= link_to t('edit'), edit_credit_company_path(credit_company) %></td>

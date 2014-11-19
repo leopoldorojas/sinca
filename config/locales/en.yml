@@ -28,6 +28,9 @@ en:
   destroy: Destroy
   do_query: Submit
   edit: Edit
+  error:
+    one: error
+    other: errors
   FalseClass: "No"
   queries: Queries
   show: Show
@@ -60,6 +63,7 @@ en:
         province: Province
       credit_company: 
         name: Name
+        short_name: Short Name
         identifier: Identifier
         contact: Contact Name
         credit_company: Credit Company
@@ -129,7 +133,9 @@ en:
     listing: Listing Credit Companies
     new: New Credit Company
     prompt_location: "Please, select the location"
-    save_failed: 'prohibited this credit company from being saved:'
+    save_failed:
+      one: 'prohibited this credit company from being saved:'
+      other: 'prohibited this credit company from being saved:'
     updated: Credit Company was successfully updated.
 
   country:

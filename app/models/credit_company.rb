@@ -3,7 +3,8 @@ class CreditCompany < ActiveRecord::Base
   has_many :indicators
   has_many :users
 
-  validates :location, presence: true
-
+  validates :location, :name, :short_name, :identifier, :contact, :phone, :email, presence: true
+  validates :short_name, :identifier, :email, uniqueness: true
+  
   default_scope { order(:name) }
 end

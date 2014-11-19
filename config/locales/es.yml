@@ -28,6 +28,9 @@ es:
   destroy: Borrar
   do_query: Consultar
   edit: Editar
+  error:
+    one: error
+    other: errores
   FalseClass: "No"
   queries: Consultas
   show: Mostrar
@@ -60,6 +63,7 @@ es:
         province: Provincia
       credit_company:
         name: Nombre
+        short_name: Nombre Corto
         identifier: Cédula Jurídica
         contact: Representante
         credit_company: Empresa de Crédito
@@ -129,7 +133,9 @@ es:
     listing: Listando Empresas de Crédito
     new: Nueva Empresa de Crédito
     prompt_location: Seleccione la ubicación
-    save_failed: 'evitó que esta empresa de crédito sea grabada:'
+    save_failed:
+      one: 'evitó que esta empresa sea grabada:'
+      other: 'evitaron que esta empresa sea grabada:'
     updated: La Empresa de Crédito fue actualizada exitosamente.
 
   country:

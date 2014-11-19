@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong><%= CreditCompany.human_attribute_name('short_name') %>:</strong>
+  <%= @credit_company.short_name %>
+</p>
+
+<p>
   <strong><%= CreditCompany.human_attribute_name('identifier') %>:</strong>
   <%= @credit_company.identifier %>
 </p>
@@ -23,11 +28,6 @@
 <p>
   <strong><%= CreditCompany.human_attribute_name('email') %>:</strong>
   <%= @credit_company.email %>
-</p>
-
-<p>
-  <strong><%= CreditCompany.human_attribute_name('website') %>:</strong>
-  <%= @credit_company.website %>
 </p>
 
 <p>

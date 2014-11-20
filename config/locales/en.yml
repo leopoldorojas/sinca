@@ -112,7 +112,7 @@ en:
       query: Query
     attributes:
       query:
-        companies: Or by specific Credit Companies?
+        companies: Or by specific Credit Companies? (use short names)
         end_date: End Date
         location: By Location?
         type: Type

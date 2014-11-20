@@ -112,7 +112,7 @@ es:
       query: Consulta
     attributes:
       query:
-        companies: Ó por empresas de crédito específicas
+        companies: Ó por empresas de crédito específicas (use los nombres cortos de las empresas)
         end_date: Fecha de corte
         location: Por ubicación
         type: Tipo de Análisis

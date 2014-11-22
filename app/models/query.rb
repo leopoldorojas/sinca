@@ -11,10 +11,10 @@ class Query
     else
       # Faltan espacios y mayusculas
       companies_ids = companies.split(',').map { |company_short_name| CreditCompany.where("upper(short_name) LIKE ?", "%#{company_short_name.strip.upcase}%").try(:first).try(:id) }
-      companies_ids = companies_ids.compact.uniq
-      companies_ids << 0 if companies_ids.empty? && companies.present?
     end
 
+    companies_ids = companies_ids.compact.uniq
+    companies_ids << 0 if companies_ids.empty? && (companies.present? || location.present?)
     self.results = ResultMatrix.new(dates: dates, indicators: Rails.application.config.individual_indicators.keys, companies: companies_ids).results
   end
 

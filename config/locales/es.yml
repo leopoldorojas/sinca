@@ -217,13 +217,20 @@ es:
   query:
     dates_and_periods: Fechas y periodos de análisis
     failed: evitaron ejecutar la consulta exitosamente
-    narrow_your_search_header: Análisis por empresas
+    narrow_your_search_header: Análisis por empresas (opcional)
     new: Nueva consulta
     locations:
       city: Cantón
       district: Distrito
       province: Provincia
     prompt_location: "Seleccione en caso requerido"
+    results_table:
+      average: Promedio
+      date: Fecha de Corte
+      not_apply: "n.a."
+      number_of_registers: Registros contabilizados
+      sum: Suma
+    text_for_select_location_or_companies: "Seleccione Ubicación o Empresas específicas, pero no ambas condiciones:"
     types:
       all: Solo totales al corte
       monthly: Mensual

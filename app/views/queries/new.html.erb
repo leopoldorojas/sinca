@@ -33,17 +33,27 @@
       <fieldset class="small-12 columns">
         <legend><%= t('query.narrow_your_search_header') %></legend>
 
-        <div class="small-4 columns">
-          <%= f.label :location %>
-          <%= f.collection_select :location, Location.all, :id, :name, prompt: t('query.prompt_location') %>
-        </div>
+        <!-- <div class="row">
+          <div class="small-6 columns">
+            <p><small><i><%= t('query.text_for_select_location_or_companies') %></i></small></p>
+          </div>
+          <div class="small-6 columns">
+          </div>
+        </div> -->
 
-        <div class="small-6 columns">
-          <%= f.label :companies %>
-          <%= f.text_field :companies, { value: (@query.companies if @query.companies.present? && @query.location.blank?) } %>
-        </div>
+        <div class="row">
+          <div class="small-4 columns">
+            <%= f.label :location %>
+            <%= f.collection_select :location, Location.all, :id, :name, include_blank: t('query.prompt_location') %>
+          </div>
 
-        <div class="small-2 columns">
+          <div class="small-6 columns">
+            <%= f.label :companies %>
+            <%= f.text_field :companies, { value: (@query.companies if @query.companies.present? && @query.location.blank?) } %>
+          </div>
+
+          <div class="small-2 columns">
+          </div>
         </div>
 
       </fieldset>
@@ -57,6 +67,40 @@
 
 <% if @query.results.present? %>
   <p id='result_start'><b>Los resultados de tu consulta son:</b></p>
+
+  <% @query.results.each do |indicator| %>
+    <table role="grid" id='text_<%= "#{indicator[:indicator]}" %>', class="graph_detail">
+      <caption><%= "#{Rails.application.config.individual_indicators[indicator[:indicator]]}" %></caption>
+      <thead>
+        <tr>
+          <th width="190"><%= t('query.results_table.date') %></th>
+          <th width="190"><%= t('query.results_table.average') %></th>
+          <th width="190"><%= t('query.results_table.sum') %></th>
+          <th width="190"><%= t('query.results_table.number_of_registers') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% indicator[:results].each do |r| %>
+          <tr>
+            <td><%= "#{r[:date].strftime('%Y-%m-%d')}" %></td>
+            <td><%= "#{as_decimal(r[:result].average) || t('query.results_table.not_apply')}" %></td>
+            <td>
+              <% if Rails.application.config.indicator_rules.keys.include?(indicator[:indicator]) %>
+                <%= t('query.results_table.not_apply') %>
+              <% else %>
+                <%= "#{as_decimal(r[:result].sum)}" %>
+              <% end %>
+            </td>
+            <td><%= "#{r[:result].count}" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% if @query.type == "all" %>
+      <hr/>
+    <% end %>
+  <% end %>
+
   <% if @query.type == "year" || @query.type == "quarter"%>
     <%= content_tag "div", id: "bar_graphs", data: { results: @query.results, inames: "#{Rails.application.config.individual_indicators.to_json}" } do %>
     <% end %>
@@ -64,19 +108,7 @@
     <%= content_tag "div", id: "line_graphs", data: { results: @query.results, inames: "#{Rails.application.config.individual_indicators.to_json}" } do %>
     <% end %>
   <% end %>
-  <% @query.results.each do |indicator| %>
-    <div id='text_<%= "#{indicator[:indicator]}" %>', class="graph_detail">
-      <p><b>Para el Indicador <%= "#{Rails.application.config.individual_indicators[indicator[:indicator]]}" %>, se tienen los siguientes resultados</b><br>
-      <% indicator[:results].each do |r| %>
-        <%= "- El promedio en la fecha #{r[:date].strftime('%Y-%m-%d')} es #{as_decimal(r[:result].average) || 'incalculable'}" %>
-        <% unless Rails.application.config.indicator_rules.keys.include?(indicator[:indicator]) %>
-          <%= " y la suma es #{as_decimal(r[:result].sum)}" %>
-        <% end %>
-        <%= " con #{r[:result].count} registros contabilizados" %><br>
-      <% end %>
-      </p><hr/>
-    </div>
-  <% end %>
+
 <% else %>
   <p id='result_start'></p>
   <% @all_indicators.each_key do |i| %>

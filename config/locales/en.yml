@@ -217,13 +217,20 @@ en:
   query:
     dates_and_periods: Dates and periods to analyze
     failed: avoid to run the query successfully
-    narrow_your_search_header: Filter by credit companies?
+    narrow_your_search_header: Filter by credit companies? (optional)
     locations:
       city: City
       district: District
       province: Province
     new: New Query
     prompt_location: "Please, select location required"
+    results_table:
+      average: Average
+      date: Up to Date
+      not_apply: "n.a."
+      number_of_registers: Number of Registers
+      sum: Sum
+    text_for_select_location_or_companies: "Choose Location or Specific companies, but not both:"
     types:
       all: All period
       monthly: Monthly

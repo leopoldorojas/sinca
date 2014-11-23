@@ -3,7 +3,7 @@ class Location < ActiveRecord::Base
   validates :name, :type, presence: true
 
   def self.types
-    ['Country', 'Province', 'City', 'District']
+    ['Country', 'Province', 'City', 'District', 'Community']
   end
   
   def parent_model

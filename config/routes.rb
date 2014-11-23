@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :provinces, controller: 'locations', type: 'Province'
   resources :cities, controller: 'locations', type: 'City' 
   resources :districts, controller: 'locations', type: 'District'
+  resources :communities, controller: 'locations', type: 'Community'
 
   resources :queries, only: [:new, :create]
 

@@ -5,6 +5,7 @@
   <dd <%= "class=active" if @type == 'Province' %>><%= link_to Province.model_name.human(count: :many), sti_location_path('Province') %></dd>
   <dd <%= "class=active" if @type == 'City' %>><%= link_to City.model_name.human(count: :many), sti_location_path('City') %></dd>
   <dd <%= "class=active" if @type == 'District' %>><%= link_to District.model_name.human(count: :many), sti_location_path('District') %></dd>
+  <dd <%= "class=active" if @type == 'Community' %>><%= link_to Community.model_name.human(count: :many), sti_location_path('Community') %></dd>
 </dl>
 
 <h1><%= t("#{@type.underscore}.listing") %></h1>

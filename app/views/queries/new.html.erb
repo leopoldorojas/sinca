@@ -69,33 +69,40 @@
   <p id='result_start'><b>Los resultados de tu consulta son:</b></p>
 
   <% @query.results.each do |indicator| %>
-    <table role="grid" id='text_<%= "#{indicator[:indicator]}" %>', class="graph_detail">
-      <caption><%= "#{Rails.application.config.individual_indicators[indicator[:indicator]]}" %></caption>
-      <thead>
-        <tr>
-          <th width="190"><%= t('query.results_table.date') %></th>
-          <th width="190"><%= t('query.results_table.average') %></th>
-          <th width="190"><%= t('query.results_table.sum') %></th>
-          <th width="190"><%= t('query.results_table.number_of_registers') %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% indicator[:results].each do |r| %>
+    <div class="row small-12 small-centered columns">
+      <table role="grid" id='text_<%= "#{indicator[:indicator]}" %>', class="graph_detail">
+        <caption><%= "#{Rails.application.config.individual_indicators[indicator[:indicator]]}" %></caption>
+        <thead>
           <tr>
-            <td><%= "#{r[:date].strftime('%Y-%m-%d')}" %></td>
-            <td><%= "#{as_decimal(r[:result].average) || t('query.results_table.not_apply')}" %></td>
-            <td>
-              <% if Rails.application.config.indicator_rules.keys.include?(indicator[:indicator]) %>
-                <%= t('query.results_table.not_apply') %>
-              <% else %>
-                <%= "#{as_decimal(r[:result].sum)}" %>
-              <% end %>
-            </td>
-            <td><%= "#{r[:result].count}" %></td>
+            <th width="190"><%= t('query.results_table.date') %></th>
+            <th width="190"><%= t('query.results_table.average') %></th>
+            <th width="190"><%= t('query.results_table.sum') %></th>
+            <th width="190"><%= t('query.results_table.number_of_registers') %></th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% indicator[:results].each do |r| %>
+            <tr>
+              <td><%= "#{l(r[:date], format: "%B %d, %Y").humanize}" %></td>
+              <td>
+                <%= "#{as_decimal(r[:result].average) || t('query.results_table.not_apply')}" %>
+                <% if r[:result].average && Rails.application.config.indicator_rules.keys.include?(indicator[:indicator]) && Rails.application.config.indicator_rules[indicator[:indicator]][:operated_by] == :percentage %>
+                  %
+                <% end %>
+              </td>
+              <td>
+                <% if Rails.application.config.indicator_rules.keys.include?(indicator[:indicator]) %>
+                  <%= t('query.results_table.not_apply') %>
+                <% else %>
+                  <%= "#{as_decimal(r[:result].sum)}" %>
+                <% end %>
+              </td>
+              <td><%= "#{r[:result].count}" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
     <% if @query.type == "all" %>
       <hr/>
     <% end %>

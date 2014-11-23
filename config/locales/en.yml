@@ -46,6 +46,9 @@ en:
         one: City
         other: Cities
       credit_company: Credit Company
+      community:
+        one: Community
+        other: Communities
       country:
         one: Country
         other: Countries
@@ -61,6 +64,8 @@ en:
     attributes:
       city:
         province: Province
+      community:
+        district: District
       credit_company: 
         name: Name
         short_name: Short Name
@@ -93,6 +98,7 @@ en:
         parent: Belongs to
         parent_id: Parent
         city_id: City
+        community_id: Community
         country_id: Country
         district_id: District
         province_id: Province
@@ -123,8 +129,21 @@ en:
     editing: Editing City
     listing: Listing Cities
     new: New City
-    save_failed: 'prohibited this city from being saved:'
+    save_failed:
+      one: 'prohibited this city from being saved:'
+      other: 'prohibited this city from being saved:'
     updated: City was successfully updated.
+
+  community:
+    created: Community was successfully created.
+    destroyed: Community was successfully destroyed.
+    editing: Editing Community
+    listing: Listing Communities
+    new: New Community
+    save_failed:
+      one: 'prohibited this community from being saved:'
+      other: 'prohibited this community from being saved:'
+    updated: Community was successfully updated.
 
   credit_company:
     created: Credit Company was successfully created.
@@ -144,7 +163,9 @@ en:
     editing: Editing Country
     listing: Listing Countries
     new: New Country
-    save_failed: 'prohibited this country from being saved:'
+    save_failed:
+      one: 'prohibited this country from being saved:'
+      other: 'prohibited this country from being saved:'
     updated: Country was successfully updated.
 
   devise_views:
@@ -165,7 +186,9 @@ en:
     editing: Editing District
     listing: Listing Districts
     new: New District
-    save_failed: 'prohibited this district from being saved:'
+    save_failed:
+      one: 'prohibited this district from being saved:'
+      other: 'prohibited this district from being saved:'
     updated: District was successfully updated.
 
   indicator:
@@ -190,7 +213,9 @@ en:
     new: Location
     prompt_parent: "Please, select"
     prompt_type: "Location type"
-    save_failed: 'prohibited this location from being saved:'
+    save_failed:
+      one: 'prohibited this location from being saved:'
+      other: 'prohibited this location from being saved:'
     updated: Location was successfully updated.
 
   menu:
@@ -211,7 +236,9 @@ en:
     editing: Editing Province
     listing: Listing Provinces
     new: New Province
-    save_failed: 'prohibited this province from being saved:'
+    save_failed:
+      one: 'prohibited this province from being saved:'
+      other: 'prohibited this province from being saved:'
     updated: Province was successfully updated.
 
   query:
@@ -220,6 +247,7 @@ en:
     narrow_your_search_header: Filter by credit companies? (optional)
     locations:
       city: City
+      community: Community
       district: District
       province: Province
     new: New Query

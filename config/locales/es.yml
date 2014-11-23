@@ -45,6 +45,9 @@ es:
       city:
         one: Cantón
         other: Cantones
+      community:
+        one: Comunidad
+        other: Comunidades
       credit_company: Empresa de Crédito
       country:
         one: País
@@ -61,6 +64,8 @@ es:
     attributes:
       city:
         province: Provincia
+      community:
+        district: Distrito
       credit_company:
         name: Nombre
         short_name: Nombre Corto
@@ -93,6 +98,7 @@ es:
         parent: Pertenece a
         parent_id: Padre
         city_id: Cantón
+        community_id: Comunidad
         country_id: País
         district_id: Distrito
         province_id: Provincia
@@ -123,8 +129,21 @@ es:
     editing: Editando Cantón
     listing: Listando Cantones
     new: Nuevo Cantón
-    save_failed: 'evitó que este cantón sea grabado:'
+    save_failed:
+      one: 'evitó que este cantón sea grabado:'
+      other: 'evitaron que este cantón sea grabado:'
     updated: El Cantón fue actualizado exitosamente.
+
+  community:
+    created: La Comunidad fue creada exitosamente.
+    destroyed: La Comunidad fue borrada exitosamente.
+    editing: Editando Comunidad
+    listing: Listando Comunidades
+    new: Nueva Comunidad
+    save_failed:
+      one: 'evitó que esta comunidad sea grabada:'
+      other: 'evitaron que esta comunidad sea grabada:'
+    updated: La Comunidad fue actualizada exitosamente.
 
   credit_company:
     created: La Empresa de Crédito fue creada exitosamente.
@@ -144,7 +163,9 @@ es:
     editing: Editando País
     listing: Listando Países
     new: Nuevo País
-    save_failed: 'evitó que este país sea grabado:'
+    save_failed:
+      one: 'evitó que este país sea grabado:'
+      other: 'evitaron que este país sea grabado:'
     updated: El País fue actualizado exitosamente.
 
   devise_views:
@@ -165,7 +186,9 @@ es:
     editing: Editando Distrito
     listing: Listando Distritos
     new: Nuevo Distrito
-    save_failed: 'evitó que este distrito sea grabado:'
+    save_failed:
+      one: 'evitó que este distrito sea grabado:'
+      other: 'evitaron que este distrito sea grabado:'
     updated: El Distrito fue actualizado exitosamente.
 
   indicator:
@@ -190,7 +213,9 @@ es:
     new: Nueva Ubicación
     prompt_parent: "Por favor, seleccione"
     prompt_type: "Seleccione el Tipo de Ubicación"
-    save_failed: 'evitó que esta ubicación sea grabada:'
+    save_failed:
+      one: 'evitó que esta ubicación sea grabada:'
+      other: 'evitaron que esta ubicación sea grabada:'
     updated: La ubicación fue actualizada exitosamente.
 
   menu:
@@ -211,7 +236,9 @@ es:
     editing: Editando Provincia
     listing: Listando Provincias
     new: Nueva Provincia
-    save_failed: 'evitó que esta provincia sea grabado:'
+    save_failed:
+      one: 'evitó que esta provincia sea grabada:'
+      other: 'evitaron que esta provincia sea grabada:'
     updated: La Provincia fue actualizada exitosamente.
 
   query:
@@ -221,6 +248,7 @@ es:
     new: Nueva consulta
     locations:
       city: Cantón
+      community: Comunidad
       district: Distrito
       province: Provincia
     prompt_location: "Seleccione en caso requerido"

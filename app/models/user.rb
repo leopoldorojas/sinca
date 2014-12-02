@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :role, presence: true, if: :approved
-  validates :credit_company, presence: :true
+  before_validation { self.role ||= :company_user }
+  validates :credit_company, :role, presence: :true
   #before_save :temp_authorized, if: :new_record?
   default_scope { order(:name) }
 

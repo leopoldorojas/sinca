@@ -5,10 +5,12 @@
   <fieldset>
     <legend><%= t('devise_views.registration') %></legend>
     <div>
-    <%= f.text_field :name, autofocus: true, placeholder: t('devise_views.name') %></div>
+      <%= f.text_field :name, autofocus: true, placeholder: t('devise_views.name') %>
+    </div>
 
     <div>
-    <%= f.email_field :email, placeholder: t('devise_views.email') %></div>
+      <%= f.email_field :email, placeholder: t('devise_views.email') %>
+    </div>
 
     <div>
       <% placeholder = @validatable ? t('placeholder.password_minimum', minimum_characters: "#{@minimum_password_length}") : t('devise_views.password') %>
@@ -20,8 +22,11 @@
     </div>
 
     <div>
-    <%= f.collection_select :credit_company_id, CreditCompany.all, :id, :name, prompt: t('user.prompt_credit_company') %></div>
+      <%= f.collection_select :credit_company_id, CreditCompany.all, :id, :name, prompt: t('user.prompt_credit_company') %>
+    </div>
 
-    <div><%= f.submit t('devise_views.sign_up'), class: "button tiny radius" %> <small>ó <%= link_to t('devise_views.login'), new_session_path(resource_name) %></small></div>
+    <div>
+      <%= f.submit t('devise_views.sign_up'), class: "button tiny radius" %> <small>ó <%= link_to t('devise_views.login'), new_session_path(resource_name) %></small>
+    </div>
   </fieldset>
 <% end %>

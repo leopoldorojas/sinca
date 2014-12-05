@@ -1,20 +1,28 @@
 class Query
   include ActiveModel::Model
 
-  attr_accessor :end_date, :type, :location, :companies, :results
+  attr_accessor :end_date, :type, :location, :companies, :executive, :results
   validates :end_date, presence: true
 
   def run
+    companies_ids = []
+
     if location.present?
-      companies_ids = []
       Location.find(location).location_and_descendants.each { |l| companies_ids.concat Location.find(l).credit_companies.ids }
-    else
-      # Faltan espacios y mayusculas
-      companies_ids = companies.split(',').map { |company_short_name| CreditCompany.where("upper(short_name) LIKE ?", "%#{company_short_name.strip.upcase}%").try(:first).try(:id) }
+    end
+
+    if executive.present?
+      executive_ids = CreditCompany.where(executive: executive).ids
+      companies_ids = location.present? ? (companies_ids & executive_ids) : executive_ids
+    end
+
+    if companies.present?
+      company_name_ids = companies.split(',').map{ |company_short_name| CreditCompany.where("upper(short_name) LIKE ?", "%#{company_short_name.strip.upcase}%").try(:first).try(:id) }
+      companies_ids = location.present? || executive.present? ? (companies_ids & company_name_ids) : company_name_ids
     end
 
     companies_ids = companies_ids.compact.uniq
-    companies_ids << 0 if companies_ids.empty? && (companies.present? || location.present?)
+    companies_ids << 0 if companies_ids.empty? && (companies.present? || location.present? || executive.present?)
     self.results = ResultMatrix.new(dates: dates, indicators: Rails.application.config.individual_indicators.keys, companies: companies_ids).results
   end
 

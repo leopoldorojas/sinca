@@ -72,6 +72,7 @@ en:
         identifier: Identifier
         contact: Contact Name
         credit_company: Credit Company
+        executive: Assigned Executive 
         phone: Phone Number
         email: Email
         website: Website
@@ -118,8 +119,9 @@ en:
       query: Query
     attributes:
       query:
-        companies: Or by specific Credit Companies? (use short names)
+        companies: By specific Credit Companies? (use short names)
         end_date: End Date
+        executive: By assigned executive
         location: By Location?
         type: Type
 
@@ -151,6 +153,7 @@ en:
     editing: Editing Credit Company
     listing: Listing Credit Companies
     new: New Credit Company
+    prompt_executive: "Please, assign an executive"
     prompt_location: "Please, select the location"
     save_failed:
       one: 'prohibited this credit company from being saved:'
@@ -252,6 +255,7 @@ en:
       province: Province
     new: New Query
     prompt_location: "Please, select location required"
+    prompt_executive: "Please, select executive required"
     results_table:
       average: Average
       date: Up to Date

@@ -6,6 +6,10 @@ class Location < ActiveRecord::Base
     ['Country', 'Province', 'City', 'District', 'Community']
   end
   
+  def to_s
+    name
+  end
+
   def parent_model
   	Location.types.each { |t| return t if self.respond_to? t.underscore.to_sym }
   	nil

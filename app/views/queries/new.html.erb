@@ -47,12 +47,16 @@
             <%= f.collection_select :location, Location.all, :id, :name, include_blank: t('query.prompt_location') %>
           </div>
 
-          <div class="small-6 columns">
+          <div class="small-6 columns end">
             <%= f.label :companies %>
-            <%= f.text_field :companies, { value: (@query.companies if @query.companies.present? && @query.location.blank?) } %>
+            <%= f.text_field :companies, { value: (@query.companies if @query.companies.present?) } %>
           </div>
+        </div>
 
-          <div class="small-2 columns">
+        <div class="row">
+          <div class="small-4 columns end">
+            <%= f.label :executive %>
+            <%= f.collection_select :executive, User.executives, :id, :name, include_blank: t('query.prompt_executive') %>
           </div>
         </div>
 

@@ -58,7 +58,9 @@
         <%= f.label :location_id %>
         <%= f.collection_select :location_id, Location.all, :id, :name, prompt: t('credit_company.prompt_location') %>
       </div>
-      <div class="small-8 columns">
+      <div class="small-4 columns end">
+        <%= f.label :executive %>
+        <%= f.collection_select :executive_id, User.executives, :id, :name, prompt: t('credit_company.prompt_executive') %>
       </div>
     </div>
   </div>

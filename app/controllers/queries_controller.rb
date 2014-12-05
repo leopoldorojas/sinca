@@ -1,7 +1,7 @@
 class QueriesController < ApplicationController
   
   def new
-  	@query = Query.new(end_date: Date.current, type: :all, location: nil, companies: [])
+  	@query = Query.new(end_date: Date.current, type: :all, location: nil, companies: [], executive: nil)
     authorize @query
     @all_indicators = Rails.application.config.individual_indicators
   end
@@ -22,7 +22,7 @@ class QueriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def query_params
-      params.require(:query).permit(:end_date, :type, :location, :companies)
+      params.require(:query).permit(:end_date, :type, :location, :companies, :executive)
     end
 
 end

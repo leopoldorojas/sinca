@@ -70,7 +70,7 @@ class CreditCompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def credit_company_params
-      params.require(:credit_company).permit(:name, :short_name, :identifier, :contact, :phone, :email, :website, :location_id)
+      params.require(:credit_company).permit(:name, :short_name, :identifier, :contact, :phone, :email, :website, :location_id, :executive_id)
     end
 
     def authorize_for_managing

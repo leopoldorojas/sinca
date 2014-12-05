@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   belongs_to :credit_company
+  has_many :credit_companies, foreign_key: "executive_id"
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -10,8 +11,11 @@ class User < ActiveRecord::Base
   #before_save :temp_authorized, if: :new_record?
   default_scope { order(:name) }
 
-  def self.find_all_by_approved status
-    where approved: status
+  scope :find_all_by_approved, ->(status) { where approved: status }
+  scope :executives, -> { where role: [:analytic_executive, :executive, :admin] }
+
+  def to_s
+    name
   end
 
   def active_for_authentication? 

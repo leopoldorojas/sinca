@@ -32,7 +32,12 @@
 
 <p>
   <strong><%= CreditCompany.human_attribute_name('location_id') %>:</strong>
-  <%= @credit_company.location.name %>
+  <%= @credit_company.location %>
+</p>
+
+<p>
+  <strong><%= CreditCompany.human_attribute_name('executive') %>:</strong>
+  <%= @credit_company.executive %>
 </p>
 
 <%= link_to t('edit'), edit_credit_company_path(@credit_company) %> |

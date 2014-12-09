@@ -34,7 +34,7 @@ class Query
       unless type == "all"
         date_to_include = Time.zone.parse(end_date).send("prev_#{type}".to_sym).send("end_of_#{type}".to_sym).send(:end_of_day)
 
-        while date_to_include > Rails.application.config.app_start_date
+        while date_to_include > Rails.application.config.app_start_date.beginning_of_day
           list_of_dates << date_to_include
           date_to_include = date_to_include.send("prev_#{type}".to_sym).send("end_of_#{type}".to_sym).send(:end_of_day)
         end

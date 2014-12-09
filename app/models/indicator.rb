@@ -31,7 +31,7 @@ class Indicator < ActiveRecord::Base
     end
       
     def last_register_by_credit_company upto_this_date
-      where('id in (?)', last_date_by_credit_company(upto_this_date).map {|i| where(credit_company_id: i.credit_company, register_date: i.last_date).take.id})
+      where('id in (?)', last_date_by_credit_company(upto_this_date).map {|i| where(credit_company_id: i.credit_company, register_date: i.last_date).last.id})
     end
 
     def by_credit_company companies

@@ -21,7 +21,7 @@
   <tbody>
     <% @indicators.each do |indicator| %>
       <tr>
-        <td><%= indicator.register_date.strftime("%d/%m/%Y") %></td>
+        <td><%= l indicator.register_date, format: :custom_short %></td>
         <td><%= indicator.credit_company.short_name %></td>
         <td><%= as_money(indicator.indicator_1) %></td>
         <td><%= as_money(indicator.indicator_2) %></td>

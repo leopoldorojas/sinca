@@ -1,6 +1,6 @@
 class CreditCompany < ActiveRecord::Base
   belongs_to :location
-  belongs_to :executive, class_name: "User" 
+  belongs_to :executive, -> { where role: [:analytic_executive, :executive, :admin] }, class_name: "User" 
   has_many :indicators
   has_many :users
 

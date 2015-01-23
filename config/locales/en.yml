@@ -87,7 +87,7 @@ en:
         indicator_2: "Average of balance on Loans"
         indicator_3: "Portfolio at risk > 30 Days"
         indicator_4: "Portfolio at risk > 90 Days"
-        indicator_5: "Active customers"
+        indicator_5: "Individual Lenders"
         indicator_6: "Active loans"
         indicator_7: "Percentage of women in loans"
         register_date: Register Date

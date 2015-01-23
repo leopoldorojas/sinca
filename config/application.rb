@@ -39,7 +39,7 @@ module Sinca
       indicator_2: "Promedio del Saldo en Préstamos",
       indicator_3: "Cartera en Riesgo > 30 Días",
       indicator_4: "Cartera en Riesgo > 90 Días",
-      indicator_5: "Clientes Activos",
+      indicator_5: "Prestatarios (Individuales)",
       indicator_6: "Préstamos Activos",
       indicator_7: "Porcentaje de Mujeres Prestatarias"
     }

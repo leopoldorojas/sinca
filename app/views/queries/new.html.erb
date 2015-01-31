@@ -47,9 +47,14 @@
             <%= f.collection_select :location, Location.all, :id, :name, include_blank: t('query.prompt_location') %>
           </div>
 
-          <div class="small-6 columns end">
+          <!-- <div class="small-6 columns end">
             <%= f.label :companies %>
             <%= f.text_field :companies, { value: (@query.companies if @query.companies.present?) } %>
+          </div> -->
+
+          <div class="small-4 columns end">
+            <%= "Por empresas de crédito especificas" %>
+            <%= f.collection_select :companies, CreditCompany.all, :id, :short_name, {include_blank: t('query.prompt_executive')}, {multiple: true, class: "tokenizecompanies"} %>
           </div>
         </div>
 

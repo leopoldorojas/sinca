@@ -196,3 +196,5 @@ else if $('#line_graphs').length > 0
   size = "graph_detail"
   create_line_graph indicator, inames["#{indicator.indicator}"] for indicator in indicators
   $(".graph_detail").hide()
+
+$('#query_companies').tokenize()

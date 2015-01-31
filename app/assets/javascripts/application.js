@@ -15,6 +15,7 @@
 //= require foundation
 //= require turbolinks
 //= require d3/d3
+//= require jquery.tokenize
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

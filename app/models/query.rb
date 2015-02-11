@@ -17,7 +17,7 @@ class Query
     end
 
     if companies.present?
-      company_name_ids = companies.split(',').map{ |company_short_name| CreditCompany.where("upper(short_name) LIKE ?", "%#{company_short_name.strip.upcase}%").try(:first).try(:id) }
+      company_name_ids = companies.map{ |company_short_name| CreditCompany.where("upper(short_name) LIKE ?", "%#{company_short_name.strip.upcase}%").try(:first).try(:id) }
       companies_ids = location.present? || executive.present? ? (companies_ids & company_name_ids) : company_name_ids
     end
 

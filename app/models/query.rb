@@ -6,6 +6,7 @@ class Query
 
   def run
     companies_ids = []
+    companies.delete_if(&:empty?) if companies.is_a? Array
 
     if location.present?
       Location.find(location).location_and_descendants.each { |l| companies_ids.concat Location.find(l).credit_companies.ids }
@@ -17,8 +18,7 @@ class Query
     end
 
     if companies.present?
-      #company_name_ids = companies.map{ |company_short_name| CreditCompany.where("upper(short_name) LIKE ?", "%#{company_short_name.strip.upcase}%").try(:first).try(:id) }
-      company_name_ids = companies.delete_if(&:empty?).map(&:to_i)
+      company_name_ids = companies.map(&:to_i)
       companies_ids = location.present? || executive.present? ? (companies_ids & company_name_ids) : company_name_ids
     end
 
@@ -28,7 +28,7 @@ class Query
   end
 
   private
-    
+
     def dates
       list_of_dates = [Time.zone.parse(end_date).end_of_day]
 

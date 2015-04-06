@@ -56,7 +56,9 @@ es:
         one: Distrito
         other: Distritos
       indicator: Indicador
-      location: Ubicación
+      location:
+        one: Ubicación
+        other: Ubicaciones
       province:
         one: Provincia
         other: Provincias

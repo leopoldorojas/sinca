@@ -56,7 +56,9 @@ en:
         one: District
         other: Districts
       indicator: Indicator
-      location: Location
+      location:
+        one: Location
+        other: Locations
       province:
         one: Province
         other: Provinces

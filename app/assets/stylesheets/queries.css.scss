@@ -37,5 +37,14 @@
 }
 
 .tokenizecompanies {
-  width: 300px;
+  width: 500px;
+}
+
+ul.TokensContainer {
+  list-style-type: none;
+}
+
+li.TokenSearch input {
+  width: 350px;
+  height: 30px;
 }

@@ -1,5 +1,5 @@
 <dl id="locations-sub-nav" class="sub-nav">
-  <dt>Localizaciones:</dt>    
+  <dt><%= Location.model_name.human(count: :many) %>:</dt>    
   <dd <%= "class=active" if @type == 'Location' %>><%= link_to t('all.feminine'), sti_location_path('Location') %></dd>
   <dd <%= "class=active" if @type == 'Country' %>><%= link_to Country.model_name.human(count: :many), sti_location_path('Country') %></dd>
   <dd <%= "class=active" if @type == 'Province' %>><%= link_to Province.model_name.human(count: :many), sti_location_path('Province') %></dd>

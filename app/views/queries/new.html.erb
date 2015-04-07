@@ -53,8 +53,8 @@
           </div> -->
 
           <div class="small-4 columns end">
-            <%= "Por empresas de crédito especificas" %>
-            <%= f.collection_select :companies, CreditCompany.all, :id, :short_name, {include_blank: t('query.prompt_executive')}, {multiple: true, class: "tokenizecompanies"} %>
+            <%= f.label :companies %>
+            <%= f.collection_select :companies, CreditCompany.all, :id, :short_name, {include_blank: t('query.prompt_companies')}, {multiple: true, class: "tokenizecompanies"} %>
           </div>
         </div>
 

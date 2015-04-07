@@ -121,7 +121,7 @@ en:
       query: Query
     attributes:
       query:
-        companies: By specific Credit Companies? (use short names)
+        companies: By specific Credit Companies?
         end_date: End Date
         executive: By assigned executive
         location: By Location?

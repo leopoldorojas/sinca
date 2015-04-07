@@ -121,7 +121,7 @@ es:
       query: Consulta
     attributes:
       query:
-        companies: Por empresas de crédito específicas (use los nombres cortos de las empresas)
+        companies: Por empresas de crédito específicas
         end_date: Fecha de corte
         executive: Por ejecutivo asignado
         location: Por ubicación
@@ -257,6 +257,7 @@ es:
       district: Distrito
       province: Provincia
     prompt_location: "Seleccione en caso requerido"
+    prompt_companies: "Puede seleccionar una o más empresas:"
     prompt_executive: "Seleccione en caso requerido"
     results_table:
       average: Promedio

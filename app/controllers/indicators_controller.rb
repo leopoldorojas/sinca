@@ -5,6 +5,12 @@ class IndicatorsController < ApplicationController
   # GET /indicators.json
   def index
     @indicators = policy_scope(Indicator).order(register_date: :desc).page(params[:page]).per(10)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @indicators.to_csv }
+      format.xls #{ send_data @indicators.to_csv(col_sep: "\t") }
+    end
   end
 
   # GET /indicators/1

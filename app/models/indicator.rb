@@ -4,6 +4,15 @@ class Indicator < ActiveRecord::Base
   validate :information_consistency, if: :should_validate_information_consistency?
 
   class << self
+    def to_csv(options = {})
+      CSV.generate(options) do |csv|
+        csv << column_names
+        all.find_each do |indicator|
+          csv << indicator.attributes.values_at(*column_names)
+        end
+      end
+    end
+
     def import(credit_company, file)
     	spreadsheet = open_spreadsheet(file)
     	header = spreadsheet.row(1)

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Indicadores">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String"><%= Indicator.human_attribute_name('register_date') %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= Indicator.human_attribute_name('credit_company') %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= Indicator.human_attribute_name('indicator_1') %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= Indicator.human_attribute_name('indicator_2') %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= Indicator.human_attribute_name('indicator_3') %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= Indicator.human_attribute_name('indicator_4') %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= Indicator.human_attribute_name('indicator_5') %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= Indicator.human_attribute_name('indicator_6') %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= Indicator.human_attribute_name('indicator_7') %></Data></Cell>
+      </Row>
+    <% @indicators.each do |indicator| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= l indicator.register_date, format: :custom_short %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= indicator.credit_company.short_name %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= indicator.indicator_1 %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= indicator.indicator_2 %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= indicator.indicator_3 %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= indicator.indicator_4 %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= indicator.indicator_5 %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= indicator.indicator_6 %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= indicator.indicator_7 %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

@@ -27,6 +27,7 @@ en:
   back: Back
   destroy: Destroy
   do_query: Submit
+  download_as_excel: Download as Excel
   edit: Edit
   error:
     one: error

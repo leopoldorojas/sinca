@@ -27,6 +27,7 @@ es:
   back: Regresar
   destroy: Borrar
   do_query: Consultar
+  download_as_excel: Descargar como Excel
   edit: Editar
   error:
     one: error

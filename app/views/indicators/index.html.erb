@@ -52,3 +52,4 @@
 <%= link_to t('indicator.new'), new_indicator_path, class: "button small radius" if policy(Indicator).create? %>
 <%= link_to t('upload'), upload_new_indicator_path, class: "button small radius" if policy(Indicator).upload? %>
 <%= link_to t('queries'), new_query_path, class: "button small radius" if policy(Query).create? %>
+<%= link_to t('download_as_excel'), indicators_path(format: "xls"), class: "button small radius" %>
